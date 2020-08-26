@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_072731) do
+ActiveRecord::Schema.define(version: 2020_08_26_092502) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "event_date"
     t.text "details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.string "fishing_ground"
+    t.string "fish_name"
+    t.string "fish_size"
+    t.string "fish_image"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
