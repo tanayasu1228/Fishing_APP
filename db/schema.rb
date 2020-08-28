@@ -47,12 +47,13 @@ ActiveRecord::Schema.define(version: 2020_08_27_052939) do
   end
 
   create_table "tournaments", force: :cascade do |t|
-    t.string "title"
     t.date "date"
     t.string "fishing_ground"
+    t.string "fishing_style"
+    t.string "condition"
     t.string "fish_name"
-    t.string "fish_size"
-    t.string "fish_image"
+    t.string "keeper_size"
+    t.string "some_fish"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
