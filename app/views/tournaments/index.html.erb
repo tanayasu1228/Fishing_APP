@@ -1,16 +1,17 @@
 <h1>WEBトーナメント情報一覧</h1>
-
-<div class="tournaments-wrapper">
-  <div class="tournaments-contents">
-    <% @tournaments.each do |tournament| %>
-      <div class="tournaments-contents">
-        <h3><%= "開催日：#{tournament.date}" %></h3> 
-        <h3><%= "場所：#{tournament.fishing_ground}" %></h3> 
-        <h3><%= "スタイル：#{tournament.fishing_style}" %></h3>
-        <p><%= "対象魚種：#{tournament.fish_name}" %></p>
-        <p><%= "キーパーサイズ：#{tournament.keeper_size}" %></p>
-        <p><%= "最大匹数：#{tournament.some_fish}" %></p>
-      </div>
-    <% end %>
+<section id="tournaments">
+  <div class="tournaments-wrapper">
+      <% @tournaments.each do |tournament| %>
+        <div class="tournaments-contents">
+          <%= image_tag '/default_img.jpg' %>
+          <h3><%= "開催日：#{tournament.date}" %></h3> 
+          <h3><%= "場所：#{tournament.fishing_ground}" %></h3> 
+          <h3><%= "スタイル：#{tournament.fishing_style}" %></h3>
+          <p><%= "対象魚種：#{tournament.fish_name}" %></p>
+          <p><%= "キーパーサイズ：#{tournament.keeper_size}" %></p>
+          <p><%= "最大匹数：#{tournament.some_fish}" %></p>
+          <p><%= "詳細内容：#{tournament.comment}" %></p>
+        </div>
+      <% end %>
   </div>
-</div>
+</section>
