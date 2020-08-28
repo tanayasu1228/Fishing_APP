@@ -53,11 +53,13 @@ ja:
         created_at: 作成日
         updated_at: 更新日
       tournament:
-        title: 大会名
         date: 開催日
         fishing_ground: 場所
+        fishing_style: 釣りのスタイル
+        condition: 指定条件
         fish_name: 対象魚
-        fish_size: 大会優勝サイズ
+        keeper_size: キーパーサイズ
+        some_fish: 最大匹数
         comment: コメント
         created_at: 作成日
         updated_at: 更新日
