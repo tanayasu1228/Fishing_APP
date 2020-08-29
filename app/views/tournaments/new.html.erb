@@ -1,0 +1,68 @@
+<section id="tournaments">
+  <h1>WEBトーナメント新規作成画面</h1><br><br>
+
+  <%= form_with model: @tournament, url: tournaments_path, html: { method: :post }, local: true do |f| %> 
+    <div class="form-group">
+      <label>開催日 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :date, class: "form-control", placeholder: "(例) 0000/00/00",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>場所 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fishing_ground, class: "form-control", placeholder: "(例) 琵琶湖　南湖", required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣りのスタイル <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fishing_style, class: "form-control", placeholder: "(例) 陸っぱり",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>指定条件 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :condition, class: "form-control", placeholder: "(例) ルアーのみ（生き餌不可）",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>対象魚 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ブラックバス",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>キーパーサイズ <span class="label label-danger">必須</span></label>
+      <%= f.text_field :keeper_size, class: "form-control", placeholder: "(例) 25(数値のみ記入してください)",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>最大匹数 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :some_fish, class: "form-control", placeholder: "(例) 3(数字のみ記入してください)",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>コメント </label>
+      <%= f.text_area :comment, class: "form-control", placeholder: "(例) ：最大3匹の合計長さで勝負しましょう
+      ：口閉じ尾開き、下顎計測
+      ：メジャー全体が見える状態で撮影する", rows: "8" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="col text-center">
+    <%= f.submit "トーナメント投稿", class: "btn btn-primary btn-lg w-25" %>
+    </div>
+
+  <% end %>
+</section>
