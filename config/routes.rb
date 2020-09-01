@@ -5,5 +5,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   resources :homes
   resources :events
-  resources :tournaments
+  resources :tournaments do
+    collection do
+      post :new, path: :new, as: :new, action: :back
+      post :confirm
+      post :complete
+    end
+  end
+  # get '/tournaments', to: 'tournaments#create', as: 'confirm'
 end

@@ -1,0 +1,52 @@
+<%= simple_form_for @tournament do |f| %>
+  <% if @tournament.confirming.blank? %>
+    <div class="form-inputs">
+      <%= f.input :date, label: '開催日' %>
+      <%= f.input :fishing_ground, label: '場所' %>
+      <%= f.input :fishing_style, label: '釣りのスタイル' %>
+      <%= f.input :condition, label: '指定条件' %>
+      <%= f.input :fish_name, label: '対象魚' %>
+      <%= f.input :keeper_size, label: 'キーパーサイズ' %>
+      <%= f.input :some_fish, label: '最大匹数' %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, '内容を確認する' %>
+    </div>
+  <% else %>
+    <table class="table"></table>
+      <tr>
+        <th>開催日</th>
+        <td><%= @tournament.date %></td>
+      <tr>
+        <th>場所</th>
+        <td><%= @tournament.fishing_ground %></td>
+      <tr>
+        <th>釣りのスタイル</th>
+        <td><%= @tournament.fishing_style %></td>
+      <tr>
+        <th>指定条件</th>
+        <td><%= @tournament.condition %></td>
+      <tr>
+        <th>対象魚</th>
+        <td><%= @tournament.fish_name %></td>
+      <tr>
+        <th>キーパーサイズ</th>
+        <td><%= @tournament.keeper_size %></td>
+      <tr>
+        <th>最大匹数</th>
+        <td><%= @tournament.some_fish %></td>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :date %>
+      <%= f.hidden_field :fishing_ground %>
+      <%= f.hidden_field :fishing_style %>
+      <%= f.hidden_field :condition %>
+      <%= f.hidden_field :fish_name %>
+      <%= f.hidden_field :keeper_size %>
+      <%= f.hidden_field :some_fish %>
+    </div>
+    <div class="form-actions">
+      <p>この内容でご質問メールを送信します。よろしいですか？</p>
+      <%= f.button :submit, '送信する' %>
+
+  <%= f.hidden_field :confirming %>
