@@ -22,14 +22,18 @@ class TournamentsController < ApplicationController
     render :new
   end
 
-    def create
-      @tournament = Tournament.new(tournament_params)
-      if @tournament.save
-        redirect_to tournaments_path notice: 'イベントを投稿しました。' 
-      else
-        render action: 'new' 
-      end
+  def create
+    @tournament = Tournament.new(tournament_params)
+    if @tournament.save
+      redirect_to tournaments_path notice: 'イベントを投稿しました。' 
+    else
+      render action: 'new' 
     end
+  end
+
+  def show
+    @tournament = Tournament.find(params[:id])
+  end
 
     private
 
