@@ -50,6 +50,11 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def destroy
+    @tournament = Tournament.find(params[:id])
+    @tournament.delete
+    redirect_to tournaments_path, notice: "削除しました。"
+  end
 
     private
 
