@@ -7,4 +7,9 @@
     <p><%= "キーパーサイズ：#{@tournament.keeper_size}" %></p>
     <p><%= "最大匹数：#{@tournament.some_fish}" %></p>
     <p><%= "詳細内容：#{@tournament.comment}" %></p>
-    
+
+  <%# <% if user_signed_in? && current_user.id == @tournament[:id] %> %>
+    <div class="btn_group">
+      <%= link_to '編集', edit_tournament_path(@tournament), class:"btn"  %>
+    </div>
+  <%# <% end %> %>

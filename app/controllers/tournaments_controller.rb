@@ -35,6 +35,22 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
   end
 
+
+  def edit
+    @tournament = Tournament.find(params[:id])
+  end
+
+  def update
+    @tournament = Tournament.find(params[:id])
+    if @tournament.update(tournament_params)
+      redirect_to tournament_path, notice: "更新しました。"
+    else
+      flash.now[:alert] = "入力に不備があります。"
+      render :edit
+    end
+  end
+
+
     private
 
   def tournament_params
