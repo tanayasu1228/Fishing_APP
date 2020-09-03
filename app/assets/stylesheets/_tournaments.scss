@@ -1,4 +1,14 @@
 #tournaments {
+  .label{
+    background-color: red;
+    padding: .2em .6em .3em;
+    font-size: 70%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    border-radius: 8px;
+  }
+
 .tournaments-wrapper{
   display: flex;
   flex-wrap: wrap;
@@ -18,4 +28,8 @@
     border-bottom: 2px solid #CCC;
   }
 }
+a{
+    text-decoration: none;
+
+  }
 }
