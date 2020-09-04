@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_051216) do
+ActiveRecord::Schema.define(version: 2020_09_04_065213) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_051216) do
     t.string "nickname"
     t.string "image"
     t.string "main_field"
-    t.string "main_targe"
+    t.string "main_target"
     t.string "max_size"
     t.text "comment"
     t.index ["email"], name: "index_users_on_email", unique: true

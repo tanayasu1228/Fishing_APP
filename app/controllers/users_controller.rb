@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def my_show
-    @user = User.find(current.id)
+    @user = User.find(current_user.id)
   end
 
   def show
@@ -18,3 +18,4 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
   end
+end
