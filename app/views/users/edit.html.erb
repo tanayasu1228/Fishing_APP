@@ -1,0 +1,42 @@
+<h3>プロフィール編集</h3>
+
+  <%= form_with model: @user, local: true do |f| %> 
+    <div class="form-group">
+      <label>ニックネーム</label>
+      <%= f.text_field :nickname, class: "form-control", placeholder: "(例) ニックネーム名" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>ホームの釣り場</label>
+      <%= f.text_field :main_field, class: "form-control", placeholder: "(例) 養老水系  五三川"%>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>メインの魚種</label>
+      <%= f.text_field :main_target, class: "form-control", placeholder: "(例) ラージマウスバス"%>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>メイン魚種の自己記録</label>
+      <%= f.text_field :max_size, class: "form-control", placeholder: "(例) 57cm"%>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>自己紹介（コメント） </label>
+      <%= f.text_area :comment, class: "form-control", rows: "10" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="btn_update">
+    <%= f.submit "プロフィール更新", data: { confirm: "更新しますか？"}, class: "btn btn-primary btn-lg w-25" %>
+    </div>
+  <% end %>

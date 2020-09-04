@@ -1,19 +1,23 @@
 <div class="mypage">
   <div class="title">
-    <h3>マイページ</h3>
+    <h3>アングラー詳細</h3>
   </div>
 
-  <div class="btn_group">
-    <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"btn"  %>
-  </div>
+  <% if user_signed_in? && current_user.id == @user[:id] %>
+    <div class="btn_group">
+      <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"btn"  %>
+    </div>
+  <% end %>
 
   <div class="profile">
     <div class="nickname">
       <label>ニックネーム：</label> <%= @user.nickname %>
     </div>
-    <div class="email">
-      <label>Eメールアドレス：</label> <%= @user.email %>
-    </div>
+    <% if user_signed_in? && current_user.id == @user[:id] %>
+      <div class="email">
+        <label>Eメールアドレス：</label> <%= @user.email %>
+      </div>
+    <% end %>
     <div class="main_field">
       <label>ホームの釣り場：</label> <%= @user.main_field %>
     </div>
