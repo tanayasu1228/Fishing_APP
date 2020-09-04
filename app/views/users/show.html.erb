@@ -10,6 +10,13 @@
   <% end %>
 
   <div class="profile">
+    <div class="image">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url %>
+      <% else %>
+        <img src="/assets/default_user_image.png">
+      <% end %>
+    </div>
     <div class="nickname">
       <label>ニックネーム：</label> <%= @user.nickname %>
     </div>

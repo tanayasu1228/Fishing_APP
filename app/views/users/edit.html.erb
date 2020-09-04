@@ -1,6 +1,10 @@
 <h3>プロフィール編集</h3>
 
   <%= form_with model: @user, local: true do |f| %> 
+    <div class="form_group">
+      <label>プロフィール画像：</label>
+      <%= f.file_field :image %>
+    </div>
     <div class="form-group">
       <label>ニックネーム</label>
       <%= f.text_field :nickname, class: "form-control", placeholder: "(例) ニックネーム名" %>
