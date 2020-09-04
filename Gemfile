@@ -19,6 +19,9 @@ gem 'devise'
 # 日本語化
 gem 'rails-i18n'
 
+# 画像アップロード
+gem 'carrierwave'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

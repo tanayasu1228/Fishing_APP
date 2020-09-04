@@ -1,0 +1,42 @@
+<div class="mypage">
+  <div class="title">
+    <h3>アングラー詳細</h3>
+  </div>
+
+  <% if user_signed_in? && current_user.id == @user[:id] %>
+    <div class="btn_group">
+      <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"btn"  %>
+    </div>
+  <% end %>
+
+  <div class="profile">
+    <div class="image">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url %>
+      <% else %>
+        <img src="/assets/default_user_image.png">
+      <% end %>
+    </div>
+    <div class="nickname">
+      <label>ニックネーム：</label> <%= @user.nickname %>
+    </div>
+    <% if user_signed_in? && current_user.id == @user[:id] %>
+      <div class="email">
+        <label>Eメールアドレス：</label> <%= @user.email %>
+      </div>
+    <% end %>
+    <div class="main_field">
+      <label>ホームの釣り場：</label> <%= @user.main_field %>
+    </div>
+    <div class="main_target">
+      <label>メインの魚種：</label> <%= @user.main_target %>
+    </div>
+    <div class="max_size">
+      <label>メイン魚種の自己記録：</label> <%= @user.max_size %>
+    </div>
+    <div class="comment">
+      <label>コメント：</label> <%= @user.comment %>
+    </div>
+  </div>
+
+</div>
