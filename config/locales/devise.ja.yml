@@ -3,7 +3,7 @@ ja:
     models:
       admin_user: 管理者
       comment: コメント
-      user: ユーザ
+      user: 登録ユーザー
       event: イベント
       tournament: WEBトーナメント
     attributes:
@@ -23,6 +23,10 @@ ja:
         uid: ユーザID
         image: イメージ画像
         nickname: 名前
+        main_field: ホームフィールド
+        main_target: メインの魚種
+        max_size: メイン魚種の自己記録
+        comment: 自己紹介（コメント）
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
