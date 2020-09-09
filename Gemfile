@@ -22,6 +22,8 @@ gem 'rails-i18n'
 # 画像アップロード
 gem 'carrierwave'
 
+gem 'pry-rails'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

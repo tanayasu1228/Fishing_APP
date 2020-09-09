@@ -7,6 +7,13 @@
     <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"btn"  %>
   </div>
 
+
+  <%# <% @tournaments.each do |tournament| %> %>
+    <%# <hr> %>
+    <%# <p><span>投稿したトーナメント内容: </span><%=link_to tournaments.fishing_ground, tournament_path(tournament.id) %></p> %>
+  <%# <% end %> %>
+
+
   <div class="profile">
     <%= image_tag @user.image.url %>
     <div class="nickname">
@@ -28,5 +35,10 @@
       <label>コメント：</label> <%= @user.comment %>
     </div>
   </div>
+
+
+ <% @tournaments.each do |tournament| %>
+  <p><span>投稿内容: </span><%= tournament.fishing_ground %></p>
+ <% end %>
 
 </div>

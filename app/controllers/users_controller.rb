@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def my_show
     @user = User.find(current_user.id)
+    @tournaments = @user.tournaments
   end
 
   def show
