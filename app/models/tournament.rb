@@ -11,6 +11,7 @@ class Tournament < ApplicationRecord
   after_validation :check_confirming
 
   belongs_to :user
+  has_many :user_tournaments
 
   def check_confirming
     errors.delete(:confirming)
