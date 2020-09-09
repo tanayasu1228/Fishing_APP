@@ -10,6 +10,8 @@ class Tournament < ApplicationRecord
   validates_acceptance_of :confirming
   after_validation :check_confirming
 
+  belongs_to :user
+
   def check_confirming
     errors.delete(:confirming)
     self.confirming = errors.empty? ? '1' : ''

@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   mount_uploader :image, ImageUploader
+
+  has_many :tournaments
 end

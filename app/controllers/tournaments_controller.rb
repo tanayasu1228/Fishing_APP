@@ -13,17 +13,16 @@ class TournamentsController < ApplicationController
   def confirm
     @tournament = Tournament.new(tournament_params)
     return if @tournament.valid?
-    render :new
   end
 
   def back
     @tournament = Tournament.new(tournament_params)
-
     render :new
   end
 
   def create
     @tournament = Tournament.new(tournament_params)
+    @tournament.user_id = current_user.id
     if @tournament.save
       redirect_to tournaments_path notice: 'イベントを投稿しました。' 
     else
@@ -33,6 +32,7 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
+    @user = @tournament.user
   end
 
 
