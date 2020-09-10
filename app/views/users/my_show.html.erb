@@ -41,4 +41,15 @@
   <p><span>投稿内容: </span><%= tournament.fishing_ground %></p>
  <% end %>
 
+  <% if @entries.empty? %>
+    <p>エントリー中の大会はありません</p>
+  <% else %>
+  <p>エントリー中の大会</p>
+    <% @entries.each do |entry| %>
+      <%= link_to tournament_path(entry.tournament.id) do %>
+        <%= entry.tournament.fishing_ground %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </div>
