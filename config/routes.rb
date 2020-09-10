@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post :confirm
       post :complete
     end
+    resource :entries
   end
   # get '/tournaments', to: 'tournaments#create', as: 'confirm'
 end
