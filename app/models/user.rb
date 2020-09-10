@@ -8,5 +8,6 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :tournaments
-  has_many :user_tournaments
+  has_many :entries
+  has_many :entry_tournaments, through: :entries, source: :tournament
 end

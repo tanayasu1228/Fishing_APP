@@ -11,11 +11,16 @@ class Tournament < ApplicationRecord
   after_validation :check_confirming
 
   belongs_to :user
-  has_many :user_tournaments
+  has_many :entries
 
   def check_confirming
     errors.delete(:confirming)
     self.confirming = errors.empty? ? '1' : ''
+  end
+
+  # トーナメントにエントリーしているか判断するメソッド
+  def entry_completed_by?(user)
+    entries.where(user_id: user.id).exists?
   end
 
 end

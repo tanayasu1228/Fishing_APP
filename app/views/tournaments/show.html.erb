@@ -17,3 +17,14 @@
       <%= link_to '削除', tournament_path(@tournament), method: :delete, class:"btn", data: {confirm: "削除しますか？"}  %>
     </div>
   <% end %>
+
+  <% if user_signed_in? %>
+    <% if @tournament.entry_completed_by?(current_user) %> 
+        <p>エントリー中</p>
+        <p><%=link_to 'エントリーを解除', tournament_entries_path(@tournament.id), method: :delete, data: { confirm: "エントリー解除すると、トーナメントに投稿したデータは削除されます。解除しますか？"}%></p>
+    <% else %>
+        <p><%=link_to 'エントリーする', tournament_entries_path(@tournament.id), method: :post %></p>
+    <% end %>
+  <% else %>
+  <% end %>
+  <p><span>現在の参加者数: </span><%= @tournament.entries.count %></p>
