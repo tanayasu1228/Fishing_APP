@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fish_image: MyString
+  fish_name: MyString
+  catch_size: 1.5
+  weight: 1.5
+  lure: MyString
+  rod: MyString
+  reel: MyString
+  line: MyString
+  range: MyString
+  user_id: 1
+
+two:
+  fish_image: MyString
+  fish_name: MyString
+  catch_size: 1.5
+  weight: 1.5
+  lure: MyString
+  rod: MyString
+  reel: MyString
+  line: MyString
+  range: MyString
+  user_id: 1
