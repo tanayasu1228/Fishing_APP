@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :tournaments
   has_many :entries
   has_many :entry_tournaments, through: :entries, source: :tournament
+  has_many :posts
 end

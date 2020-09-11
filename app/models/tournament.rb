@@ -12,6 +12,7 @@ class Tournament < ApplicationRecord
 
   belongs_to :user
   has_many :entries
+  has_many :posts
 
   def check_confirming
     errors.delete(:confirming)
