@@ -8,6 +8,16 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def confirm
+    @post = Post.new(post_params)
+    return if @post.valid?
+  end
+
+  def back
+    @post = Post.new(post_params)
+    render :new
+  end
+
   def cretae
     @post = Post.new(post_params)
     @post.user_id = current_user.id
