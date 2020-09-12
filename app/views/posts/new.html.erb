@@ -1,7 +1,7 @@
 <section id="posts">
   <h1>WEBトーナメント投稿画面</h1><br><br>
 
-  <%= form_with model: @post, url: confirm_tournament_posts_path, html: { method: :post }, local: true do |f| %> 
+  <%= form_with model: @post, url: confirm_posts_path, html: { method: :post }, local: true do |f| %> 
     <%= f.file_field :fish_image %>
     <div class="form-group">
       <label>魚種 <span class="label label-danger">必須</span></label>

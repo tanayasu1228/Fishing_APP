@@ -1,0 +1,21 @@
+<h1>投稿一覧</h1>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post.id) do %>
+        <div class="posts-contents">
+          <%# <%= image_tag @post.fish_image.url %> %>
+          <p>
+          <%= post.fish_name %>
+          <%= post.catch_size %>
+          <%= post.weight %>
+          <%= post.lure %>
+          <%= post.rod %>
+          <%= post.reel %>
+          <%= post.line %>
+          <%= post.range %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+
+
+

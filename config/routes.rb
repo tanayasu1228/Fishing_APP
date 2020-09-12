@@ -17,13 +17,11 @@ Rails.application.routes.draw do
       post :complete
     end
     resource :entries
-    resources :posts do
-      collection do
+  end
+  resources :posts do
+    collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm
     end
-    end
   end
-  
-  # get '/tournaments', to: 'tournaments#create', as: 'confirm'
 end
