@@ -1,5 +1,6 @@
 <table class="table"></table>
 <%# <%= image_tag @post.fish_image.url %> %>
+<%= image_tag "#{@post.fish_image}" ,class:"card-img-top" %>
 <tr>
   <th>魚種</th>
   <td><%= @post.fish_name %></td>
