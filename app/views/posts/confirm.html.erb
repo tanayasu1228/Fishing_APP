@@ -26,7 +26,7 @@
   <th>釣れたレンジ</th>
   <td><%= @post.range %></td>
 
-<%= form_with model: @post, url: new_post_path, html: { method: :post }, local: true do |f| %>
+<%= form_with model: [@tournament, @post], url: new_tournament_post_path, html: { method: :post }, local: true do |f| %>
   <%= f.hidden_field :fish_image %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :catch_size %>
@@ -39,7 +39,7 @@
   <%= f.submit '入力画面へ戻る'%>
 <% end %>
 
-<%= form_with model: @post, url: posts_path, html: { method: :post }, local: true do |f| %>
+<%= form_with model: [@tournament, @post], local: true do |f| %>
   <%= f.hidden_field :fish_image %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :catch_size %>
