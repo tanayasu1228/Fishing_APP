@@ -16,6 +16,7 @@
       <%= link_to 'トーナメント新規作成', new_tournament_path %>
       <%= link_to "登録アングラー一覧", users_path %>
       <%= link_to "MYページ", my_show_users_path %>
+      <%# <%= link_to "投稿一覧", tournament_posts_path %> %>
     <% else %>
       <%= link_to "ログイン", new_user_session_path, class: 'post' %>
       <%= link_to "新規登録", new_user_registration_path, class: 'post' %>

@@ -1,0 +1,53 @@
+<table class="table"></table>
+<%# <%= image_tag @post.fish_image.url %> %>
+<%= image_tag "#{@post.fish_image}" ,class:"card-img-top" %>
+<tr>
+  <th>魚種</th>
+  <td><%= @post.fish_name %></td>
+<tr>
+  <th>サイズ</th>
+  <td><%= @post.catch_size %></td>
+<tr>
+  <th>重量</th>
+  <td><%= @post.weight %></td>
+<tr>
+  <th>釣れたルアー(仕掛け)</th>
+  <td><%= @post.lure %></td>
+<tr>
+  <th>釣れたロッド</th>
+  <td><%= @post.rod %></td>
+<tr>
+  <th>釣れたリール</th>
+  <td><%= @post.reel %></td>
+<tr>
+  <th>釣れたライン</th>
+  <td><%= @post.line %></td>
+<tr>
+  <th>釣れたレンジ</th>
+  <td><%= @post.range %></td>
+
+<%= form_with model: [@tournament, @post], url: new_tournament_post_path, html: { method: :post }, local: true do |f| %>
+  <%= f.hidden_field :fish_image %>
+  <%= f.hidden_field :fish_name %>
+  <%= f.hidden_field :catch_size %>
+  <%= f.hidden_field :weight %>
+  <%= f.hidden_field :lure %>
+  <%= f.hidden_field :rod %>
+  <%= f.hidden_field :reel %>
+  <%= f.hidden_field :line %>
+  <%= f.hidden_field :range %>
+  <%= f.submit '入力画面へ戻る'%>
+<% end %>
+
+<%= form_with model: [@tournament, @post], local: true do |f| %>
+  <%= f.hidden_field :fish_image %>
+  <%= f.hidden_field :fish_name %>
+  <%= f.hidden_field :catch_size %>
+  <%= f.hidden_field :weight %>
+  <%= f.hidden_field :lure %>
+  <%= f.hidden_field :rod %>
+  <%= f.hidden_field :reel %>
+  <%= f.hidden_field :line %>
+  <%= f.hidden_field :range %>
+  <%= f.submit 'トーナメントに投稿'%>
+<% end %>

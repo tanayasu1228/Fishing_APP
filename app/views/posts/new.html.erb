@@ -1,0 +1,67 @@
+<section id="posts">
+  <h1>WEBトーナメント投稿画面</h1><br><br>
+
+  <%= form_with model: @post, url: confirm_tournament_posts_path, html: { method: :post }, local: true do |f| %> 
+    <%= f.file_field :fish_image %>
+    <div class="form-group">
+      <label>魚種 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ラージマウスバス",  required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>サイズ <span class="label label-danger">必須</span></label>
+      <%= f.text_field :catch_size, class: "form-control", placeholder: "(例) 40.5    ※ 数値のみ入力してください。 単位(cm)", required: true %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>重量 <span class="label label-danger">任意</span></label>
+      <%= f.text_field :weight, class: "form-control", placeholder: "(例) 1050     ※ 数値のみ入力してください。 単位(g)" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣れたルアー(仕掛け) <span class="label label-danger">任意</span></label>
+      <%= f.text_field :lure, class: "form-control", placeholder: "(例) 7g ヘビーダウンショット ・ワーム名 " %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣れたロッド <span class="label label-danger">任意</span></label>
+      <%= f.text_field :rod, class: "form-control", placeholder: "(例) MLロッド     ※ロッド名 又は 番手" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣れたリール <span class="label label-danger">任意</span></label>
+      <%= f.text_field :reel, class: "form-control", placeholder: "(例) " %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣れたライン <span class="label label-danger">任意</span></label>
+      <%= f.text_field :line, class: "form-control", placeholder: "(例) フロロ8ポンド" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>釣れたレンジ</label> <span class="label label-danger">任意</span></label>
+      <%= f.text_field :range, class: "form-control", placeholder: "(例) 2mのボトム" %>
+      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br>
+    <div class="col text-center">
+    <%= f.submit "入力確認", class: "btn btn-primary btn-lg w-25" %>
+    </div>
+
+  <% end %>
+</section>

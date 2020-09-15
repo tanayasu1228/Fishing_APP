@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_025042) do
+ActiveRecord::Schema.define(version: 2020_09_11_053959) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(version: 2020_09_10_025042) do
     t.text "details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "fish_image"
+    t.string "fish_name"
+    t.float "catch_size"
+    t.float "weight"
+    t.string "lure"
+    t.string "rod"
+    t.string "reel"
+    t.string "line"
+    t.string "range"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "tournament_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
