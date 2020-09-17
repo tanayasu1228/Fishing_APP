@@ -1,13 +1,16 @@
 <h1>投稿一覧</h1>
   <%= @tournament.fishing_ground %>
-  <%= @user.nickname %>
+  <%= link_to  "#{@user.nickname}", user_path(@user.id) %>
 
   <% @posts.each do |post| %>
-    <div class="posts-contents">
+    <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
       <%= image_tag post.fish_image.url %>
+    <% end %>
+    <div class="posts-contents">
       <p>
         <%= post.fish_name %>
         <%= post.catch_size %>
       </p>
     </div>
+    <%= link_to  "詳しく見る", tournament_post_path(tournament_id: @tournament, id: post) %>
   <% end %>
