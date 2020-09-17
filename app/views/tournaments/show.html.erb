@@ -32,9 +32,9 @@
   <p></p>
 
 
-  <p>ランキング</p>
+    <p>ランキング</p>
     <% @tournament.posts.each do |post| %>
-      <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
+      <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: post) do %>
         <p><%= post.user.nickname %></p>
         <p><%= post.fish_name %></p>
         <p><%= post.catch_size %></p>
