@@ -32,6 +32,12 @@ class PostsController < ApplicationController
     @user = @post.user
   end
 
+  def record
+    @post = Post.find(params[:id])
+    @user = @post.user
+    @tournament = @post.tournament
+    @posts = @user.posts & @tournament.posts
+  end
 
   private
 
