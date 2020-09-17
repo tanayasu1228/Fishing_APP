@@ -1,0 +1,13 @@
+<h1>投稿一覧</h1>
+  <%= @tournament.fishing_ground %>
+  <%= @user.nickname %>
+
+  <% @posts.each do |post| %>
+    <div class="posts-contents">
+      <%= image_tag post.fish_image.url %>
+      <p>
+        <%= post.fish_name %>
+        <%= post.catch_size %>
+      </p>
+    </div>
+  <% end %>
