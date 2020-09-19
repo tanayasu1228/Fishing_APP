@@ -39,6 +39,10 @@ class PostsController < ApplicationController
     @posts = @user.posts & @tournament.posts
   end
 
+  def ranks
+
+  end
+
   private
 
   def post_params
