@@ -35,11 +35,16 @@
     <p>ランキング</p>
     <% @tournament.posts.each do |post| %>
       <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: post) do %>
+      <%# <%= link_to  ranks_size_sum_ranks_path do %> %>
         <p><%= post.user.nickname %></p>
         <p><%= post.fish_name %></p>
         <p><%= post.catch_size %></p>
       <% end %>
     <% end %>
-    <%= link_to  "もっとみる", tournament_posts_path(tournament_id: @tournament) %>
+    <%# <%= link_to  "もっとみる", ranks_size_sum_ranks_path %> %>
+    <%= link_to  "もっとみる", ranks_tournament_posts_path(tournament_id: @tournament) %>
+
+
+    <%# <%= link_to  "もっとみる", tournament_posts_path(tournament_id: @tournament) %> %>
 
   <p><span>現在の参加者数: </span><%= @tournament.entries.count %></p>
