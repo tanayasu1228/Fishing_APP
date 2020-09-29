@@ -43,8 +43,7 @@ class PostsController < ApplicationController
 
   def ranks
     @tournament = Tournament.find(params[:tournament_id])
-    @ranks = @tournament.posts.joins(:user).group("users.id", "users.nickname").order('sum_catch_size desc').sum(:catch_size)
-    @max_size_img = @tournament.posts.joins(:user).group("users.id").maximum(:catch_size)
+    @ranks = @tournament.posts.sort_rank
   end
 
 

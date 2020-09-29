@@ -33,15 +33,8 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @user = @tournament.user
-    @posts = @user.posts
     @post = Post.new
-    
-    @ranks = @tournament.posts.joins(:user).group("users.id", "users.image", "users.nickname").order('sum_catch_size desc').sum(:catch_size)
-
-    @max_size_img = @tournament.posts.joins(:user).group("users.id","posts.id").maximum(:catch_size)
-
-    # @ranks = [[@tournament.posts.joins(:user).group("users.id", "users.image", "users.nickname").order('sum_catch_size desc').sum(:catch_size)],[@tournament.posts.joins(:user).group("users.id","posts.id").maximum(:catch_size)]]
-
+    @ranks = @tournament.posts.sort_rank
   end
 
 
