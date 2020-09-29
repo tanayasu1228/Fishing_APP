@@ -32,14 +32,16 @@
   <p></p>
 
 
-    <p>ランキング</p>
-    <% @tournament.posts.each do |post| %>
-      <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: post) do %>
-        <p><%= post.user.nickname %></p>
-        <p><%= post.fish_name %></p>
-        <p><%= post.catch_size %></p>
-      <% end %>
+  <p>ランキング</p>
+  <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
+    <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
+      <p><%= "第#{i}位　#{key[:nickname]}" %></p>
+      <p><%= "合計サイズ：　#{key[:sum_size]}cm" %></p>
+      <p><%= "最大サイズ：　#{key[:max_size]}cm" %></p>
+      <%= image_tag "#{key[:max_size_image]}" %>
     <% end %>
-    <%= link_to  "もっとみる", tournament_posts_path(tournament_id: @tournament) %>
+  <% end %>
+  
+  <%= link_to  "もっとみる", ranks_tournament_post_path(tournament_id: @tournament) %>
 
   <p><span>現在の参加者数: </span><%= @tournament.entries.count %></p>

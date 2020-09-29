@@ -33,8 +33,8 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @user = @tournament.user
-    @posts = @user.posts
     @post = Post.new
+    @ranks = @tournament.posts.sort_rank
   end
 
 

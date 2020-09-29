@@ -39,7 +39,7 @@
   <%= f.submit '入力画面へ戻る'%>
 <% end %>
 
-<%= form_with model: [@tournament, @post], local: true do |f| %>
+<%= form_with model: @tournament, local: true do |f| %>
   <%= f.hidden_field :fish_image %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :catch_size %>

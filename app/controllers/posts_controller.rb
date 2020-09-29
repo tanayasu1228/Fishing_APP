@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   def confirm
     @tournament = Tournament.find(params[:tournament_id])
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save!
     return if @post.valid?
   end
 
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
-    @post.save
+    @post.save!
     redirect_to tournament_path(@tournament)
   end
 
@@ -38,6 +40,12 @@ class PostsController < ApplicationController
     @tournament = @post.tournament
     @posts = @user.posts & @tournament.posts
   end
+
+  def ranks
+    @tournament = Tournament.find(params[:tournament_id])
+    @ranks = @tournament.posts.sort_rank
+  end
+
 
   private
 

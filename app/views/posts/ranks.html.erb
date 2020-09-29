@@ -1,0 +1,9 @@
+<p>ランキング</p>
+<% @ranks.each.with_index(1) do |(key,val),i| %>
+  <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
+    <p><%= "第#{i}位　#{key[:nickname]}" %></p>
+    <p><%= "合計サイズ：　#{key[:sum_size]}cm" %></p>
+    <p><%= "最大サイズ：　#{key[:max_size]}cm" %></p>
+    <%= image_tag "#{key[:max_size_image]}" %>
+  <% end %>
+<% end %>

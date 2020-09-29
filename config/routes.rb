@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post :new, path: :new, as: :new, action: :back
       post :confirm
       post :complete
+      get :ranks
     end
     resource :entries
     resources :posts do
@@ -24,8 +25,8 @@ Rails.application.routes.draw do
       end
       member do
         get :record
+        get :ranks
       end
     end
   end
-  
 end
