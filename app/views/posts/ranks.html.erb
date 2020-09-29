@@ -1,5 +1,39 @@
-<% @size_sum_ranks.each do |size| %>
-  <%# <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: post) do %> %>
-    </p><%= size %></p>
+<p>ランキング</p>
+<% @ranks.each.with_index(1) do |((user_id, user_name),sum_size),i| %>
+  <%= link_to  record_tournament_post_path(tournament_id: @tournament, post_id: @post) do %>
+    <p><%= "第#{i}位 #{user_name}" %></p>
+    <p><%= "#{sum_size}cm" %></p>
+    <%# <%= image_tag max_size_image.image.url %> %>
   <% end %>
+<% end %>
+
+
+
+
+
+  <%# <%= image_tag fish_image.image.url %> %>
+<%# <% @max_size_user.each do |(user_id,fish_image),max_size| %> %>
+  <%# <%= image_tag fish_image.image.url %> %>
+<%# <% end %> %>
+
+<%# <% @max_size_users.each do |user_id,max_size| %> %>
+  <%# <p><%= max_size %></p> %>
+<%# <% end % %>
+
+
+
+
+
+
+
+<%# <% @ranks.each.with_index(1) do |((user_id, nickname),sum_size),i| %> %>
+  <%# <%= link_to  record_tournament_post_path(tournament_id: @tournament, post_id: @post) do %> %>
+    <%# </p><%= "第#{i}位 #{sum_size}cm" %></p> %>
+    <%# <p><%= nickname %></p> %>
+  <%# <% end %> %>
+<%# <% end %> %>
+
+<%# <% @max_size_img.each do |(user_id, max_size)| %> %>
+  <%# <p><%= "#{user_id} ：　最大サイズ #{max_size}" %></p> %>
+
 <%# <% end %> %>

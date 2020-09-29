@@ -15,16 +15,17 @@ Rails.application.routes.draw do
       post :new, path: :new, as: :new, action: :back
       post :confirm
       post :complete
+      get :ranks
     end
     resource :entries
     resources :posts do
       collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm
-      get :ranks
       end
       member do
         get :record
+        get :ranks
       end
     end
   end

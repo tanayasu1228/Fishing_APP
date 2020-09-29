@@ -39,3 +39,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# アップロード画像
+/public/uploads/
