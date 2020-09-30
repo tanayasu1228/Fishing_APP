@@ -24,6 +24,9 @@ gem 'carrierwave'
 
 gem 'pry-rails'
 
+#PV数の計測
+gem 'impressionist'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
