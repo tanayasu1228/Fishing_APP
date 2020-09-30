@@ -3,6 +3,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
   belongs_to :tournament, optional: true
+  # PV数の計測
+  is_impressionable
 
   # ランキング機能のデータを取得
   def self.sort_rank
