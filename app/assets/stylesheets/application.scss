@@ -1,2 +1,16 @@
 @import "bootstrap/scss/bootstrap";
 @import "tournaments";
+@import "top";
+
+body{
+  background-color: rgba(245, 245, 245, 0.6);;
+  color: #555555;
+  line-height: 2;
+  font-family: 'Helvetica Neue','Helvetica','Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif;
+  font-size: 1.6rem;
+}
+
+.container{
+  margin: auto;
+  padding: 0;
+}
