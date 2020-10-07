@@ -57,7 +57,8 @@ ja:
         created_at: 作成日
         updated_at: 更新日
       tournament:
-        date: 開催日
+        start_time: 開始
+        end_time: 終了
         fishing_ground: 場所
         fishing_style: 釣りのスタイル
         condition: 指定条件

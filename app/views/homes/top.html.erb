@@ -1,16 +1,17 @@
+<%= javascript_pack_tag 'top/slide', 'data-turbolinks-track': 'reload' %>
 <section id="top">
-  <div class="top-img">
-    <p id="slideshow">
-      <img src="<%= asset_path "top/top_img.png" %>" class="active">
-      <img src="<%= asset_path "top/top2_img.jpg" %>">
-      <img src="<%= asset_path "top/top3_img.png" %>">
-      <img src="<%= asset_path "top/top4_img.jpg" %>">
-    </p>
-    <div class="top_message">
-      <h2>釣果を競い合おう・共有しよう</h2>
-      <p>釣りに関する情報共有を目的に、フィールド別での今日の最大魚を競い合うWEBトーナメントサービスです</p>
-    </div>
+  <div class="slide">
+	<img src="<%= asset_path "top/top_img.png" %>" />
+	<img src="<%= asset_path "top/top2_img.jpg" %>" />
+	<img src="<%= asset_path "top/top3_img.png" %>" />
+	<img src="<%= asset_path "top/top4_img.jpg" %>" />
   </div>
+
+  <div class="top_message">
+    <h2>釣果を競い合おう・共有しよう</h2>
+    <p>釣りに関する情報共有を目的に、フィールド別での今日の最大魚を競い合うWEBトーナメントサービスです</p>
+  </div>
+
   <div class="container">
     <h2 class="text-center">イベント情報</h2>
     <div class="text-center">

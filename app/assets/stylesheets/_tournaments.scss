@@ -30,6 +30,58 @@
 }
 a{
     text-decoration: none;
-
   }
+
+// リストの表示
+ul.image-list li {
+  display: inline-block;
+  margin: 10px 20px;
+  border: solid 3px #dddddd;
+  padding: 8px 8px 8px 8px;
+  border-radius: 5px;
+
+  :hover {
+  opacity: 0.8;
 }
+}
+// イメージボックス内の設定
+ul.image-list li .image-box {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  position: relative;
+}
+.image-box img.image {
+  width: 100%;
+  height: 100%;
+}
+
+// イメージ内のラジオボタンの設定
+.image-box .radio-box {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  // display: none;
+}
+ul.image-list p {
+  font-size: 20px;
+  text-align: center;
+}
+
+}
+
+
+// .image-box img.image.checked {
+//   border: 6px solid blue;
+//   box-sizing: border-box;
+// }
+
+// .image-box img.image.checked + .radio-box {
+//   display: block;
+// }
+
+
+
+
+

@@ -1,5 +1,6 @@
 class Tournament < ApplicationRecord
-  validates :date, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
   validates :fishing_ground, presence: true
   validates :fishing_style, presence: true
   validates :condition, presence: true
