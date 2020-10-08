@@ -41,7 +41,7 @@ ul.image-list li {
   border-radius: 5px;
 
   :hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 }
 // イメージボックス内の設定
@@ -63,8 +63,13 @@ ul.image-list li .image-box {
   right: 12px;
   cursor: pointer;
   transform: scale(2);
-  // display: none;
+  opacity: 0.2;
 }
+
+.image-box .radio-box:checked {
+  opacity: 1;
+}
+
 ul.image-list p {
   font-size: 20px;
   text-align: center;
