@@ -52,8 +52,14 @@ ul.image-list li .image-box {
   position: relative;
 }
 .image-box img.image {
+  border-radius: 5px;
   width: 100%;
   height: 100%;
+}
+
+ul.image-list li:active {
+  position: relative;
+	top: 3px;
 }
 
 // イメージ内のラジオボタンの設定
@@ -75,6 +81,16 @@ ul.image-list p {
   text-align: center;
 }
 
+
+
+
+#uComment {
+display: none;
+}
+
+#othertext {
+display: none;
+}
 }
 
 

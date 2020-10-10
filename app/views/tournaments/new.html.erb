@@ -1,4 +1,4 @@
-<%# <%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %> %>
+<%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %>
 <section id="tournaments">
   <h1>WEBトーナメント新規作成画面</h1><br>
 
@@ -164,8 +164,43 @@
               <p>イカ</p>
             </div>
           </label>
-        </li>
+
+        <li>
+          <label>
+            <div class="image-box">
+              <img class="image" src="<%= asset_path "tournament/other.jpg" %>">
+              <%= f.radio_button :fish_name, "ture", class: "radio-box"%>
+              <p>その他の魚種</p>
+              <%= f.text_area :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚 又は、複数の対象魚を入力して下さい", id: "othertext", rows: "4" %>
+            </div>
+          </label>
+          </li>
+
+
+        <%# <li> %>
+          <%# <label> %>
+            <%# <div class="image-box"> %>
+              <%# <img class="image" src="<%= asset_path "tournament/large_bass.jpg" %>"> %>
+              <%# <%= f.radio_button :fish_name, "ture", class: "radio-box", onclick:"formSwitch(this.id,this.checked);"%> %>
+              <%# <%= f.radio_button :fish_name, "オリジナル", class: "radio-box", onclick:"connecttext('textfor_original', this.checked)"  %>
+              <%# <p>その他22対象魚</p> %>
+              <%# <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚 又は、複数の対象魚を入力して下さい", id: "othertext" %> %>
+            <%# </div> %>
+          <%# </label> %>
+
+          <%# <label> %>
+            <%# <div class="image-box"> %>
+              <%# <img class="image" src="<%= asset_path "tournament/large_bass.jpg" %>"> %>
+              <%# <%= f.radio_button :fish_name, "オリジナル", class: "radio-box", onclick:"connecttext('textforオリジナル', this.checked);"%> %>
+              <%# <%= f.radio_button :fish_name, "オリジナル", class: "radio-box", onclick:"connecttext('textfor_original', this.checked)"%> 
+              <%# <p>その他の対象魚</p> %>
+              <%# <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚 又は、複数の対象魚を入力して下さい", id: "textforオリジナル", required: true %> %>
+            <%# </div> %>
+          <%# </label> %>
+        <%# </li> %>
+
       </ul>
+
     <br>
     <div class="form-group">
       <label>指定条件 <span class="label label-danger">必須</span></label>
