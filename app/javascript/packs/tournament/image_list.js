@@ -1,156 +1,290 @@
+window.onload = function () {
+  document.getElementById("tournament_fish_name_ture").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "block";
+    }
+  }
+
+  document.getElementById("tournament_fish_name_ラージマウスバス").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_スモールマウスバス").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_ナマズ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_ライギョ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_鯉").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_フナ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_シーバス").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_シイラ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_青物").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_鯛").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_ロックフィシュ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+
+  document.getElementById("tournament_fish_name_イカ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("othertext").style.display = "none";
+    }
+
+  }
+}
+
+
+
+
+// const SelectName = document.getElementsByName("tournament[fish_name]");
+
+// // SelectName.forEach(function (Name) {
+// //   console.log(Name);
+// // });
+// SelectName.forEach(function (Name) {
+
+// window.onload = function () {
+//   document.getElementById("tournament_fish_name_${Name}").onclick = function () {
+
+//     // if (this.checked and Name==="ture") {
+//     //     document.getElementById("othertext").style.display = "block";
+//     //   }
+
+
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "block";
+//     }
+//   }
+
+
+
+// }
+// });
+
+
+
+
+
+
+
+
+
+
+// sample
+// window.onload = function () {
+
+//   var checkOption = document.getElementsByName("tournament[fish_name]");
+
+//   checkOption.forEach(function (e) {
+//     e.addEventListener("click", function () {
+//       console.log(document.querySelector("input:checked[name=tournament[fish_name]]").value);
+//     });
+//   });
+//   check = document.getElementsByClassName('radio-box')
+//   if (check["ture"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "block";
+
+//   } else if (check["ラージマウスバス"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["スモールマウスバス"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["ナマズ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["ライギョ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["鯉"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["フナ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["シーバス"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["シイラ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["青物"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["鯛"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["ロックフィシュ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else if (check["イカ"].checked) {
+//     document.getElementById('othertext').onclick.style.display = "none";
+
+//   } else {
+//     document.getElementById('othertext').onclick.style.display = "none";
+//   }
+
+
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+// okok
 // window.onload = function () {
 //   document.getElementById("tournament_fish_name_ture").onclick = function () {
 //     if (this.checked) {
 //       document.getElementById("othertext").style.display = "block";
-//     } 
-//     else {
+//     }
+//   }
+
+//   document.getElementById("tournament_fish_name_ラージマウスバス").onclick = function () {
+//     if (this.checked) {
 //       document.getElementById("othertext").style.display = "none";
 //     }
+
 //   }
-// }
 
-
-
-var selecterBox = document.getElementById('sample');
-
-function formSwitch() {
-  check = document.getElementsByClassName('js-check')
-  if (check[0].checked) {
-    selecterBox.style.display = "none";
-
-  } else if (check[1].checked) {
-    selecterBox.style.display = "block";
-
-  } else {
-    selecterBox.style.display = "none";
-  }
-}
-window.addEventListener('load', formSwitch());
-
-function entryChange2() {
-  if (document.getElementById('changeSelect')) {
-    id = document.getElementById('changeSelect').value;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function formSwitch(textid, ischecked ) {
-//   check = document.getElementsByClassName('radio-box')
-//   if (ischecked == true) {
-//       // チェックが入っていたら有効化
-//     // document.getElementById("othertext").style.display = "block";
-//       document.getElementById(textid).disabled = false;
-//    }
-//    else {
-//       // チェックが入っていなかったら無効化
-//     // document.getElementById("othertext").style.display = "none";
-//       document.getElementById(textid).disabled = true;
-//    }
-   
-//   // if (check[0].checked) {
-//   //   selecterBox.style.display = "none";
-
-//   // } else if (check[1].checked) {
-//   //   selecterBox.style.display = "block";
-
-//   // } else {
-//   //   selecterBox.style.display = "none";
-//   // }
-// }
-// // ページ全体が完全に読み込まれたら動作を開始
-// window.addEventListener('load', formSwitch());
-
-// function entryChange2() {
-//   if (document.getElementById('changeSelect')) {
-//     id = document.getElementById('changeSelect').value;
-//   }
-// }
-
-
-// function connecttext( textid, ischecked ) {
-//    if( ischecked == true ) {
-//       // チェックが入っていたら有効化
-//       document.getElementById(textid).disabled = false;
-//    }
-//    else {
-//       // チェックが入っていなかったら無効化
-//       document.getElementById(textid).disabled = true;
-//    }
-// }
-
-
-
-// $(function () {
-//   var radio = $('div.image-list');
-//   $('input', radio).css({ 'opacity': '0' })
-//     //checkedだったら最初からチェックする
-//     .each(function () {
-//       if ($(this).attr('checked') == 'checked') {
-//         $(this).next().addClass('checked');
-//       }
-//     });
-//   //クリックした要素にクラス割り当てる
-//   $('label', radio).click(function () {
-//     $(this).parent().parent().each(function () {
-//       $('label', this).removeClass('checked');
-//     });
-//     $(this).addClass('checked');
-//   });
-// });
-
-
-// $(function () {
-//   // チェックボックスのクリックを無効化します。
-//   $('.image_box .disabled_checkbox').click(function () {
-//     return false;
-//   });
-
-//   // 画像がクリックされた時の処理です。
-//   $('img.image').on('click', function () {
-//     if (!$(this).is('.checked')) {
-//       // チェックが入っていない画像をクリックした場合、チェックを入れます。
-//       $(this).addClass('checked');
-//     } else {
-//       // チェックが入っている画像をクリックした場合、チェックを外します。
-//       $(this).removeClass('checked')
+//   document.getElementById("tournament_fish_name_スモールマウスバス").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
 //     }
-//   });
-// });
 
-// $(function () {
-//   // チェックボックスのクリックを無効化します。
-//   $('.image_box .disabled_checkbox').click(function () {
-//     return false;
-//   });
+//   }
 
-//   // 画像がクリックされた時の処理です。
-//   $('img.image').click(function () {
-//     var $imageList = $('.image_list');
+//   document.getElementById("tournament_fish_name_ナマズ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
 
-//     // 現在の選択を解除します。
-//     $imageList.find('img.image.checked').removeClass('checked');
+//   }
 
-//     // チェックを入れた状態にします。
-//     $(this).addClass('checked');
-//   });
-// });
+//   document.getElementById("tournament_fish_name_ライギョ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_鯉").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_フナ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_シーバス").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_シイラ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_青物").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_鯛").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_ロックフィシュ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+
+//   document.getElementById("tournament_fish_name_イカ").onclick = function () {
+//     if (this.checked) {
+//       document.getElementById("othertext").style.display = "none";
+//     }
+
+//   }
+// }
