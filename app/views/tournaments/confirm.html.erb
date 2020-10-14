@@ -13,7 +13,7 @@
         <td><%= @tournament.fishing_style %></td>
       <tr>
         <th>指定条件</th>
-        <td><%= @tournament.condition %></td>
+        <td><%= @tournament.main_rule %></td>
       <tr>
         <th>対象魚</th>
         <td><%= @tournament.fish_name %></td>
@@ -22,7 +22,7 @@
         <td><%= @tournament.keeper_size %></td>
       <tr>
         <th>最大匹数</th>
-        <td><%= @tournament.some_fish %></td>
+        <td><%= @tournament.swap_limit %></td>
       <tr>
         <th>コメント</th>
         <td><%= @tournament.comment %></td>
@@ -32,10 +32,10 @@
   <%= f.hidden_field :end_time %>
   <%= f.hidden_field :fishing_ground %>
   <%= f.hidden_field :fishing_style %>
-  <%= f.hidden_field :condition %>
+  <%= f.hidden_field :main_rule %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :keeper_size %>
-  <%= f.hidden_field :some_fish %>
+  <%= f.hidden_field :swap_limit %>
   <%= f.hidden_field :comment %>
   <%= f.submit '入力画面へ戻る'%>
 <% end %>
@@ -45,10 +45,10 @@
   <%= f.hidden_field :end_time %>
   <%= f.hidden_field :fishing_ground %>
   <%= f.hidden_field :fishing_style %>
-  <%= f.hidden_field :condition %>
+  <%= f.hidden_field :main_rule %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :keeper_size %>
-  <%= f.hidden_field :some_fish %>
+  <%= f.hidden_field :swap_limit %>
   <%= f.hidden_field :comment %>
   <%= f.submit 'イベントを投稿する'%>
 <% end %>

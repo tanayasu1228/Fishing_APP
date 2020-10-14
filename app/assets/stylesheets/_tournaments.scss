@@ -1,8 +1,19 @@
 #tournaments {
+  // 必須項目
   .label{
     background-color: red;
     padding: .2em .6em .3em;
-    font-size: 70%;
+    font-size: 60%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    border-radius: 8px;
+  }
+  // 追加項目
+  .add_label{
+    background-color: rgb(0, 167, 75);
+    padding: .2em .6em .3em;
+    font-size: 60%;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -84,13 +95,40 @@ ul.image-list p {
 #othertext {
   display: none;
 }
-
-#wayin_limit {
+#limit_content {
   display: none;
+}
+#limit_content img {
+  width: 100%;
 }
 #swap_limit {
   display: none;
 }
+#judging_limit {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

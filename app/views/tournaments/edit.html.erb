@@ -45,7 +45,7 @@
     <br>
     <div class="form-group">
       <label>指定条件 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :condition, class: "form-control", placeholder: "(例) ルアーのみ（生き餌不可）",  required: true %>
+      <%= f.text_field :main_rule, class: "form-control", placeholder: "(例) ルアーのみ（生き餌不可）",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>
@@ -59,7 +59,7 @@
     <br>
     <div class="form-group">
       <label>最大匹数 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :some_fish, class: "form-control", placeholder: "(例) 3(数字のみ記入してください)",  required: true %>
+      <%= f.text_field :swap_limit, class: "form-control", placeholder: "(例) 3(数字のみ記入してください)",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>

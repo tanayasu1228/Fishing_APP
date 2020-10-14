@@ -3,10 +3,10 @@ class Tournament < ApplicationRecord
   validates :end_time, presence: true
   validates :fishing_ground, presence: true
   validates :fishing_style, presence: true
-  validates :condition, presence: true
+  validates :main_rule, presence: true
   validates :fish_name, presence: true
   validates :keeper_size, presence: true
-  validates :some_fish, presence: true
+  validates :swap_limit, presence: true
 
   validates_acceptance_of :confirming
   after_validation :check_confirming

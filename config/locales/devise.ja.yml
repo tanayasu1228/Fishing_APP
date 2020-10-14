@@ -61,10 +61,13 @@ ja:
         end_time: 終了
         fishing_ground: 場所
         fishing_style: 釣りのスタイル
-        condition: 指定条件
+        main_rule: メインルール
+        sub_rule: サブルール
         fish_name: 対象魚
         keeper_size: キーパーサイズ
-        some_fish: 最大匹数
+        swap_limit: 最大匹数
+        judging_limit: 合計値
+        measure_rule: 計測方法
         comment: コメント
         created_at: 作成日
         updated_at: 更新日

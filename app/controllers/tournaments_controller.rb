@@ -61,6 +61,6 @@ class TournamentsController < ApplicationController
     private
 
   def tournament_params
-    params.require(:tournament).permit(:start_time, :end_time, :fishing_ground, :fishing_style, :condition, :fish_name, :keeper_size, :some_fish, :comment)
+    params.require(:tournament).permit(:start_time, :end_time, :fishing_ground, :fishing_style, :main_rule, :sub_rule, :fish_name, :keeper_size, :swap_limit, :judging_limit, :measure_rule, :comment)
   end
 end
