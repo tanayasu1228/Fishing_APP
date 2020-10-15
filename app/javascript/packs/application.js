@@ -9,11 +9,13 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("bootstrap/dist/js/bootstrap")
+require ("cropper.min.js")
+require ("jquery-cropper.min.js")
 
 require("./top/slide")
 require("./tournament/image_list")
 require("./tournament/limit_select")
-
+// require("./tournament/disabled_select")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

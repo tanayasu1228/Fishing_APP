@@ -42,3 +42,5 @@ yarn-debug.log*
 
 # アップロード画像
 /public/uploads/
+
+/vendor
