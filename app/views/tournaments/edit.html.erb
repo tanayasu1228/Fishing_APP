@@ -3,36 +3,49 @@
 
   <%= form_with model: @tournament, local: true do |f| %> 
     <div class="form-group">
-      <label>開催日 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :date, class: "form-control", placeholder: "(例) 0000/00/00",  required: true %>
+      <label>開催期間<span class="label label-danger">必須</span></label>
+    </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <label>開始：</label>
+        <%= f.datetime_field :start_time, class: "form-control", required: true %>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+      </div>
+
+      <div class="form-group">
+        <label>　〜　終了：</label>
+        <%= f.datetime_field :end_time, class: "form-control", required: true %>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>エリア指定 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fishing_ground, class: "form-control", placeholder: "(例) 琵琶湖　南湖全域", required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>
     <br>
     <div class="form-group">
-      <label>場所 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :fishing_ground, class: "form-control", placeholder: "(例) 琵琶湖　南湖", required: true %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣りのスタイル <span class="label label-danger">必須</span></label>
+      <label>スタイル <span class="label label-danger">必須</span></label>
       <%= f.text_field :fishing_style, class: "form-control", placeholder: "(例) 陸っぱり",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>
     <br>
     <div class="form-group">
-      <label>指定条件 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :condition, class: "form-control", placeholder: "(例) ルアーのみ（生き餌不可）",  required: true %>
+      <label>対象魚 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ラージマウスバス",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>
     <br>
     <div class="form-group">
-      <label>対象魚 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ブラックバス",  required: true %>
+      <label>指定条件 <span class="label label-danger">必須</span></label>
+      <%= f.text_field :main_rule, class: "form-control", placeholder: "(例) ルアーのみ（生き餌不可）",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>
@@ -46,7 +59,7 @@
     <br>
     <div class="form-group">
       <label>最大匹数 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :some_fish, class: "form-control", placeholder: "(例) 3(数字のみ記入してください)",  required: true %>
+      <%= f.text_field :swap_limit, class: "form-control", placeholder: "(例) 3(数字のみ記入してください)",  required: true %>
       <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
       <div class="help-block with-errors"></div>
     </div>

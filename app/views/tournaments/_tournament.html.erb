@@ -1,12 +1,13 @@
 <%= link_to tournament_path(tournament.id) do %>
   <div class="tournaments-contents">
     <%= image_tag '/default_img.jpg' %>
-    <h3><%= "開催日：#{tournament.date}" %></h3> 
+    <h3><%= "開始日時：#{tournament.start_time}" %></h3>
+    <h3><%= "終了日時：#{tournament.end_time}" %></h3> 
     <h3><%= "場所：#{tournament.fishing_ground}" %></h3> 
     <h3><%= "スタイル：#{tournament.fishing_style}" %></h3>
-    <p><%= "対象魚種：#{tournament.fish_name}" %></p>
-    <p><%= "キーパーサイズ：#{tournament.keeper_size}" %></p>
-    <p><%= "最大匹数：#{tournament.some_fish}" %></p>
-    <p><%= "詳細内容：#{tournament.comment}" %></p>
+    <p><%= "対象魚：#{tournament.fish_name}" %></p>
+    <%# <p><%= "キーパーサイズ：#{tournament.keeper_size}" %></p> %>
+    <%# <p><%= "最大匹数：#{tournament.swap_limit}" %></p> %>
+    <%# <p><%= "詳細内容：#{tournament.comment}" %></p> %>
   </div>
 <% end %>
