@@ -21,7 +21,7 @@ gem 'rails-i18n'
 
 # 画像アップロード
 gem 'carrierwave'
-
+gem 'rmagick'
 gem 'pry-rails'
 
 #PV数の計測

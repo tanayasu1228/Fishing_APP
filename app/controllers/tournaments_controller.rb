@@ -8,11 +8,27 @@ class TournamentsController < ApplicationController
 
   def new
     @tournament = Tournament.new
+    if request.post? then
+      if params["1"] then
+        @value = "ロックフィシュ"
+      elsif params["2"] then
+        @value = "#{@tournament.fish_name}"
+      else
+      end
+    end
   end
 
   def confirm
     @tournament = Tournament.new(tournament_params)
     return if @tournament.valid?
+    if request.post? then
+      if params["1"] then
+        @value = "ロックフィシュ"
+      elsif params["2"] then
+        @value = "#{@tournament.fish_name}"
+      else
+      end
+    end
   end
 
   def back

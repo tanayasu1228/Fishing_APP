@@ -1,4 +1,5 @@
 window.onload = function () {
+  // 魚種選択でtext_areaの切り替え
   document.getElementById("tournament_fish_name_ture").onclick = function () {
     if (this.checked) {
       document.getElementById("othertext").style.display = "block";
@@ -65,21 +66,27 @@ window.onload = function () {
     }
 
   }
-  window.onload = (function () {
-    // チェックボックスのクリックを無効化します。
-    $('.image_box .radio-box').click(function () {
-      return false;
-    });
 
-    // 画像がクリックされた時の処理です。
-    $('img.image').click(function () {
-      var $imageList = $('.image_list');
-
-      // 現在の選択を解除します。
-      $imageList.find('img.image.checked').removeClass('checked');
-
-      // チェックを入れた状態にします。
-      $(this).addClass('checked');
-    });
-  });
+// メインルールの内容で釣果上限の切り替え
+  document.getElementById("tournament_main_rule_１匹の最大長さ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "none";
+      document.getElementById("swap_limit").style.display = "block";
+      document.getElementById("limit_content").style.display = "block";
+    }
+  }
+  document.getElementById("tournament_main_rule_合計長さ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "block";
+      document.getElementById("swap_limit").style.display = "block";
+      document.getElementById("limit_content").style.display = "block";
+    }
+  }
+  document.getElementById("tournament_main_rule_とにかく数を釣れ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "none";
+      document.getElementById("swap_limit").style.display = "none";
+      document.getElementById("limit_content").style.display = "none";
+    }
+  }
 }

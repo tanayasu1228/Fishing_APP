@@ -1,5 +1,5 @@
 <%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %>
-<%= javascript_pack_tag 'tournament/limit_select', 'data-turbolinks-track': 'reload' %>
+<%# <%= javascript_pack_tag 'tournament/limit_select', 'data-turbolinks-track': 'reload' %> %>
 <%# <%= javascript_pack_tag 'tournament/disabled_select', 'data-turbolinks-track': 'reload' %> %>
 <div class="container">
   <section id="tournaments">
@@ -50,8 +50,20 @@
       </div>
       <br>
       <div class="form-group">
+      
         <label>対象魚 <span class="label label-danger">必須</span></label>
         <ul class="image-list">
+          <li>
+            <label>
+              <div class="image-box">
+                <img class="image" src="<%= asset_path "tournament/other.jpg" %>">
+                <%= f.radio_button :fish_name, "ture", class: "radio-box"%>
+                <p>その他の魚種</p>
+              </div>
+              
+            </label>
+            <%= f.text_area :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚又は、複数の対象魚を入力", id: "othertext", rows: "3" %>
+          </li>
           <li>
             <label>
               <div class="image-box">
@@ -157,16 +169,6 @@
                 <img class="image" src="<%= asset_path "tournament/squid.png" %>">
                 <%= f.radio_button :fish_name, "イカ", class: "radio-box"%>
                 <p>イカ</p>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label>
-              <div class="image-box">
-                <img class="image" src="<%= asset_path "tournament/other.jpg" %>">
-                <%= f.radio_button :fish_name, "ture", class: "radio-box"%>
-                <p>その他の魚種</p>
-                <%= f.text_area :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚 又は、複数の対象魚を入力して下さい", id: "othertext", rows: "4" %>
               </div>
             </label>
           </li>
