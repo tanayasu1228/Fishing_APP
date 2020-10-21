@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+window.addEventListener("turbolinks:load", function () {
   viewSlide('.slide img');
 });
 function viewSlide(className, slideNo = -1) {

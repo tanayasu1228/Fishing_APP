@@ -3,7 +3,7 @@
   .label{
     background-color: red;
     padding: .2em .6em .3em;
-    font-size: 60%;
+    font-size: 50%;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -13,7 +13,7 @@
   .add_label{
     background-color: rgb(0, 167, 75);
     padding: .2em .6em .3em;
-    font-size: 60%;
+    font-size: 50%;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -53,11 +53,13 @@ ul.image-list li {
 
   :hover {
   opacity: 0.9;
+  // border: solid 3px rgba(25, 125, 255, 0.8);
 }
 }
+
 // イメージボックス内の設定
 ul.image-list li .image-box {
-  width: 200px;
+  width: 250px;
   height: 200px;
   cursor: pointer;
   position: relative;
@@ -107,9 +109,13 @@ ul.image-list p {
 #judging_limit {
   display: none;
 }
-
-
-
+.explain{
+font-size: medium;
+color:rgb(100, 100, 100);
+ }
+.font_red{
+  color: red;
+}
 
 
 
