@@ -10,7 +10,8 @@ class Tournament < ApplicationRecord
   validates :judging_limit, presence: true
   validates :measure_rule, presence: true
 
-  mount_uploader :image, TournamentUploader
+  mount_uploader :image, PictureUploader
+  # mount_uploader :image, ImageUploader
 
   validates_acceptance_of :confirming
   after_validation :check_confirming

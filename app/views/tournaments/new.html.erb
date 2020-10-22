@@ -56,16 +56,16 @@
             <%= f.radio_button :fishing_style, "陸っぱり", {required: true} %> 陸っぱり
           </label>
           <label class="btn btn-outline-secondary" style="width:20%">
+            <%= f.radio_button :fishing_style, "磯釣り", {required: true} %> 磯釣り
+          </label>
+          <label class="btn btn-outline-secondary" style="width:25%">
             <%= f.radio_button :fishing_style, "フローター", {required: true} %> フローター
           </label>
           <label class="btn btn-outline-secondary" style="width:25%">
-            <%= f.radio_button :fishing_style, "船（免許不要）", {required: true} %> 船（免許不要艇）
-          </label>
-          <label class="btn btn-outline-secondary" style="width:25%">
-            <%= f.radio_button :fishing_style, "船（免許必須）", {required: true} %> 船（免許必須艇）
+            <%= f.radio_button :fishing_style, "ボート", {required: true} %> ボート
           </label>
           <label class="btn btn-outline-secondary" style="width:20%">
-            <%= f.radio_button :fishing_style, "問わない", {required: true} %> 問わない</label>
+            <%= f.radio_button :fishing_style, "全アングラー", {required: true} %> 全アングラー</label>
         </div>
       </div>
       <br>
@@ -80,7 +80,6 @@
                 <%= f.radio_button :fish_name, "other", {class: "radio-box", required: true}%>
                 <p>《その他の魚種》</p>
               </div>
-              
             </label>
             <%= f.text_area :fish_name, class: "form-control", placeholder: "(例) 特定の対象魚又は、複数の対象魚を入力", id: "othertext", rows: "3" %>
           </li>

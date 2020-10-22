@@ -1,6 +1,7 @@
-class TournamentUploader < CarrierWave::Uploader::Base
+class PictureUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
-  include CarrierWave::RMagick
+  # include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
 
   # Choose what kind of storage to use for this uploader:
@@ -30,7 +31,12 @@ class TournamentUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [500, 500]
+  end
+
+  version :thumbnail do
+    process resize_to_fill: [200, 200, "Center"]
+    # process resize_to_fit: [300, 300]
   end
 
   # version :thumbnail_image do
