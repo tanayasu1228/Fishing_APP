@@ -1,8 +1,9 @@
 <h1>詳細画面</h1>
-
+    <%= image_tag @tournament.image.url %>
+    <%# <%= image_tag (@tournament.image.thumb.url) %> %>
     <h3><%= "開始：#{l @tournament.start_time, format: :long}" %></h3> 
     <h3><%= "終了：#{l @tournament.end_time, format: :long}" %></h3> 
-    <h3><%= "場所：#{@tournament.fishing_ground}" %></h3> 
+    <h3><%= "指定エリア：#{@tournament.fishing_ground}" %></h3> 
     <h3><%= "スタイル：#{@tournament.fishing_style}" %></h3>
     <p><%= "対象魚：#{@tournament.fish_name}" %></p>
     <p><%= "キーパーサイズ：#{@tournament.keeper_size}" %></p>

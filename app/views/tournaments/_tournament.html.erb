@@ -1,13 +1,23 @@
 <%= link_to tournament_path(tournament.id) do %>
-  <div class="tournaments-contents">
-    <%= image_tag '/default_img.jpg' %>
-    <h3><%= "開始日時：#{tournament.start_time}" %></h3>
-    <h3><%= "終了日時：#{tournament.end_time}" %></h3> 
-    <h3><%= "場所：#{tournament.fishing_ground}" %></h3> 
-    <h3><%= "スタイル：#{tournament.fishing_style}" %></h3>
-    <p><%= "対象魚：#{tournament.fish_name}" %></p>
-    <%# <p><%= "キーパーサイズ：#{tournament.keeper_size}" %></p> %>
-    <%# <p><%= "最大匹数：#{tournament.swap_limit}" %></p> %>
-    <%# <p><%= "詳細内容：#{tournament.comment}" %></p> %>
-  </div>
+  <label>
+    <div class="tournaments-contents">
+      <div class="thumbnail">
+        <%= image_tag tournament.image.url %>
+          <p class="title"><%= "【#{tournament.fishing_ground}】" %></p>
+          <p class="sub_title"><%= "#{tournament.fishing_style} 大会" %></p>
+      </div>
+      <div class="time">
+        <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間：</h4>
+        <p>  <%= "#{l tournament.start_time, format: :long} 〜 #{l tournament.end_time, format: :long}" %></p>
+      </div>
+      <div class="win_lose">
+      <h4><i class="fas fa-crown i_yellow"></i> 勝敗：</h4>
+      <p> <%= tournament.main_rule %></p>
+      </div>
+      <div class="target">
+      <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：</h4>
+      <p> <%= tournament.fish_name %></p>
+      </div>
+    </div>
+  </label>
 <% end %>

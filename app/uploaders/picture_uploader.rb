@@ -1,4 +1,4 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class PictureUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  "default_user_image.jpeg"
+  "default_img.jpg"
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
@@ -31,13 +31,18 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [500, 500]
   end
 
-  version :profile_image do
-    process :crop => [0.5, 0.5, 50, 50]
+  version :thumbnail do
+    process resize_to_fill: [200, 200, "Center"]
     # process resize_to_fit: [300, 300]
   end
+
+  # version :thumbnail_image do
+  #   process :crop => [0.5, 0.5, 50, 50]
+  #   process resize_to_fit: [300, 300]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

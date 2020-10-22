@@ -1,5 +1,22 @@
-window.onload = function () {
-  document.getElementById("tournament_fish_name_ture").onclick = function () {
+$(document).on("turbolinks:load", function () {
+  $(function () {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#tournament_img").change(function () {
+      readURL(this);
+    });
+  });
+
+  
+  // 魚種選択でtext_areaの切り替え
+  document.getElementById("tournament_fish_name_other").onclick = function () {
     if (this.checked) {
       document.getElementById("othertext").style.display = "block";
     }
@@ -65,21 +82,27 @@ window.onload = function () {
     }
 
   }
-  window.onload = (function () {
-    // チェックボックスのクリックを無効化します。
-    $('.image_box .radio-box').click(function () {
-      return false;
-    });
 
-    // 画像がクリックされた時の処理です。
-    $('img.image').click(function () {
-      var $imageList = $('.image_list');
-
-      // 現在の選択を解除します。
-      $imageList.find('img.image.checked').removeClass('checked');
-
-      // チェックを入れた状態にします。
-      $(this).addClass('checked');
-    });
-  });
-}
+// メインルールの内容で釣果上限説明表示の切り替え
+  document.getElementById("tournament_main_rule_デカイもん勝ち").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "none";
+      document.getElementById("swap_limit").style.display = "block";
+      document.getElementById("limit_content").style.display = "block";
+    }
+  }
+  document.getElementById("tournament_main_rule_合計長さで勝負").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "block";
+      document.getElementById("swap_limit").style.display = "block";
+      document.getElementById("limit_content").style.display = "block";
+    }
+  }
+  document.getElementById("tournament_main_rule_とにかく数を釣れ").onclick = function () {
+    if (this.checked) {
+      document.getElementById("judging_limit").style.display = "none";
+      document.getElementById("swap_limit").style.display = "none";
+      document.getElementById("limit_content").style.display = "none";
+    }
+  }
+});

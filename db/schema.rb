@@ -114,7 +114,8 @@ ActiveRecord::Schema.define(version: 2020_10_14_024018) do
     t.string "sub_rule"
     t.string "judging_limit"
     t.string "measure_rule"
-    t.string "designation_lure"
+    t.string "designation"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|

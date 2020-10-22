@@ -221,6 +221,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rmagick (4.1.2)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
@@ -291,11 +292,13 @@ DEPENDENCIES
   impressionist
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_magick
   pg (>= 0.18, < 2.0)
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-i18n
+  rmagick
   sass-rails (>= 6)
   selenium-webdriver
   spring
