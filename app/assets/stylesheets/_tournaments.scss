@@ -29,7 +29,7 @@
   position: relative;
   margin: 10px;
   width: 400px;
-  height: 500px;
+  height: 450px;
   color: #444444;
   border: solid 3px #dddddd;
   // padding: 8px 8px 8px 8px;
@@ -72,28 +72,21 @@
     h4 {
       font-size: 20px;
     }
-    p {
-      // font-weight: bold;
-      font-size: 20px;
-    }
     .i_gray {
     color: rgba(36, 36, 36, 0.8);
     }
   }
   .win_lose {
-    border-bottom: 1px solid #CCC;
     h4 {
       font-size: 20px;
-    }
-    p {
-    font-size: 20px;
-    // font-weight: bold;
+      border-bottom: 1px solid #CCC;
     }
     .i_yellow {
       color: rgba(255, 217, 0, 0.8);
     }
   }
   .target {
+    border-bottom: 1px solid #CCC;
     h4 {
       font-size: 20px;
     }
@@ -102,6 +95,9 @@
     .i_blue {
     color: rgba(0, 157, 255, 0.8);
     }
+  }
+  .entries {
+      font-size: 20px;
   }
   
 }
