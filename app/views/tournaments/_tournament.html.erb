@@ -8,16 +8,16 @@
       </div>
       <div class="time">
         <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間：</h4>
-        <p>  <%= "#{l tournament.start_time, format: :long} 〜 #{l tournament.end_time, format: :long}" %></p>
+        <h4>  <%= "#{l tournament.start_time, format: :long} 〜 #{l tournament.end_time, format: :long}" %></h4>
       </div>
       <div class="win_lose">
-      <h4><i class="fas fa-crown i_yellow"></i> 勝敗：</h4>
-      <p> <%= tournament.main_rule %></p>
+      <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= tournament.main_rule %></h4>
       </div>
       <div class="target">
       <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：</h4>
-      <p> <%= tournament.fish_name %></p>
+      <h4> <%= tournament.fish_name %></h4>
       </div>
+      <h4 class="entries"><%= "#{tournament.entries.count}人参加中" %></h4>
     </div>
   </label>
 <% end %>

@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
-  mount_uploader :fish_image, ImageUploader
+  mount_uploader :fish_image, FishImageUploader
 
   belongs_to :user
   belongs_to :tournament, optional: true
+  # belongs_to :entry
+  
   # PV数の計測
   is_impressionable
 

@@ -3,7 +3,8 @@
 <%# <%= javascript_pack_tag 'tournament/disabled_select', 'data-turbolinks-track': 'reload' %> %>
 <div class="container">
   <section id="tournaments">
-    <h1>WEBトーナメント新規作成画面</h1><br>
+    <h1>WEBトーナメント新規作成画面</h1>
+    <br>
     <%= form_with model: @tournament, url: confirm_tournaments_path, html: { method: :post }, local: true do |f| %> 
       <div class="form-group">
         <label>サムネイル選択</label>

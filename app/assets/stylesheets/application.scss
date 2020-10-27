@@ -2,6 +2,9 @@
 @import "top";
 @import "tournaments";
 @import "confirm";
+@import "myshow";
+@import "edit";
+@import "users";
 
 body{
   background-color: rgba(245, 245, 245, 0.6);;
@@ -10,8 +13,36 @@ body{
   font-family: 'Helvetica Neue','Helvetica','Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif;
   font-size: 1.6rem;
 }
-
 .container{
   margin: auto;
   padding: 0;
 }
+.navbar-brand {
+  font-size: 30px;
+  margin: 0 50px 0 20px ;
+}
+.nav-item {
+  font-size: 20px;
+  :hover{
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.myicon {
+  margin: 0 0 0 auto;
+  // text-align:right;
+  color: white;
+  position:relative;
+  display:inline-block;
+  cursor:pointer;
+  img{
+    margin: 8px 8px 8px 8px;
+    position: relative;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+

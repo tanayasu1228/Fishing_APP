@@ -1,46 +1,75 @@
-<h3>プロフィール編集</h3>
-
-  <%= form_with model: @user, local: true do |f| %> 
-    <div class="form_group">
-      <label>プロフィール画像：</label>
-      <%= f.file_field :image %>
-    </div>
-    <div class="form-group">
-      <label>ニックネーム</label>
-      <%= f.text_field :nickname, class: "form-control", placeholder: "(例) ニックネーム名" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>ホームの釣り場</label>
-      <%= f.text_field :main_field, class: "form-control", placeholder: "(例) 養老水系  五三川"%>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>メインの魚種</label>
-      <%= f.text_field :main_target, class: "form-control", placeholder: "(例) ラージマウスバス"%>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>メイン魚種の自己記録</label>
-      <%= f.text_field :max_size, class: "form-control", placeholder: "(例) 57cm"%>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>自己紹介（コメント） </label>
-      <%= f.text_area :comment, class: "form-control", rows: "10" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="btn_update">
-    <%= f.submit "プロフィール更新", data: { confirm: "更新しますか？"}, class: "btn btn-primary btn-lg w-25" %>
-    </div>
-  <% end %>
+<%= javascript_pack_tag 'user/image', 'data-turbolinks-track': 'reload' %>
+<section id="users">
+  <h3>プロフィール編集</h3>
+  <div class="container">
+    <%= form_with model: @user, local: true do |f| %> 
+      <h2><i class="far i_green fa-image"></i> プロフィール画像</h2>
+      <div class="form-group thumbimg">
+        <br>
+        <label>
+          <div class="thumbnail">
+            <%= f.file_field :image, id: "user_img" %>
+            <% if @user.image.present? %>
+              <%= image_tag @user.image.url, id: "img_prev" %>
+            <% else %>
+              <%= image_tag "/default_img.jpg", id: "img_prev" %>
+            <% end %>
+            <div class="mask">
+              <div class="caption">変更はここをクリック</div>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="form-group">
+        <h2><i class="fas fa-pen"></i> ニックネーム</h2>
+        <div class="row justify-content-center">
+          <div style="width:80%"><%= f.text_field :nickname, class: "form-control", placeholder: "(例) ニックネーム名" %></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <h2><i class="fas i_red fa-map-marker-alt"></i> よく行く釣り場</h2> 
+        <div class="row justify-content-center">
+          <div style="width:80%"><%= f.text_field :main_field, class: "form-control", placeholder: "(例) 養老水系  五三川"%></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <h2><i class="fas fa-fish i_blue fa-flip-horizontal"></i> メインの魚種</h2>
+        <div class="row justify-content-center">
+          <div style="width:80%"><%= f.text_field :main_target, class: "form-control", placeholder: "(例) ラージマウスバス"%></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <h2><i class="far i_yellow fa-hand-peace"></i> メイン魚種の自己記録</h2> 
+        <div class="row justify-content-center">
+          <div style="width:80%"><%= f.text_field :max_size, class: "form-control", placeholder: "(例) 57cm"%></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <h2><i class="far i_pink fa-smile"></i> 自己紹介</h2> 
+        <div class="row justify-content-center">
+          <div style="width:80%"><%= f.text_area :comment, class: "form-control", rows: "10" %></div>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      <br>
+      <div class="btn_update">
+        <div class="row justify-content-center">
+          <%= f.submit "プロフィール更新", data: { confirm: "更新しますか？"}, class: "btn btn-primary btn-lg w-25" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

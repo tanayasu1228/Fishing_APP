@@ -19,9 +19,14 @@
         <li class="nav-item">
           <%= link_to "登録アングラー", users_path, class: "nav-item nav-link active ml-2 h6"%>
         </li>
+    </ul>
+    <ul class="navbar-nav">
         <li class="nav-item">
-          <%= link_to "マイページ", my_show_users_path, class: "nav-item nav-link active ml-2 h6"%>
+          <%= link_to my_show_users_path, class: "myicon" do %>
+            <%= image_tag current_user.image.to_s %><%= current_user.nickname %>さんのページ
+          <% end %>
         </li>
+
       <% else %>
         <li class="nav-item">
           <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active ml-2 h6" %>

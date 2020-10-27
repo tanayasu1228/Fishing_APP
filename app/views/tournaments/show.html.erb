@@ -46,4 +46,4 @@
   
   <%= link_to  "もっとみる", ranks_tournament_post_path(tournament_id: @tournament) %>
 
-  <p><span>現在の参加者数: </span><%= @tournament.entries.count %></p>
+  <p><%= "#{@tournament.entries.count}人参加中" %></p>

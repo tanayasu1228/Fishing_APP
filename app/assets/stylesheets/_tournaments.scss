@@ -23,13 +23,14 @@
 .tournaments-wrapper{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .tournaments-contents {
   cursor: pointer;
   position: relative;
   margin: 10px;
   width: 400px;
-  height: 500px;
+  height: 450px;
   color: #444444;
   border: solid 3px #dddddd;
   // padding: 8px 8px 8px 8px;
@@ -72,28 +73,21 @@
     h4 {
       font-size: 20px;
     }
-    p {
-      // font-weight: bold;
-      font-size: 20px;
-    }
     .i_gray {
     color: rgba(36, 36, 36, 0.8);
     }
   }
   .win_lose {
-    border-bottom: 1px solid #CCC;
     h4 {
       font-size: 20px;
-    }
-    p {
-    font-size: 20px;
-    // font-weight: bold;
+      border-bottom: 1px solid #CCC;
     }
     .i_yellow {
       color: rgba(255, 217, 0, 0.8);
     }
   }
   .target {
+    border-bottom: 1px solid #CCC;
     h4 {
       font-size: 20px;
     }
@@ -102,6 +96,9 @@
     .i_blue {
     color: rgba(0, 157, 255, 0.8);
     }
+  }
+  .entries {
+      font-size: 20px;
   }
   
 }
@@ -124,12 +121,12 @@ ul.image-list li {
   // padding: 8px 8px 8px 8px;
   border-radius: 5px;
 
-  :hover {
-  opacity: 0.9;
-  // border: solid 3px rgba(25, 125, 255, 0.8);
 }
-}
-
+.image-box:hover {
+  opacity: 0.8;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-0.15em);
+  }
 // イメージボックス内の設定
 ul.image-list li .image-box {
   width: 250px;
@@ -189,73 +186,6 @@ color:rgb(100, 100, 100);
 .font_red{
   color: red;
 }
-
-
-
-
-// // サブルールの設定
-// ul.sub-list li {
-//   display: inline-block;
-//   margin: 100px 2px;
-//   border: solid 3px #6176eec9;
-//   padding: 3px 3px 3px 3px;
-//   border-radius: 20px;
-
-//   :hover {
-//   opacity: 0.9;
-// }
-// }
-// // イメージボックス内の設定
-// ul.sub-list li .check-box {
-//   width: 200px;
-//   height: 10px;
-//   cursor: pointer;
-//   position: relative;
-// }
-
-// ul.sub-list li:active {
-//   position: relative;
-// 	top: 3px;
-// }
-
-// // イメージ内のラジオボタンの設定
-// .check-box .checkbox {
-//   position: absolute;
-//   top: 12px;
-//   right: 12px;
-//   cursor: pointer;
-//   transform: scale(2);
-//   opacity: 0.2;
-// }
-
-// .check-box .checkbox:checked {
-//   opacity: 1;
-// }
-
-// ul.sub-list p {
-//   font-size: 15px;
-//   text-align: center;
-// }
-
-// .check-box .checked {
-//   border: 6px solid blue;
-//   box-sizing: border-box;
-// }
-
-// .check-box .checked + .checkbox {
-//   display: block;
-// }
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
