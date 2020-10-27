@@ -28,6 +28,7 @@
 
 <%= form_with model: [@tournament, @post], url: new_tournament_post_path, html: { method: :post }, local: true do |f| %>
   <%= f.hidden_field :fish_image %>
+  <%= f.hidden_field :address %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :catch_size %>
   <%= f.hidden_field :weight %>
@@ -41,6 +42,7 @@
 
 <%= form_with model: @tournament, local: true do |f| %>
   <%= f.hidden_field :fish_image %>
+  <%= f.hidden_field :address %>
   <%= f.hidden_field :fish_name %>
   <%= f.hidden_field :catch_size %>
   <%= f.hidden_field :weight %>

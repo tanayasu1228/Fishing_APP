@@ -32,6 +32,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
+    # binding.pry
     impressionist(@post, nil, unique: [:session_hash])
   end
 
@@ -51,6 +52,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:fish_image, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range).merge(tournament_id: params[:tournament_id])
+    params.require(:post).permit(:fish_image, :address, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range).merge(tournament_id: params[:tournament_id])
   end
 end
