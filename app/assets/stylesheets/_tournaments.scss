@@ -23,6 +23,7 @@
 .tournaments-wrapper{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .tournaments-contents {
   cursor: pointer;
@@ -120,12 +121,12 @@ ul.image-list li {
   // padding: 8px 8px 8px 8px;
   border-radius: 5px;
 
-  :hover {
-  opacity: 0.9;
-  // border: solid 3px rgba(25, 125, 255, 0.8);
 }
-}
-
+.image-box:hover {
+  opacity: 0.8;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-0.15em);
+  }
 // イメージボックス内の設定
 ul.image-list li .image-box {
   width: 250px;
@@ -185,73 +186,6 @@ color:rgb(100, 100, 100);
 .font_red{
   color: red;
 }
-
-
-
-
-// // サブルールの設定
-// ul.sub-list li {
-//   display: inline-block;
-//   margin: 100px 2px;
-//   border: solid 3px #6176eec9;
-//   padding: 3px 3px 3px 3px;
-//   border-radius: 20px;
-
-//   :hover {
-//   opacity: 0.9;
-// }
-// }
-// // イメージボックス内の設定
-// ul.sub-list li .check-box {
-//   width: 200px;
-//   height: 10px;
-//   cursor: pointer;
-//   position: relative;
-// }
-
-// ul.sub-list li:active {
-//   position: relative;
-// 	top: 3px;
-// }
-
-// // イメージ内のラジオボタンの設定
-// .check-box .checkbox {
-//   position: absolute;
-//   top: 12px;
-//   right: 12px;
-//   cursor: pointer;
-//   transform: scale(2);
-//   opacity: 0.2;
-// }
-
-// .check-box .checkbox:checked {
-//   opacity: 1;
-// }
-
-// ul.sub-list p {
-//   font-size: 15px;
-//   text-align: center;
-// }
-
-// .check-box .checked {
-//   border: 6px solid blue;
-//   box-sizing: border-box;
-// }
-
-// .check-box .checked + .checkbox {
-//   display: block;
-// }
-
-
-
-
-
-
-
-
-
-
-
 }
 
 

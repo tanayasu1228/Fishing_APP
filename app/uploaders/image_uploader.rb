@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # リサイズしたり画像形式を変更するのに必要
-  # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
 
 
   # Choose what kind of storage to use for this uploader:
@@ -13,6 +13,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
+  # 画像の上限を100x100にする
+  process resize_to_fit: [400, 400]
+
+  # 保存形式をJPGにする
+  process convert: 'jpg'
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
@@ -35,8 +41,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :profile_image do
-    process :crop => [0.5, 0.5, 50, 50]
-    # process resize_to_fit: [300, 300]
+    # process :crop => [0.5, 0.5, 50, 50]
+    process resize_to_fit: [80, 80]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :tournaments, dependent: :destroy
-  has_many :entries
-  has_many :entry_tournaments, through: :entries, source: :tournament
+  has_many :entries, dependent: :destroy
+  has_many :entry_tournaments, through: :entries, source: :tournament, dependent: :destroy
   has_many :posts, dependent: :destroy
 end
