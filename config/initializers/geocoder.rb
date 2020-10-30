@@ -1,4 +1,7 @@
 Geocoder.configure(
+  # 取得住所の日本語化
+   language: :ja,
+
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   lookup: :google,         # name of geocoding service (symbol)
