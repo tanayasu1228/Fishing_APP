@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   belongs_to :tournament, optional: true
   # belongs_to :entry
 
-  # 緯度、経度のカラムに対して自動的に値を入れる為に必要
+  # geocoder.rbにて緯度、経度のカラムに対して自動的に値を入れる為に必要
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
