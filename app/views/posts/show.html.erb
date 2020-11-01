@@ -11,6 +11,7 @@
   <p><%= "釣れたライン：#{@post.line}" %></p>
   <p><%= "釣れたレンジ：#{@post.range}" %></p>
   <p><%= "住所：#{@post.address}" %></p>
+  <p><%= "撮影日：#{l @post.datetime, format: :short}" %></p>
   <p><%= "latitude：#{@post.latitude}" %></p>
   <p><%= "longitude：#{@post.longitude}" %></p>
 </div>
@@ -30,6 +31,19 @@
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
+
+
+// var circle = L.circle(['<%= @post.latitude %>', '<%= @post.longitude %>'], {
+//     color: 'rgba(237, 101, 100, 1)',
+//     fillColor: 'rgba(237, 101, 100, 1)',
+//     fillOpacity: 0.5,
+//     radius: '2400'
+//   }).addTo(view_map);
+
+
+
+
+
 
 //  #Map上の指定した位置にピンを挿して表示させる
     var marker = new google.maps.Marker({

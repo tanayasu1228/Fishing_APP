@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_063012) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.datetime "datetime"
   end
 
   create_table "tournaments", force: :cascade do |t|

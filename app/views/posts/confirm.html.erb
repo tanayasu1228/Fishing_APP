@@ -11,6 +11,7 @@
   <p><%= "釣れたライン：#{@post.line}" %></p>
   <p><%= "釣れたレンジ：#{@post.range}" %></p>
   <p><%= "住所：#{@post.address}" %></p>
+  <p><%= "撮影日：#{l @post.datetime, format: :short}" %></p>
   <p><%= "latitude：#{@post.latitude}" %></p>
   <p><%= "longitude：#{@post.longitude}" %></p>
 </div>
@@ -71,6 +72,7 @@
   <%= f.hidden_field :reel %>
   <%= f.hidden_field :line %>
   <%= f.hidden_field :range %>
+  <%= f.hidden_field :datetime %>
   <%= f.submit '入力画面へ戻る'%>
 <% end %>
 
@@ -88,5 +90,6 @@
   <%= f.hidden_field :reel %>
   <%= f.hidden_field :line %>
   <%= f.hidden_field :range %>
+  <%= f.hidden_field :datetime %>
   <%= f.submit 'トーナメントに投稿'%>
 <% end %>
