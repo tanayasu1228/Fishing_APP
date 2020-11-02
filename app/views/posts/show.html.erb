@@ -21,7 +21,7 @@
 // #latitude,longitudeから位置を特定させる
     var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15, 
+        zoom: 12, 
         center: test
     });
     var transitLayer = new google.maps.TransitLayer();
@@ -31,19 +31,6 @@
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
-
-
-// var circle = L.circle(['<%= @post.latitude %>', '<%= @post.longitude %>'], {
-//     color: 'rgba(237, 101, 100, 1)',
-//     fillColor: 'rgba(237, 101, 100, 1)',
-//     fillOpacity: 0.5,
-//     radius: '2400'
-//   }).addTo(view_map);
-
-
-
-
-
 
 //  #Map上の指定した位置にピンを挿して表示させる
     var marker = new google.maps.Marker({
