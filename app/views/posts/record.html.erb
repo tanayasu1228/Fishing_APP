@@ -4,7 +4,7 @@
 
   <% @posts.each do |post| %>
     <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
-      <%= image_tag post.fish_image.url %>
+      <%= image_tag "#{post.fish_image.url}" %>
     <% end %>
     <div class="posts-contents">
       <p>

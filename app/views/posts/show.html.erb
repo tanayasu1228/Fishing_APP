@@ -1,5 +1,7 @@
 <h1>投稿詳細</h1>
+<div>
   <%= @user.nickname %>
+  <%= image_tag "#{@post.fish_image}", class:"card-img-top" %>
   <h3><%= "魚種：#{@post.fish_name}" %></h3> 
   <h3><%= "サイズ：#{@post.catch_size}" %></h3> 
   <h3><%= "重量：#{@post.weight}" %></h3>
@@ -8,6 +10,55 @@
   <p><%= "釣れたリール：#{@post.reel}" %></p>
   <p><%= "釣れたライン：#{@post.line}" %></p>
   <p><%= "釣れたレンジ：#{@post.range}" %></p>
+  <p><%= "住所：#{@post.address}" %></p>
+  <p><%= "撮影日：#{l @post.datetime, format: :short}" %></p>
+  <p><%= "latitude：#{@post.latitude}" %></p>
+  <p><%= "longitude：#{@post.longitude}" %></p>
 </div>
+
+<script type="text/javascript">
+  function initMap() {
+// #latitude,longitudeから位置を特定させる
+    var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12, 
+        center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+//  #Map上の指定した位置にピンを挿して表示させる
+    var marker = new google.maps.Marker({
+        position:test,
+        map: map,
+        title: contentString
+    });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+
+<%# #mapのcss %>
+<style type="text/css">
+  #map { height: 400px;
+         width: 50%;}
+</style>
+
+<%# #mapの表示 %>
+<div id="map"></div>
+
+
+
 
 <%=  "#{@post.impressionist_count}件の閲覧" %>
