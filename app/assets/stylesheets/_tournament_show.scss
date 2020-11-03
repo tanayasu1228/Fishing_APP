@@ -1,0 +1,605 @@
+#tournament_show {
+  a{
+    text-decoration: none;
+  }
+  .cup-wrapper {
+    background-color: white;
+
+    .thumbnail {
+      img {
+        height: auto;
+        width: 100%;
+      }
+    } 
+
+    .cup-info {
+      .create_user {
+        color: rgba(0, 157, 255, 0.8);
+        img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .time {
+        h4 {
+          font-size: 20px;
+        }
+        .i_gray {
+        color: rgba(36, 36, 36, 0.8);
+        }
+      }
+      .win_lose {
+        h4 {
+          font-size: 20px;
+        }
+        .i_yellow {
+          color: rgba(255, 217, 0, 0.8);
+        }
+      }
+      .target {
+        h4 {
+          font-size: 20px;
+        }
+        font-size: 20px;
+        .i_blue {
+        color: rgba(0, 157, 255, 0.8);
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+  @media (min-width: 0px) {
+    .cup-wrapper {
+    background-color: white;
+
+    .thumbnail {
+      .title {
+        z-index: 10;
+        position: absolute;/*絶対配置*/
+        color: rgba(255, 0, 0, 0.877);
+        font-weight: bold;
+        font-size: 60px;
+        text-shadow:0 0 10px rgba(219, 235, 0, 0.8);
+        top: 0;
+        left: 0;
+      }
+      .sub_title {
+        z-index: 10;
+        position: absolute;/*絶対配置*/
+        color: rgba(0, 63, 180, 0.877);
+        font-weight: bold;
+        font-size: 70px;
+        text-shadow:0 0 10px rgba(0, 235, 204, 0.8);
+        top: 80%;
+        left: 5%;
+        transform: translate(0%,-50%);
+        margin:0;
+        padding:0;
+      }
+    } 
+
+    .cup-info {
+      .create_user {
+        color: rgba(0, 157, 255, 0.8);
+        img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .time {
+        h4 {
+          font-size: 20px;
+        }
+        .i_gray {
+        color: rgba(36, 36, 36, 0.8);
+        }
+      }
+      .win_lose {
+        h4 {
+          font-size: 20px;
+        }
+        .i_yellow {
+          color: rgba(255, 217, 0, 0.8);
+        }
+      }
+      .target {
+        h4 {
+          font-size: 20px;
+        }
+        font-size: 20px;
+        .i_blue {
+        color: rgba(0, 157, 255, 0.8);
+        }
+      }
+    }
+  }
+
+  .ranks-wrapper {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    .rank_item {
+      padding: 15px 15px 15px 15px;
+    }
+    .item_body {
+      display: flex;
+    }
+
+    .max_img {
+      margin-right: 15px;
+      object-fit: cover;
+      width: 150px;
+      height: 150px;
+      border-radius: 2px;
+    }
+    
+    .media_body {
+      .rank_name {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgba(62, 62, 62, 0.9);
+        .user_img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      ul {
+        padding-left: 0px;
+        list-style: none;
+        li {
+          color: rgba(145, 145, 145, 0.9);
+        }
+      }
+      .fa-chart-bar {
+        margin-right: 5px;
+      }
+      span {
+        margin-right: 15px;
+      }
+      .text_info {
+        color: #3498db;
+      }
+    }
+  }
+  
+  }
+
+  @media (min-width: 992px) {
+    .cup-wrapper {
+    background-color: white;
+
+    .thumbnail {
+      .title {
+        z-index: 10;
+        position: absolute;/*絶対配置*/
+        color: rgba(255, 0, 0, 0.877);
+        font-weight: bold;
+        font-size: 60px;
+        text-shadow:0 0 10px rgba(219, 235, 0, 0.8);
+        top: 0;
+        left: 0;
+      }
+      .sub_title {
+        z-index: 10;
+        position: absolute;/*絶対配置*/
+        color: rgba(0, 63, 180, 0.877);
+        font-weight: bold;
+        font-size: 70px;
+        text-shadow:0 0 10px rgba(0, 235, 204, 0.8);
+        top: 80%;
+        left: 5%;
+        transform: translate(0%,-50%);
+        margin:0;
+        padding:0;
+      }
+    } 
+
+    .cup-info {
+      .create_user {
+        color: rgba(0, 157, 255, 0.8);
+        img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .time {
+        h4 {
+          font-size: 20px;
+        }
+        .i_gray {
+        color: rgba(36, 36, 36, 0.8);
+        }
+      }
+      .win_lose {
+        h4 {
+          font-size: 20px;
+        }
+        .i_yellow {
+          color: rgba(255, 217, 0, 0.8);
+        }
+      }
+      .target {
+        h4 {
+          font-size: 20px;
+        }
+        font-size: 20px;
+        .i_blue {
+        color: rgba(0, 157, 255, 0.8);
+        }
+      }
+    }
+  }
+
+  .ranks-wrapper {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    .rank_item {
+      padding: 15px 15px 15px 15px;
+    }
+    .item_body {
+      display: flex;
+    }
+
+    .max_img {
+      margin-right: 15px;
+      object-fit: cover;
+      width: 150px;
+      height: 150px;
+      border-radius: 2px;
+    }
+    
+    .media_body {
+      .rank_name {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgba(62, 62, 62, 0.9);
+        .user_img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      ul {
+        padding-left: 0px;
+        list-style: none;
+        li {
+          color: rgba(145, 145, 145, 0.9);
+        }
+      }
+      .fa-chart-bar {
+        margin-right: 5px;
+      }
+      span {
+        margin-right: 15px;
+      }
+      .text_info {
+        color: #3498db;
+      }
+    }
+  }
+    
+  }
+
+  @media (min-width: 1200px) {
+    .cup-wrapper {
+    background-color: white;
+    position: relative;
+    background: #ffffff;
+    overflow: visible;
+    margin: 2em auto;
+    // padding: 0.5em;
+    border: 2px solid #9575CD;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    .thumbnail {
+      .title {
+
+        position: absolute;
+	top: -6px;
+	left: -6px;
+	// padding: 5px 10px;
+	padding-right: 300px;
+	letter-spacing: 0.1px;
+	color: #ffffff;
+	background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
+
+
+
+        // width: 100%;
+        // background-color: rgba(255, 255, 255, 0.6);
+        // z-index: 10;
+        
+        // text-align:left;
+        // color: rgba(255, 0, 0, 0.877);
+        // font-weight: bold;
+        // font-size: 100px;
+        // text-shadow:0 0 10px rgba(219, 235, 0, 0.8);
+        // position: absolute;/*絶対配置*/
+        // top: 50px;
+        // left: 0;
+      }
+      .title::before {
+	position: absolute;
+	z-index: 10;
+	top: 100%;
+	left: 0;
+	content: ' ';
+	border: 3px solid transparent;
+	border-top: 3px solid #5E35B1;
+	border-right: 3px solid #5E35B1;
+}
+      .sub_title {
+        z-index: 10;
+        position: absolute;/*絶対配置*/
+        color: rgba(0, 63, 180, 0.877);
+        font-weight: bold;
+        font-size: 70px;
+        text-shadow:0 0 10px rgba(0, 235, 204, 0.8);
+        top: 80%;
+        left: 5%;
+        transform: translate(0%,-50%);
+        margin:0;
+        padding:0;
+      }
+    } 
+
+    .cup-info {
+      .create_user {
+        color: rgba(0, 157, 255, 0.8);
+        img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .time {
+        h4 {
+          font-size: 20px;
+        }
+        .i_gray {
+        color: rgba(36, 36, 36, 0.8);
+        }
+      }
+      .win_lose {
+        h4 {
+          font-size: 20px;
+        }
+        .i_yellow {
+          color: rgba(255, 217, 0, 0.8);
+        }
+      }
+      .target {
+        h4 {
+          font-size: 20px;
+        }
+        font-size: 20px;
+        .i_blue {
+        color: rgba(0, 157, 255, 0.8);
+        }
+      }
+    }
+  }
+
+  .ranks-wrapper {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    .rank_item {
+      padding: 15px 15px 15px 15px;
+    }
+    .item_body {
+      display: flex;
+    }
+
+    .max_img {
+      margin-right: 15px;
+      object-fit: cover;
+      width: 150px;
+      height: 150px;
+      border-radius: 2px;
+    }
+    
+    .media_body {
+      .rank_name {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgba(62, 62, 62, 0.9);
+        .user_img {
+          margin: 8px 8px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      ul {
+        padding-left: 0px;
+        list-style: none;
+        li {
+          color: rgba(145, 145, 145, 0.9);
+        }
+      }
+      .fa-chart-bar {
+        margin-right: 5px;
+      }
+      span {
+        margin-right: 15px;
+      }
+      .text_info {
+        color: #3498db;
+      }
+    }
+  }
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+  // .cup-wrapper {
+  //   background-color: white;
+
+  //   .thumbnail {
+  //     img {
+  //       height: auto;
+  //       width: 100%;
+  //     }
+  //     .title {
+  //       z-index: 10;
+  //       position: absolute;/*絶対配置*/
+  //       color: rgba(255, 0, 0, 0.877);
+  //       font-weight: bold;
+  //       font-size: 60px;
+  //       text-shadow:0 0 10px rgba(219, 235, 0, 0.8);
+  //       top: 0;
+  //       left: 0;
+  //     }
+  //     .sub_title {
+  //       z-index: 10;
+  //       position: absolute;/*絶対配置*/
+  //       color: rgba(0, 63, 180, 0.877);
+  //       font-weight: bold;
+  //       font-size: 70px;
+  //       text-shadow:0 0 10px rgba(0, 235, 204, 0.8);
+  //       top: 80%;
+  //       left: 5%;
+  //       transform: translate(0%,-50%);
+  //       margin:0;
+  //       padding:0;
+  //     }
+  //   } 
+
+  //   .cup-info {
+  //     .create_user {
+  //       color: rgba(0, 157, 255, 0.8);
+  //       img {
+  //         margin: 8px 8px;
+  //         width: 50px;
+  //         height: 50px;
+  //         border-radius: 50%;
+  //       }
+  //     }
+  //     .time {
+  //       h4 {
+  //         font-size: 20px;
+  //       }
+  //       .i_gray {
+  //       color: rgba(36, 36, 36, 0.8);
+  //       }
+  //     }
+  //     .win_lose {
+  //       h4 {
+  //         font-size: 20px;
+  //       }
+  //       .i_yellow {
+  //         color: rgba(255, 217, 0, 0.8);
+  //       }
+  //     }
+  //     .target {
+  //       h4 {
+  //         font-size: 20px;
+  //       }
+  //       font-size: 20px;
+  //       .i_blue {
+  //       color: rgba(0, 157, 255, 0.8);
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .ranks-wrapper {
+  //   background-color: white;
+  //   height: auto;
+  //   width: 100%;
+  //   .rank_item {
+  //     padding: 15px 15px 15px 15px;
+  //   }
+  //   .item_body {
+  //     display: flex;
+  //   }
+
+  //   .max_img {
+  //     margin-right: 15px;
+  //     object-fit: cover;
+  //     width: 150px;
+  //     height: 150px;
+  //     border-radius: 2px;
+  //   }
+    
+  //   .media_body {
+  //     .rank_name {
+  //       font-size: 30px;
+  //       font-weight: bold;
+  //       color: rgba(62, 62, 62, 0.9);
+  //       .user_img {
+  //         margin: 8px 8px;
+  //         width: 50px;
+  //         height: 50px;
+  //         border-radius: 50%;
+  //       }
+  //     }
+  //     ul {
+  //       padding-left: 0px;
+  //       list-style: none;
+  //       li {
+  //         color: rgba(145, 145, 145, 0.9);
+  //       }
+  //     }
+  //     .fa-chart-bar {
+  //       margin-right: 5px;
+  //     }
+  //     span {
+  //       margin-right: 15px;
+  //     }
+  //     .text_info {
+  //       color: #3498db;
+  //     }
+  //   }
+  // }
+  .rank_item:hover {
+        background-color: rgba(190, 226, 255, 0.2);
+      }
+
+
+  
+  .entries {
+      font-size: 20px;
+  }
+  
+
+
+.tournaments-contents:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.15em);
+}
+
+
+
+
+
+}

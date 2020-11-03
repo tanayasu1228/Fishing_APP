@@ -31,9 +31,10 @@ class Post < ApplicationRecord
       sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
       max_size = sort_max_size[user_id]
 
+      image = posts.where(user_id: user_id).first.user.image.url
       post_id = posts.where(user_id: user_id).pluck("posts.id")
 
-      { nickname: nickname, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, post_id: post_id }
+      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, post_id: post_id }
     end
     result
   end

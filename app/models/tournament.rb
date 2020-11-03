@@ -44,8 +44,10 @@ class Tournament < ApplicationRecord
       # 投稿した最大サイズの値を取得
       sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
       max_size = sort_max_size[user_id]
+
+      image = posts.where(user_id: user_id).first.user.image.url
       
-      { nickname: nickname, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size }
+      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size }
     end
     result
   end
