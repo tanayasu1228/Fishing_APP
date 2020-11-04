@@ -15,7 +15,7 @@
         <div class="author">
           <span>CREATE BY:
             <%= link_to my_show_users_path, class:"asd" do %>
-              <%= image_tag current_user.image.to_s %><%= current_user.nickname %>
+              <%= image_tag @user.image.to_s %><%= @user.nickname %>
             <% end %>  
             <% if user_signed_in? && current_user.id == @user[:id] %>
               <%= link_to '大会編集', edit_tournament_path(@tournament), class:"btn-g" %>
