@@ -14,7 +14,7 @@
       <div class="cup-info">
         <div class="author">
           <span>CREATE BY:
-            <%= link_to my_show_users_path, class:"make_name" do %>
+            <%= link_to user_path(@user.id), class:"make_name" do %>
               <%= image_tag @user.image.to_s %><%= @user.nickname %>
             <% end %>  
             <% if user_signed_in? && current_user.id == @user[:id] %>
