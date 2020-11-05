@@ -2,101 +2,19 @@
   a{
     text-decoration: none;
   }
-  // 投稿ボタン の固定
-  .post-btn{
-    position: relative;
-    z-index: 99;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-    transition: 1s;
-    opacity: 0.7;
-    img{
-      font-size: 30px;
-      color: #FFF;
-      margin: 8px 8px;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      box-shadow: 0 0 2px #3498DB;
-      border: solid 5px #3498DB;
-    }
-    .post-text {
-      position: absolute;
-      top: 30%;
-      left: 2px;
-      text-align: center;
-      width: 100%;
-      color: #FFF;
-      font-size: 35px;
-      // text-shadow:0 0 5px rgba(0, 235, 204, 0.8);
-      text-shadow:
-      rgba(0, 235, 204, 0.8) 1px 1px 15px, rgba(0, 235, 204, 0.8) -1px 1px 15px,
-      rgba(0, 235, 204, 0.8) 1px -1px 15px, rgba(0, 235, 204, 0.8) -1px -1px 15px;
-    }
-  }
-  .post-btn:hover{
-      opacity: 1;
-    }
-    
   .cup-wrapper {
     background-color: white;
-
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .thumbnail {
+      text-align: center;
+      position: relative;
+      background: #ffffff;
+      overflow: visible;
       img {
         height: auto;
         width: 100%;
         border-radius: 2px;
       }
-    }
-    .entered {
-      margin-left: 60px;
-      padding: 8px;
-      border-radius: 3px;
-      color: black;
-      background-color: #97CD76;
-      border: solid 2px rgb(100, 163, 60);
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    .cup-info {
-      .create_user {
-        color: rgba(0, 157, 255, 0.8);
-        img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-        }
-      }
-      .time {
-        .i_gray {
-        color: rgba(36, 36, 36, 0.8);
-        }
-      }
-      .win_lose {
-        .i_yellow {
-          color: rgba(255, 217, 0, 0.8);
-        }
-      }
-      .target {
-        font-size: 20px;
-        .i_blue {
-        color: rgba(0, 157, 255, 0.8);
-        }
-      }
-    }
-  }
-
-
-  @media (min-width: 0px) {
-    .cup-wrapper {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    .thumbnail {
-      position: relative;
-      background: #ffffff;
-      overflow: visible;
       .title {
         position: absolute;
         top: -6px;
@@ -104,7 +22,6 @@
         padding: 5px 10px;
         padding-right: 300px;
         letter-spacing: 0.1px;
-        font-size: 35px;
         font-style: oblique;
         color: #ffffff;
         text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
@@ -123,9 +40,8 @@
       .sub_title {
         width: 100%;
         background-color: #ff0000e8;
-        position: absolute;/*絶対配置*/
+        position: absolute;
         z-index: 10;
-        font-size: 60px;
         font-style: oblique;
         color: #ffffff;
         text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
@@ -140,7 +56,7 @@
         display: flex-end;
         text-align:right;
         span {
-          color: #491f1f;
+          color: rgba(145, 145, 145, 0.9);
           font-size: 20px;
         }
         img {
@@ -149,8 +65,8 @@
           height: 50px;
           border-radius: 50%;
         }
-        .asd {
-          color: #555555;
+        .make_name {
+          color: rgba(145, 145, 145, 0.9);
         }
         .btn-g {
           display: inline-block;
@@ -171,33 +87,95 @@
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
       }
-
-
+      .rule_info {
+        padding: 10px 0px;
+        border-bottom: 1px solid #CCC;
+        .i_gray {
+          margin: 0px 7.5px;
+          color: rgba(36, 36, 36, 0.8);
+        }
+        .i_red {
+          margin: 0px 10px;
+          color: rgb(255, 0, 0);
+        }
+        .i_blue {
+          margin-left: 5px;
+          color: rgba(0, 157, 255, 0.8);
+        }
+        .i_yellow {
+          color: rgba(255, 217, 0, 0.8);
+        }
+        .i_green {
+        color: rgba(0, 110, 64, 0.8);
+        }
+      }
       .entry-info {
         display: flex;
         a{
-          color: #3498DB;
+          color: rgb(2, 104, 172);
+        }
+        .entered {
+          margin-left: 60px;
+          padding: 8px;
+          border-radius: 3px;
+          color: #242424;
+          background-color: #97CD76;
+          border: solid 2px rgb(100, 163, 60);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         .after-entry-dsp {
-          font-size: 30px;
           color: #FFF;
           margin-left: 20px;
           padding: 5px 12px;
           border-radius: 3px;
-          background-color: #ED6C63;
-          border: solid 2px rgb(231, 42, 25);
+          background-color: #3498DB;
+          border: solid 2px rgb(2, 104, 172);
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        // 投稿ボタン の固定
+        .post-btn {
+          position: relative;
+          z-index: 99;
+          position: fixed;
+          right: 50px;
+          bottom: 50px;
+          transition: 1s;
+          opacity: 0.7;
+          img{
+            font-size: 30px;
+            color: #FFF;
+            margin: 8px 8px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 2px #3498DB;
+            border: solid 5px #3498DB;
+          }
+          .post-text {
+            position: absolute;
+            top: 30%;
+            left: 2px;
+            text-align: center;
+            width: 100%;
+            color: #FFF;
+            font-size: 35px;
+            text-shadow:
+            rgba(0, 235, 204, 0.8) 1px 1px 15px, rgba(0, 235, 204, 0.8) -1px 1px 15px,
+            rgba(0, 235, 204, 0.8) 1px -1px 15px, rgba(0, 235, 204, 0.8) -1px -1px 15px;
+          }
+        }
+        .post-btn:hover{
+          opacity: 1;
         }
         .unentry-btn {
           display: flex;
           align-items: center;
-          font-size: 20px;
           color: #ED6C63;
           margin-left: 20px;
         }
         .before-entry-btn {
           display: inline-block;
-          font-size: 30px;
+          font-weight: bold;
           margin-left: 20px;
           padding: 5px 12px;
           border-radius: 3px;
@@ -205,49 +183,8 @@
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
       }
-      h4 {
-          font-size: 25px;
-        }
-        .rule_info {
-          padding: 10px 0px;
-          border-bottom: 1px solid #CCC;
-        }
-      .time {
-        .i_gray {
-          margin: 0px 7.5px;
-          color: rgba(36, 36, 36, 0.8);
-        }
-      }
-      .area {
-        .i_red {
-          margin: 0px 10px;
-          color: rgb(255, 0, 0);
-        }
-      }
-      .target {
-        .i_blue {
-          margin-left: 5px;
-        color: rgba(0, 157, 255, 0.8);
-        }
-      }
-      .win_lose {
-        .i_yellow {
-          color: rgba(255, 217, 0, 0.8);
-        }
-      }
-      .measure {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
-      }
-      .comment {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
-      }
     }
   }
-
   .ranks-wrapper {
     background-color: white;
     height: auto;
@@ -256,10 +193,12 @@
     .rank_item {
       padding: 15px 15px 15px 15px;
     }
+    .rank_item:hover {
+      background-color: rgba(190, 226, 255, 0.2);
+    }
     .item_body {
       display: flex;
     }
-
     .max_img {
       margin-right: 15px;
       object-fit: cover;
@@ -267,24 +206,15 @@
       height: 150px;
       border-radius: 2px;
     }
-    
     .media_body {
       .rank_name {
-        font-size: 30px;
         font-weight: bold;
-        color: rgba(62, 62, 62, 0.9);
-        .user_img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-        }
+        color: #555555;
       }
       ul {
         padding-left: 0px;
         list-style: none;
         li {
-          font-size: 18px;
           color: rgba(145, 145, 145, 0.9);
         }
       }
@@ -299,406 +229,125 @@
       }
     }
   }
-    
+  @media (min-width: 0px) {
+    .thumbnail {
+      .title {
+        font-size: 35px;
+      }
+      .sub_title {
+        font-size: 40px;
+      }
+    } 
+    .entry-info {
+      .entered {
+        font-size: 15px;
+      }
+      .after-entry-dsp {
+        font-size: 15px;
+      }
+      .unentry-btn {
+        font-size: 15px;
+      }
+      .before-entry-btn {
+        font-size: 15px;
+      }
+    }
+    .rule_info h4 {
+      font-size: 15px;
+    }    
+    .media_body {
+      .rank_name {
+        font-size: 20px;
+        .user_img {
+          margin: 4px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+      ul li {
+        font-size: 18px;
+        .fa-chart-bar {
+          display: none;
+        }
+      }
+    }
   }
 
   @media (min-width: 767px) {
-    .cup-wrapper {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .thumbnail {
-      position: relative;
-      background: #ffffff;
-      overflow: visible;
       .title {
-        position: absolute;
-        top: -6px;
-        left: -6px;
-        padding: 5px 10px;
-        padding-right: 300px;
-        letter-spacing: 0.1px;
-        font-size: 50px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
-        background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
-      }
-      .title::before {
-        position: absolute;
-        z-index: 10;
-        top: 100%;
-        left: 0;
-        content: ' ';
-        border: 3px solid transparent;
-        border-top: 3px solid #5E35B1;
-        border-right: 3px solid #5E35B1;
+        font-size: 45px;
       }
       .sub_title {
-        width: 100%;
-        background-color: #ff0000e8;
-        position: absolute;/*絶対配置*/
-        z-index: 10;
-        font-size: 60px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
-        top: 85%;
-        transform: translate(0%,-50%);
+        font-size: 50px;
       }
     } 
-    .cup-info {
-      padding: 0px 10px;
-      margin-bottom: 50px;
-      .author {
-        display: flex-end;
-        text-align:right;
-        span {
-          color: #491f1f;
-          font-size: 20px;
-        }
-        img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-        }
-        .asd {
-          color: #555555;
-        }
-        .btn-g {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #97CD76;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .btn-r {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+    .entry-info {
+      .entered {
+        font-size: 20px;
       }
-
-
-      .entry-info {
-        display: flex;
-        a{
-          color: #3498DB;
-        }
-        .after-entry-dsp {
-          font-size: 30px;
-          color: #FFF;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          border: solid 2px rgb(231, 42, 25);
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .unentry-btn {
-          display: flex;
-          align-items: center;
-          font-size: 20px;
-          color: #ED6C63;
-          margin-left: 20px;
-        }
-        .before-entry-btn {
-          display: inline-block;
-          font-size: 30px;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          border: solid 3px #3498DB;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+      .after-entry-dsp {
+        font-size: 20px;
       }
-      h4 {
-          font-size: 25px;
-        }
-        .rule_info {
-          padding: 10px 0px;
-          border-bottom: 1px solid #CCC;
-        }
-      .time {
-        .i_gray {
-          margin: 0px 7.5px;
-          color: rgba(36, 36, 36, 0.8);
-        }
+      .unentry-btn {
+        font-size: 15px;
       }
-      .area {
-        .i_red {
-          margin: 0px 10px;
-          color: rgb(255, 0, 0);
-        }
-      }
-      .target {
-        .i_blue {
-          margin-left: 5px;
-        color: rgba(0, 157, 255, 0.8);
-        }
-      }
-      .win_lose {
-        .i_yellow {
-          color: rgba(255, 217, 0, 0.8);
-        }
-      }
-      .measure {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
-      }
-      .comment {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
+      .before-entry-btn {
+        font-size: 20px;
       }
     }
-  }
-
-  .ranks-wrapper {
-    background-color: white;
-    height: auto;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    .rank_item {
-      padding: 15px 15px 15px 15px;
+    .rule_info h4 {
+      font-size: 25px;
     }
-    .item_body {
-      display: flex;
-    }
-
-    .max_img {
-      margin-right: 15px;
-      object-fit: cover;
-      width: 150px;
-      height: 150px;
-      border-radius: 2px;
-    }
-    
     .media_body {
       .rank_name {
-        font-size: 30px;
-        font-weight: bold;
-        color: rgba(62, 62, 62, 0.9);
+        font-size: 20px;
         .user_img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
+          margin: 4px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
         }
       }
       ul {
-        padding-left: 0px;
-        list-style: none;
+        display: flex;
         li {
           font-size: 18px;
-          color: rgba(145, 145, 145, 0.9);
         }
       }
-      .fa-chart-bar {
-        margin-right: 5px;
-      }
-      span {
-        margin-right: 15px;
-      }
-      .text_info {
-        color: #3498db;
-      }
     }
-  }
-    
   }
 
   @media (min-width: 992px) {
-    .cup-wrapper {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .thumbnail {
-      position: relative;
-      background: #ffffff;
-      overflow: visible;
       .title {
-        position: absolute;
-        top: -6px;
-        left: -6px;
-        padding: 5px 10px;
-        padding-right: 300px;
-        letter-spacing: 0.1px;
-        font-size: 60px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
-        background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
-      }
-      .title::before {
-        position: absolute;
-        z-index: 10;
-        top: 100%;
-        left: 0;
-        content: ' ';
-        border: 3px solid transparent;
-        border-top: 3px solid #5E35B1;
-        border-right: 3px solid #5E35B1;
+        font-size: 55px;
       }
       .sub_title {
-        width: 100%;
-        background-color: #ff0000e8;
-        position: absolute;/*絶対配置*/
-        z-index: 10;
-        font-size: 80px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
-        top: 85%;
-        transform: translate(0%,-50%);
+        font-size: 60px;
       }
     } 
-    .cup-info {
-      padding: 0px 10px;
-      margin-bottom: 50px;
-      .author {
-        display: flex-end;
-        text-align:right;
-        span {
-          color: #491f1f;
-          font-size: 20px;
-        }
-        img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-        }
-        .asd {
-          color: #555555;
-        }
-        .btn-g {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #97CD76;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .btn-r {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+    .entry-info {
+      .entered {
+        font-size: 25px;
       }
-
-
-      .entry-info {
-        display: flex;
-        a{
-          color: #3498DB;
-        }
-        .after-entry-dsp {
-          font-size: 30px;
-          color: #FFF;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          border: solid 2px rgb(231, 42, 25);
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .unentry-btn {
-          display: flex;
-          align-items: center;
-          font-size: 20px;
-          color: #ED6C63;
-          margin-left: 20px;
-        }
-        .before-entry-btn {
-          display: inline-block;
-          font-size: 30px;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          border: solid 3px #3498DB;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+      .after-entry-dsp {
+        font-size: 25px;
       }
-      h4 {
-          font-size: 35px;
-        }
-        .rule_info {
-          padding: 10px 0px;
-          border-bottom: 1px solid #CCC;
-        }
-      .time {
-        .i_gray {
-          margin: 0px 7.5px;
-          color: rgba(36, 36, 36, 0.8);
-        }
+      .unentry-btn {
+        font-size: 15px;
       }
-      .area {
-        .i_red {
-          margin: 0px 10px;
-          color: rgb(255, 0, 0);
-        }
-      }
-      .target {
-        .i_blue {
-          margin-left: 5px;
-        color: rgba(0, 157, 255, 0.8);
-        }
-      }
-      .win_lose {
-        .i_yellow {
-          color: rgba(255, 217, 0, 0.8);
-        }
-      }
-      .measure {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
-      }
-      .comment {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
+      .before-entry-btn {
+        font-size: 25px;
       }
     }
-  }
-
-  .ranks-wrapper {
-    background-color: white;
-    height: auto;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    .rank_item {
-      padding: 15px 15px 15px 15px;
+    .rule_info h4 {
+      font-size: 30px;
     }
-    .item_body {
-      display: flex;
-    }
-
-    .max_img {
-      margin-right: 15px;
-      object-fit: cover;
-      width: 150px;
-      height: 150px;
-      border-radius: 2px;
-    }
-    
     .media_body {
       .rank_name {
         font-size: 30px;
-        font-weight: bold;
-        color: rgba(62, 62, 62, 0.9);
         .user_img {
           margin: 8px 8px;
           width: 50px;
@@ -707,210 +356,43 @@
         }
       }
       ul {
-        padding-left: 0px;
-        list-style: none;
+        display: flex;
         li {
-          color: rgba(145, 145, 145, 0.9);
+          font-size: 25px;
         }
       }
-      .fa-chart-bar {
-        margin-right: 5px;
-      }
-      span {
-        margin-right: 15px;
-      }
-      .text_info {
-        color: #3498db;
-      }
-    }
-  }
-    
+    }  
   }
 
   @media (min-width: 1200px) {
-    .cup-wrapper {
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .thumbnail {
-      position: relative;
-      background: #ffffff;
-      overflow: visible;
       .title {
-        position: absolute;
-        top: -6px;
-        left: -6px;
-        padding: 5px 10px;
-        padding-right: 300px;
-        letter-spacing: 0.1px;
-        font-size: 70px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
-        background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
-      }
-      .title::before {
-        position: absolute;
-        z-index: 10;
-        top: 100%;
-        left: 0;
-        content: ' ';
-        border: 3px solid transparent;
-        border-top: 3px solid #5E35B1;
-        border-right: 3px solid #5E35B1;
+        font-size: 65px;
       }
       .sub_title {
-        width: 100%;
-        background-color: #ff0000e8;
-        position: absolute;/*絶対配置*/
-        z-index: 10;
-        font-size: 80px;
-        font-style: oblique;
-        color: #ffffff;
-        text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
-        top: 85%;
-        transform: translate(0%,-50%);
+        font-size: 70px;
       }
     } 
-    .cup-info {
-      padding: 0px 10px;
-      margin-bottom: 50px;
-      .author {
-        display: flex-end;
-        text-align:right;
-        span {
-          color: #491f1f;
-          font-size: 20px;
-        }
-        img {
-          margin: 8px 8px;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-        }
-        .asd {
-          color: #555555;
-        }
-        .btn-g {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #97CD76;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .btn-r {
-          display: inline-block;
-          font-size: 16px;
-          color: #FFF;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+    .entry-info {
+      .entered {
+        font-size: 30px;
       }
-
-
-      .entry-info {
-        display: flex;
-        a{
-          color: #3498DB;
-        }
-        .after-entry-dsp {
-          font-size: 30px;
-          color: #FFF;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          background-color: #ED6C63;
-          border: solid 2px rgb(231, 42, 25);
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .unentry-btn {
-          display: flex;
-          align-items: center;
-          font-size: 20px;
-          color: #ED6C63;
-          margin-left: 20px;
-        }
-        .before-entry-btn {
-          display: inline-block;
-          font-size: 30px;
-          margin-left: 20px;
-          padding: 5px 12px;
-          border-radius: 3px;
-          border: solid 3px #3498DB;
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
+      .after-entry-dsp {
+        font-size: 30px;
       }
-      h4 {
-          font-size: 40px;
-        }
-        .rule_info {
-          padding: 10px 0px;
-          border-bottom: 1px solid #CCC;
-        }
-      .time {
-        .i_gray {
-          margin: 0px 7.5px;
-          color: rgba(36, 36, 36, 0.8);
-        }
+      .unentry-btn {
+        font-size: 20px;
       }
-      .area {
-        .i_red {
-          margin: 0px 10px;
-          color: rgb(255, 0, 0);
-        }
-      }
-      .target {
-        .i_blue {
-          margin-left: 5px;
-        color: rgba(0, 157, 255, 0.8);
-        }
-      }
-      .win_lose {
-        .i_yellow {
-          color: rgba(255, 217, 0, 0.8);
-        }
-      }
-      .measure {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
-      }
-      .comment {
-        .i_green {
-        color: rgba(0, 110, 64, 0.8);
-        }
+      .before-entry-btn {
+        font-size: 30px;
       }
     }
-  }
-
-  .ranks-wrapper {
-    background-color: white;
-    height: auto;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    .rank_item {
-      padding: 15px 15px 15px 15px;
-    }
-    .item_body {
-      display: flex;
-    }
-
-    .max_img {
-      margin-right: 15px;
-      object-fit: cover;
-      width: 150px;
-      height: 150px;
-      border-radius: 2px;
-    }
-    
+    .rule_info h4 {
+      font-size: 35px;
+    }    
     .media_body {
       .rank_name {
-        font-size: 30px;
-        font-weight: bold;
-        color: rgba(62, 62, 62, 0.9);
+        font-size: 35px;
         .user_img {
           margin: 8px 8px;
           width: 50px;
@@ -918,34 +400,9 @@
           border-radius: 50%;
         }
       }
-      ul {
-        padding-left: 0px;
-        list-style: none;
-        li {
-          color: rgba(145, 145, 145, 0.9);
-        }
-      }
-      .fa-chart-bar {
-        margin-right: 5px;
-      }
-      span {
-        margin-right: 15px;
-      }
-      .text_info {
-        color: #3498db;
+      ul li {
+        font-size: 30px;
       }
     }
-  }
-    
-  }
-  .rank_item:hover {
-    background-color: rgba(190, 226, 255, 0.2);
-  }
-  .entries {
-    font-size: 20px;
-  }
-  .tournaments-contents:hover {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-    transform: translateY(-0.15em);
-  }
+  }   
 }

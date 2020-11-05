@@ -14,7 +14,7 @@
       <div class="cup-info">
         <div class="author">
           <span>CREATE BY:
-            <%= link_to my_show_users_path, class:"asd" do %>
+            <%= link_to my_show_users_path, class:"make_name" do %>
               <%= image_tag @user.image.to_s %><%= @user.nickname %>
             <% end %>  
             <% if user_signed_in? && current_user.id == @user[:id] %>
@@ -24,7 +24,7 @@
           </span>
         </div>
         <div class="entry-info">
-        <b class="entered"><%= "#{@tournament.entries.count}人参加中!!" %></b>
+          <b class="entered"><%= "#{@tournament.entries.count}人参加中!!" %></b>
           <% if user_signed_in? %>
             <% if @tournament.entry_completed_by?(current_user) %> 
               <b class="after-entry-dsp">エントリー中！</b>
@@ -38,9 +38,7 @@
               <%= link_to 'エントリー解除', tournament_entries_path(@tournament.id), method: :delete, data: { confirm: "エントリー解除すると、トーナメントに投稿したデータは削除されます。解除しますか？"}, class:"unentry-btn" %>
 
             <% else %>
-              <div class="before-entry-btn">
-                <%= link_to 'エントリーする', tournament_entries_path(@tournament.id), method: :post %>
-              </div>
+              <%= link_to 'エントリーする', tournament_entries_path(@tournament.id), method: :post, class:"before-entry-btn" %>
             <% end %>
           <% else %>
           <% end %>
@@ -87,7 +85,11 @@
                     <li>
                       <i class="fas fa-chart-bar"></i>
                       <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                    </li>
+                    <li>
                       <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                    </li>
+                    <li>
                       <span>釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
                     </li>
                   </ul>
