@@ -38,7 +38,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     @user = @tournament.user
     @post = Post.new
-    @ranks = @tournament.posts.sort_rank
+    @ranks = @tournament.posts.sort_rank    
   end
 
 

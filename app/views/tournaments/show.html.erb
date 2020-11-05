@@ -1,49 +1,107 @@
 <h1>詳細画面</h1>
-    <%= image_tag @tournament.image.url %>
-    <%# <%= image_tag (@tournament.image.thumb.url) %> %>
-    <h3><%= "開始：#{l @tournament.start_time, format: :long}" %></h3> 
-    <h3><%= "終了：#{l @tournament.end_time, format: :long}" %></h3> 
-    <h3><%= "指定エリア：#{@tournament.fishing_ground}" %></h3> 
-    <h3><%= "スタイル：#{@tournament.fishing_style}" %></h3>
-    <p><%= "対象魚：#{@tournament.fish_name}" %></p>
-    <p><%= "キーパーサイズ：#{@tournament.keeper_size}" %></p>
-    <p><%= "最大匹数：#{@tournament.swap_limit}" %></p>
-    <p><%= "詳細内容：#{@tournament.comment}" %></p>
+<div class="container">
+  <section id="tournament_show">
+    <div class="cup-wrapper">
+      <div class="thumbnail">
+        <%= image_tag @tournament.image.url %>
+        <div class="title">
+          <%= "【 #{@tournament.fishing_style} 】" %>
+        </div>
+        <div class="sub_title" >
+          <body><%= "#{@tournament.fishing_ground} CUP" %></body>
+        </div>
+      </div>
+      <div class="cup-info">
+        <div class="author">
+          <span>CREATE BY:
+            <%= link_to user_path(@user.id), class:"make_name" do %>
+              <%= image_tag @user.image.to_s %><%= @user.nickname %>
+            <% end %>  
+            <% if user_signed_in? && current_user.id == @user[:id] %>
+              <%= link_to '大会編集', edit_tournament_path(@tournament), class:"btn-g" %>
+              <%= link_to '削除', tournament_path(@tournament), method: :delete, class:"btn-r", data: {confirm: "削除しますか？"} %>
+            <% end %>
+          </span>
+        </div>
+        <div class="entry-info">
+          <b class="entered"><%= "#{@tournament.entries.count}人参加中!!" %></b>
+          <% if user_signed_in? %>
+            <% if @tournament.entry_completed_by?(current_user) %> 
+              <b class="after-entry-dsp">エントリー中！</b>
+              <div class="post-btn">
+                <%= link_to new_tournament_post_path(@tournament.id) do %>
+                  <b class="post-text">投稿する</b>
+                  <img class="image" src="<%= asset_path "tournament/post_img.png" %>">
+                <% end %>
+              </div>
 
-    <%= image_tag @user.image.url %>
-    <h1><%= @user.nickname %></h1>
+              <%= link_to 'エントリー解除', tournament_entries_path(@tournament.id), method: :delete, data: { confirm: "エントリー解除すると、トーナメントに投稿したデータは削除されます。解除しますか？"}, class:"unentry-btn" %>
 
-  <% if user_signed_in? && current_user.id == @user[:id] %>
-    <div class="btn_group">
-      <%= link_to '編集', edit_tournament_path(@tournament), class:"btn"  %>
-      <%= link_to '削除', tournament_path(@tournament), method: :delete, class:"btn", data: {confirm: "削除しますか？"}  %>
+            <% else %>
+              <%= link_to 'エントリーする', tournament_entries_path(@tournament.id), method: :post, class:"before-entry-btn" %>
+            <% end %>
+          <% else %>
+          <% end %>
+        </div>
+
+
+        <div class="rule_info">
+          <div class="time">
+            <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間： <%= "#{l @tournament.start_time, format: :long} 〜 #{l @tournament.end_time, format: :long}" %></h4>
+          </div>
+          <div class = "area">
+            <h4><i class="fas i_red fa-map-marker-alt"></i> <%= "#{@tournament.fishing_ground} / #{@tournament.fishing_style}" %></h4> 
+          </div>
+          <div class="target">
+            <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：<%= @tournament.fish_name %></h4>
+          </div>
+          <div class="win_lose">
+            <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= @tournament.main_rule %></h4>
+          </div>
+          <div class="measure">
+            <h4><i class="fas fa-ruler i_green"></i><%= " 計測方法：#{@tournament.measure_rule}で計測" %></h4>
+          </div>
+        </div>
+        <h4>備考</h4>
+        <br>
+          <%= @tournament.comment %>
+      </div>
     </div>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <% if @tournament.entry_completed_by?(current_user) %> 
-        <p>エントリー中</p>
-        <p><%=link_to '投稿', new_tournament_post_path(@tournament.id)%></p>
-        <p><%=link_to 'エントリーを解除', tournament_entries_path(@tournament.id), method: :delete, data: { confirm: "エントリー解除すると、トーナメントに投稿したデータは削除されます。解除しますか？"}%></p>
-    <% else %>
-        <p><%=link_to 'エントリーする', tournament_entries_path(@tournament.id), method: :post %></p>
-    <% end %>
-  <% else %>
-  <% end %>
-
-  <p></p>
+    
 
 
-  <p>ランキング</p>
-  <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
-    <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
-      <p><%= "第#{i}位　#{key[:nickname]}" %></p>
-      <p><%= "合計サイズ：　#{key[:sum_size]}cm" %></p>
-      <p><%= "最大サイズ：　#{key[:max_size]}cm" %></p>
-      <%= image_tag "#{key[:max_size_image]}" %>
-    <% end %>
-  <% end %>
+    <h1>ランキング</h1>
+    <div class="ranks-wrapper">
+      <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
+        <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
+            <div class="rank_item">
+              <div class="item_body">
+                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                <div class="media_body">
+                  <div class="rank_name">
+                    <%= "#{i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                  </div>
+                  <ul class="media_list">
+                    <li>
+                      <i class="fas fa-chart-bar"></i>
+                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
   
   <%= link_to  "もっとみる", ranks_tournament_post_path(tournament_id: @tournament) %>
 
-  <p><%= "#{@tournament.entries.count}人参加中" %></p>
+  
+  </section>
+  </div>

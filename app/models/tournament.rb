@@ -45,7 +45,13 @@ class Tournament < ApplicationRecord
       sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
       max_size = sort_max_size[user_id]
       
-      { nickname: nickname, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size }
+      # 投稿ユーザーimageを取得
+      image = posts.where(user_id: user_id).first.user.image.url
+
+      # 投稿数を取得
+      count = posts.where(user_id: user_id).count(:post_id)
+
+      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
     end
     result
   end
