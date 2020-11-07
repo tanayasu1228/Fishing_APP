@@ -11,17 +11,15 @@
       background: #ffffff;
       overflow: visible;
       img {
-        height: auto;
         width: 100%;
+        object-fit: contain;
         border-radius: 2px;
+        background-color: rgba(0, 110, 64, 0.8);
       }
       .title {
         position: absolute;
         top: -6px;
         left: -6px;
-        padding: 5px 10px;
-        padding-right: 300px;
-        letter-spacing: 0.1px;
         font-style: oblique;
         color: #ffffff;
         text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
@@ -231,11 +229,16 @@
   }
   @media (min-width: 0px) {
     .thumbnail {
+      img {
+        height: 330px;
+      }
       .title {
-        font-size: 35px;
+        padding: 5px 10px;
+        padding-right: 90px;
+        font-size: 25px;
       }
       .sub_title {
-        font-size: 40px;
+        font-size: 30px;
       }
     } 
     .entry-info {
@@ -276,11 +279,16 @@
 
   @media (min-width: 767px) {
     .thumbnail {
+      img {
+        height: 450px;
+      }
       .title {
-        font-size: 45px;
+        padding: 5px 10px;
+        padding-right: 110px;
+        font-size: 30px;
       }
       .sub_title {
-        font-size: 50px;
+        font-size: 35px;
       }
     } 
     .entry-info {
@@ -321,11 +329,16 @@
 
   @media (min-width: 992px) {
     .thumbnail {
+      img {
+        height: 600px;
+      }
       .title {
-        font-size: 55px;
+        padding: 5px 10px;
+        padding-right: 150px;
+        font-size: 40px;
       }
       .sub_title {
-        font-size: 60px;
+        font-size: 45px;
       }
     } 
     .entry-info {
@@ -366,11 +379,16 @@
 
   @media (min-width: 1200px) {
     .thumbnail {
+      img {
+        height: 700px;
+      }
       .title {
-        font-size: 65px;
+        padding: 5px 10px;
+        padding-right: 170px;
+        font-size: 50px;
       }
       .sub_title {
-        font-size: 70px;
+        font-size: 55px;
       }
     } 
     .entry-info {
