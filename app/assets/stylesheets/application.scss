@@ -1,10 +1,11 @@
 @import "bootstrap/scss/bootstrap";
 @import "top";
-@import "tournaments";
+@import "tournament_new";
+@import "tournament_index";
 @import "tournament_show";
 @import "tournament_confirm";
 @import "myshow";
-@import "edit";
+@import "user_edit";
 @import "users";
 
 body{

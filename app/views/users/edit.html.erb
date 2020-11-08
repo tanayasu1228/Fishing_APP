@@ -1,5 +1,5 @@
 <%= javascript_pack_tag 'user/image', 'data-turbolinks-track': 'reload' %>
-<section id="users">
+<section id="user_edit">
   <h3>プロフィール編集</h3>
   <div class="container">
     <%= form_with model: @user, local: true do |f| %> 
@@ -9,11 +9,7 @@
         <label>
           <div class="thumbnail">
             <%= f.file_field :image, id: "user_img" %>
-            <% if @user.image.present? %>
-              <%= image_tag @user.image.url, id: "img_prev" %>
-            <% else %>
-              <%= image_tag "/default_img.jpg", id: "img_prev" %>
-            <% end %>
+            <%= image_tag asset_path("#{@user.image}"), id: "img_prev" %>
             <div class="mask">
               <div class="caption">変更はここをクリック</div>
             </div>

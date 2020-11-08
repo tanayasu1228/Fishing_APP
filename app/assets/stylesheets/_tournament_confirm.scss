@@ -1,48 +1,212 @@
 #tournament_confirm {
-	#img_prev {
-		border: 2px solid #dddddd;  /* 枠線 */
-		border-radius: 2px;        /* 角丸 */
-		display: inline-block;     /* インラインブロック化 */
-	}
-	#img_prev img {
-		vertical-align: bottom;    /* 画像の垂直方向の配置 */
-	}
-	#img_prev:hover {
-		opacity: 0.5;              /* 半透明 */
-		border: 2px solid red;     /* 枠線(赤色) */
-		cursor: pointer;           /* マウス形状(ポインタ) */
-	}
-	#tournament_img {
-		display: none;  /* 本来のファイル選択フォームは非表示に */
+
+	h1 {
+		margin-top: 15px;
+		text-align: center;
 	}
 
 
 	.thumbnail {
 		text-align: center;
-		width: 100%;
-		height: auto;
-		overflow:	hidden;
-		position:	relative;
-		cursor: pointer;
+		position: relative;
+		background: #ffffff;
+		overflow: visible;
+		img {
+			width: 100%;
+			object-fit: contain;
+			border-radius: 2px;
+			background-color: rgba(0, 110, 64, 0.8);
+		}
+		.title {
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			font-style: oblique;
+			color: #ffffff;
+			text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
+			background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
+		}
+		.title::before {
+			position: absolute;
+			z-index: 10;
+			top: 100%;
+			left: 0;
+			content: ' ';
+			border: 3px solid transparent;
+			border-top: 3px solid #5E35B1;
+			border-right: 3px solid #5E35B1;
+		}
+		.sub_title {
+			width: 100%;
+			background-color: #ff0000e8;
+			position: absolute;
+			z-index: 10;
+			font-style: oblique;
+			color: #ffffff;
+			text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
+			top: 85%;
+			transform: translate(0%,-50%);
+		}
 	}
-	.thumbnail .caption {
-		font-size: 130%;
-		text-align: center;
-		color: #fff;
+	.confirm_text {
+		background: #ffffff;
+		 h4 {
+			font-weight: bold;
+		}
 	}
-	.thumbnail .mask {
-		width: 100%;
-		height: 100%;
-		position:	absolute;
-		top: 0;
-		left:	0;
-		opacity: 0;	/* マスクを表示しない */
-		background-color: rgba(0,0,0,0.4);
-		-webkit-transition:	all 0.6s ease;
-		transition:	all 0.6s ease;
+		
+
+
+	@media (min-width: 0px) {
+		b {
+			font-size: 15px;
+		}
+		.thumbnail {
+      img {
+        height: 330px;
+      }
+      .title {
+        padding: 5px 10px;
+        padding-right: 90px;
+        font-size: 25px;
+      }
+      .sub_title {
+        font-size: 30px;
+      }
+		}
+		.confirm_text {
+			.time {
+				display: flex;
+				.form-inline {
+					font-size: 15px;
+				}
+			}
+			h2 {
+				font-size: 15px;
+			}
+			b {
+				font-size: 15px;
+			}
+			.comment h4{
+				font-size: 15px;
+				font-weight: bold;
+			}
+		}
+
 	}
-	.thumbnail:hover .mask {
-		opacity: 1;	/* マスクを表示する */
-		padding-top: 150px;	/* ホバーで下にずらす */
+
+
+	@media (min-width: 767px) {
+		b {
+			font-size: 15px;
+		}
+		.thumbnail {
+      img {
+        height: 450px;
+      }
+      .title {
+        padding: 5px 10px;
+        padding-right: 110px;
+        font-size: 30px;
+      }
+      .sub_title {
+        font-size: 35px;
+      }
+		}
+		.confirm_text {
+			.time {
+				display: flex;
+				.form-inline {
+					font-size: 15px;
+				}
+			}
+			h2 {
+				font-size: 15px;
+			}
+			b {
+				font-size: 15px;
+			}
+			.comment h4{
+				font-size: 15px;
+				font-weight: bold;
+			}
+		} 
+
+	}
+
+
+	@media (min-width: 992px) {
+		b {
+			font-size: 20px;
+		}
+		.thumbnail {
+      img {
+        height: 600px;
+      }
+      .title {
+        padding: 5px 10px;
+        padding-right: 150px;
+        font-size: 40px;
+      }
+      .sub_title {
+        font-size: 45px;
+      }
+		} 
+		.confirm_text {
+			.time {
+				display: flex;
+				.form-inline {
+					font-size: 20px;
+				}
+			}
+			h2 {
+				font-size: 20px;
+			}
+			b {
+				font-size: 20px;
+			}
+			.comment h4{
+				font-size: 20px;
+				font-weight: bold;
+			}
+		}
+
+	}
+
+	@media (min-width: 1200px) {
+		b {
+			font-size: 25px;
+		}
+		.thumbnail {
+      img {
+        height: 700px;
+      }
+      .title {
+        padding: 5px 10px;
+        padding-right: 170px;
+        font-size: 50px;
+      }
+      .sub_title {
+        font-size: 55px;
+      }
+		}
+		.confirm_text {
+			.time {
+				display: flex;
+				.form-inline {
+					font-size: 25px;
+				}
+			}
+			h2 {
+				font-size: 25px;
+			}
+			b {
+				font-size: 25px;
+			}
+			.comment h4{
+				font-size: 25px;
+				font-weight: bold;
+			}
+		}
 	}
 }

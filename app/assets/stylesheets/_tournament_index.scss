@@ -1,4 +1,4 @@
-#tournaments {
+#tournament_index {
   // 必須項目
   .label{
     background-color: red;
@@ -40,6 +40,7 @@
   .thumbnail img {
     height: 250px;
     width: 100%;
+    object-fit: contain;
     border-bottom: 2px solid #CCC;
   }
 
