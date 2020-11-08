@@ -230,22 +230,22 @@
           </div>
         <br>
         </div>
-        <div class="form-group">
+        <%# <div class="form-group"> %>
           <label>サブ ルール</label>
-          <% @sub_list.each do |list| %>
-            <div class="check-box">
-              <label>
-                <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, list %>ウェーディング有り</p>
-              </label>
+          <%# <% @sub_list.each do |list| %> %>
+            <%# <div class="check-box"> %>
+              <%# <label> %>
+                <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, list %>ウェーディング有り</p> %>
+              <%# </label> %>
               <%# <label> %>
                 <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "船全般OK" %>船全般OK</p> %>
               <%# </label> %>
               <%# <label> %>
                 <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "膝までの入水OK" %>膝までの入水OK</p> %>
               <%# </label> %>
-            </div>
-          <% end %>
-        </div>
+            <%# </div> %>
+          <%# <% end %> %>
+        <%# </div> %>
         <br>
         <div class="form-group">
           <label>計測方法 <span class="label label-danger">必須</span></label>
@@ -269,7 +269,7 @@
         </div>
         <br>
         <div class="col text-center">
-          <%= f.submit "入力確認", class: "btn btn-primary btn-lg w-25" %>
+          <%= f.submit "入力確認", class: "btn btn-outline-primary btn-lg w-25" %>
         </div>
     <% end %>
   </section>

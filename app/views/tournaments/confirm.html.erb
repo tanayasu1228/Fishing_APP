@@ -1,45 +1,66 @@
 <div class="container">
   <section id="tournament_confirm">
-    <label>【 サムネイル 】</label>
-    <br>
-    <%= image_tag @tournament.image.url %>
-
-    <br>
-    <label>【 開催期間 】</label>
-      <div class="form-inline">
-        <%= l @tournament.start_time, format: :long %><span> 〜 </span><%= l @tournament.end_time, format: :long %>
+    <h1>入力項目の確認</h1>
+    <b>【 サムネイル 】</b>
+    <div class="thumbnail">
+      <%= image_tag @tournament.image.url %>
+      <div class="title">
+        <%= "【 #{@tournament.fishing_style} 】" %>
       </div>
-    <br>
-    <label>【 エリア 】　</label><%= @tournament.fishing_ground %>
-    <br>
-    <label>【 対象魚 】　</label><%= @tournament.fish_name %>
-    <br>
-    <label>【 釣りスタイル 】　</label><%= @tournament.fishing_style %>
-    <br>
-    <label>【 メイン ルール 】　</label><%= @tournament.main_rule %>
-    <br>
-    <label>【 釣り方の指定条件 】　</label><%= @tournament.designation %>
-    <br>
-    <% if @tournament.swap_limit == "9999" && @tournament.judging_limit == "9999" %>
-      <label>【 本数制限 】　</label>入れ替え上限なしで全ての釣果の合計値で勝負します！
+      <div class="sub_title" >
+        <body><%= "#{@tournament.fishing_ground} CUP" %></body>
+      </div>
+    </div>
 
-    <% elsif @tournament.swap_limit == "9999" && @tournament.judging_limit < "9999" %>
-      <label>【 本数制限 】　</label>入れ替え上限なしで全ての釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！
 
-    <% elsif @tournament.swap_limit < "9999" && @tournament.judging_limit == "9999" %>
-      <label>【 本数制限 】　</label>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！
 
-    <% else %>
-      <label>【 本数制限 】　</label><%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！
-      <% end  %>
-    <br>
-    <label>【 サブ ルール 】　</label>
-    <%= @tournament.sub_rule %>
-    <br>
-    <label>【 キーパーサイズ 】　</label><%= @tournament.keeper_size %>cm
-    <br>
-    <label>【 備考 】　</label><%= @tournament.comment %>
-    <br>
+
+    <div class="confirm_text">
+      <div class="time">
+        <b>【 開催期間 】</b>
+        <div class="form-inline"><%= l @tournament.start_time, format: :long %><span> 〜 </span><%= l @tournament.end_time, format: :long %></div>
+      </div>
+      <div class="area">
+        <h2><b>【 エリア 】　</b><%= @tournament.fishing_ground %></h2>
+      </div>
+      <div class="target">
+        <h2><b>【 対象魚 】　</b><%= @tournament.fish_name %></h2>
+      </div>
+      <div class="fishing_style">
+        <h2><b>【 釣りスタイル 】　</b><%= @tournament.fishing_style %></h2>
+      </div>
+      <div class="main_rule">
+      <h2><b>【 メイン ルール 】　</b><%= @tournament.main_rule %></h2>
+      </div>
+      <div class="designation">
+        <h2><b>【 釣り方の指定条件 】　</b><%= @tournament.designation %></h2>
+      </div>
+      <div class="limit">
+        <% if @tournament.swap_limit == "9999" && @tournament.judging_limit == "9999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit == "9999" && @tournament.judging_limit < "9999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit < "9999" && @tournament.judging_limit == "9999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</h2>
+
+        <% else %>
+          <h2><b>【 本数制限 】　</b><%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！
+        <% end  %></h2>
+      </div>
+      <div class="sub_rule">
+        <h2><b>【 サブ ルール 】　</b>
+      <%= @tournament.sub_rule %></h2>
+      </div>
+      <div class="keeper_size">
+        <h2><b>【 キーパーサイズ 】　</b><%= @tournament.keeper_size %>cm</h2>
+      </div>
+      <div class="comment">
+        <h4>【 備考 】　</h4>
+        <h2><%= simple_format(@tournament.comment) %></h2>
+      </div>
+    </div>
 
     <%= form_with model: @tournament, url: new_tournaments_path, html: { method: :post }, local: true do |f| %>
       <%= f.hidden_field :start_time %>
@@ -57,7 +78,9 @@
       <%= f.hidden_field :comment %>
       <%= f.hidden_field :image %>
       <%= f.hidden_field :image_cache %>
-      <%= f.submit "入力画面へ戻る"%>
+      <div class="col text-center">
+        <%= f.submit "戻る", class: "btn btn-outline-primary btn-lg w-25"%>
+      </div>
     <% end %>
 
     <%= form_with model: @tournament, url: tournaments_path, html: { method: :post }, local: true do |f| %>
@@ -76,7 +99,9 @@
       <%= f.hidden_field :comment %>
       <%= f.hidden_field :image %>
       <%= f.hidden_field :image_cache %>
-      <%= f.submit "作成する"%>
+      <div class="col text-center">
+        <%= f.submit "作成", class: "btn btn-outline-primary btn-lg w-25" %>
+      </div>
     <% end %>
   </section>
 </div>
