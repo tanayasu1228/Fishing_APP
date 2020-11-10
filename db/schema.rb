@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_063012) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "tournament_id"
+    t.text "comment"
     t.string "address"
     t.float "latitude"
     t.float "longitude"

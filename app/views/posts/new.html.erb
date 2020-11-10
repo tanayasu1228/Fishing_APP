@@ -1,70 +1,100 @@
-<section id="posts">
-  <h1>WEBトーナメント投稿画面</h1><br><br>
+<%= javascript_pack_tag 'post/image_prev', 'data-turbolinks-track': 'reload' %>
+<div class="container">
+  <section id="post_new">
+    <h1>WEBトーナメント投稿画面</h1>
 
-  <%= form_with model: @post, url: confirm_tournament_posts_path, html: { method: :post }, local: true do |f| %> 
-    <%= f.file_field :fish_image %>
-    <%= f.hidden_field :fish_image_cache %>
-    <%# <h4>住所入力　仮</h4> %>
-    <%# <%= f.text_field :address, placeholder: "住所" %> %>
-    <div class="form-group">
-      <label>魚種 <span class="label label-danger">必須</span></label>
-      <%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ラージマウスバス",  required: true %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>サイズ <span class="label label-danger">必須</span></label>
-      <%= f.text_field :catch_size, class: "form-control", placeholder: "(例) 40.5    ※ 数値のみ入力してください。 単位(cm)", required: true %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>重量 <span class="label label-danger">任意</span></label>
-      <%= f.text_field :weight, class: "form-control", placeholder: "(例) 1050     ※ 数値のみ入力してください。 単位(g)" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣れたルアー(仕掛け) <span class="label label-danger">任意</span></label>
-      <%= f.text_field :lure, class: "form-control", placeholder: "(例) 7g ヘビーダウンショット ・ワーム名 " %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣れたロッド <span class="label label-danger">任意</span></label>
-      <%= f.text_field :rod, class: "form-control", placeholder: "(例) MLロッド     ※ロッド名 又は 番手" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣れたリール <span class="label label-danger">任意</span></label>
-      <%= f.text_field :reel, class: "form-control", placeholder: "(例) " %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣れたライン <span class="label label-danger">任意</span></label>
-      <%= f.text_field :line, class: "form-control", placeholder: "(例) フロロ8ポンド" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="form-group">
-      <label>釣れたレンジ</label> <span class="label label-danger">任意</span></label>
-      <%= f.text_field :range, class: "form-control", placeholder: "(例) 2mのボトム" %>
-      <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-      <div class="help-block with-errors"></div>
-    </div>
-    <br>
-    <div class="col text-center">
-    <%= f.submit "入力確認", class: "btn btn-primary btn-lg w-25" %>
-    </div>
+    <%= form_with model: @post, url: confirm_tournament_posts_path, html: { method: :post }, local: true do |f| %>
+    <div class="must_text">
+      <h3><i class="far fa-image"></i> 釣果写真 <span class="label label-danger">必須</span></h3> 
+          <div class="form-group  row justify-content-center">
+            <br>
+            <label>
+              <div class="thumbnail">
+                <%= f.file_field :fish_image, id: "post_img" %>
+                <%= f.hidden_field :fish_image_cache %>
+                <% if @post.fish_image.present? %>
+                  <%= image_tag asset_path("#{@post.fish_image}"), id: "img_prev" %>
+                <% else %>
+                  <%= image_tag "no_image.png", id: "img_prev" %>
+                <% end %>
+                <div class="mask">
+                  <div class="caption">釣果写真はここをクリック</div>
+                </div>
+              </div>
+            </label>
+          </div>
+        <div class="form-group">
+          <label><i class="fas fa-fish fa-flip-horizontal"></i> 魚種名 <span class="label label-danger">必須</span></label>
+          <label style="width:60%"><%= f.text_field :fish_name, class: "form-control", placeholder: "(例) ラージマウスバス",  required: true %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-ruler"></i> サイズ <span class="label label-danger">必須</span></label>
+          <label style="width:60%"><%= f.text_field :catch_size, class: "form-control", placeholder: "(例) 40.5    ※ 数値のみ入力してください。 単位(cm)", required: true %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-weight"></i> 重量</label>
+          <label style="width:60%"><%= f.text_field :weight, class: "form-control", placeholder: "(例) 1050     ※ 数値のみ入力してください。 単位(g)" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      
+      <div class="report_text">
+        <h3><i class="fas fa-pen"></i> 釣果メモ</h3>
+        <div class="form-group">
+          <label>釣れたルアー(仕掛け)</label>
+          <label style="width:60%"><%= f.text_field :lure, class: "form-control", placeholder: "(例) ノーシンカーワーム" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label>釣れたロッド</label>
+          <label style="width:60%"><%= f.text_field :rod, class: "form-control", placeholder: "(例) MLロッド     ※ロッド名 又は 番手" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label>釣れたリール</label>
+          <label style="width:60%"><%= f.text_field :reel, class: "form-control", placeholder: "(例) ベイトフィネス" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label>釣れたライン</label>
+          <label style="width:60%"><%= f.text_field :line, class: "form-control", placeholder: "(例) フロロ8lb" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+        
+        <div class="form-group">
+          <label>釣れたレンジ</label>
+          <label style="width:60%"><%= f.text_field :range, class: "form-control", placeholder: "(例) 50cm程度" %></label>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
 
-  <% end %>
-</section>
+        <label>備考 </label>
+        <div class="form-group row justify-content-center">
+          <label style="width:70%"><%= f.text_area :comment, class: "form-control", placeholder: "※ 釣れた状況やコメントを残せます。
+
+          (例)
+          対岸のオーバーハング狙い！！直接キャストしていた時はバイトしなかったが、
+          上流からドリフト気味にカーブフォールで釣れた。
+          次回のラインは12 lbの方が安心かな。
+          釣れてよかった！", rows: "8" %></>
+          <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+      
+      <div class="col text-center">
+      <%= f.submit "入力確認", class: "btn btn-outline-primary btn-lg w-25" %>
+      </div>
+
+    <% end %>
+  </section>
+</div>
