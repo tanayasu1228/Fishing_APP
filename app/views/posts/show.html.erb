@@ -4,18 +4,37 @@
     <div>
       <%= @user.nickname %>
       <%= image_tag "#{@post.fish_image}", class:"card-img-top" %>
-        <% if user_signed_in? %>
-          <% if @post.niced_by?(current_user) %> <!-- ログインしているユーザーがいいねしたかどうかで分岐 -->
-            <%=link_to tournament_post_nices_path(post_id: @post.id), method: :delete, remote: true do %>
-              <p class="after_nice"><i class="far fa-thumbs-up faa-bounce animated i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
-              <% end %>
-          <% else %>
-            <%=link_to tournament_post_nices_path(post_id: @post.id), method: :post, remote: true do %>
-              <p class="before_nice"><i class="far fa-thumbs-up i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
+      <% if user_signed_in? %>
+        <% if @post.niced_by?(current_user) %> <!-- ログインしているユーザーがいいねしたかどうかで分岐 -->
+          <%=link_to tournament_post_nices_path(post_id: @post.id), method: :delete, remote: true do %>
+            <p class="after_nice"><i class="far fa-thumbs-up faa-bounce animated i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
             <% end %>
-          <% end %>
         <% else %>
+          <%=link_to tournament_post_nices_path(post_id: @post.id), method: :post, remote: true do %>
+            <p class="before_nice"><i class="far fa-thumbs-up i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
+          <% end %>
         <% end %>
+      <% else %>
+      <% end %>
+
+      <% @post.comments.each do |comment| %>
+        <div>
+        <%= link_to comment.user.nickname, [comment.user] %>
+        </div>
+        <div>
+          <%= comment.body %>
+        </div>
+      <% end%>
+
+      <%= form_with model: [@tournament, @post, @comment], local: true do |f| %>
+        <p>
+          <%= f.text_field :body %>
+        </p>
+          <%= f.submit %>
+      <% end %>
+
+
+
       <h3><%= "魚種：#{@post.fish_name}" %></h3> 
       <h3><%= "サイズ：#{@post.catch_size}" %></h3> 
       <h3><%= "重量：#{@post.weight}" %></h3>

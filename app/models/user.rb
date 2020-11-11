@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :entry_tournaments, through: :entries, source: :tournament, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :nices
+  has_many :comments
 end
