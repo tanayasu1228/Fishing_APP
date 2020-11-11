@@ -2,6 +2,24 @@
 <div>
   <%= @user.nickname %>
   <%= image_tag "#{@post.fish_image}", class:"card-img-top" %>
+
+
+
+
+    <% if user_signed_in? %>
+      <% if @post.niced_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+          <p><span>いいね解除: </span><%=link_to @post.nices.count, tournament_post_nices_path(post_id: @post.id), method: :delete %></p>
+      <% else %>
+          <p><span>いいね登録: </span><%=link_to @post.nices.count, tournament_post_nices_path(post_id: @post.id), method: :post %></p>
+      <% end %>
+    <% else %>
+      <p><span>いいね数: </span><%= post.nices.count %></p>
+    <% end %>
+
+
+
+
+
   <h3><%= "魚種：#{@post.fish_name}" %></h3> 
   <h3><%= "サイズ：#{@post.catch_size}" %></h3> 
   <h3><%= "重量：#{@post.weight}" %></h3>
