@@ -24,13 +24,16 @@
         <div>
           <%= comment.body %>
         </div>
+        <div>
+        <%= link_to "削除", [@tournament, @post, comment], method: :delete %>
+        </div>
       <% end%>
 
       <%= form_with model: [@tournament, @post, @comment], local: true do |f| %>
         <p>
           <%= f.text_field :body %>
         </p>
-          <%= f.submit %>
+          <%= f.submit 'コメント投稿' %>
       <% end %>
 
 

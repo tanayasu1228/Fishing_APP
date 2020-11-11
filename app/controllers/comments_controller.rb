@@ -10,7 +10,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    redirect_to tournament_post_path(tournament_id: params[:tournament_id], id: params[:post_id])
   end
 
   private
