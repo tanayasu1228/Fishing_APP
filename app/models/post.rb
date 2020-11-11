@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   belongs_to :tournament, optional: true
+  has_many :nices
   # belongs_to :entry
 
   # geocoder.rbにて緯度、経度のカラムに対して自動的に値を入れる為に必要
@@ -15,6 +16,11 @@ class Post < ApplicationRecord
   
   # PV数の計測
   is_impressionable
+
+  # いいねしたか判定
+  def niced_by?(user)
+    nices.where(user_id: user.id).exists?
+  end
 
   # ランキング機能のデータを取得
   def self.sort_rank

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
     resource :entries
     resources :posts do
+      resource :nices, only: [:create, :destroy]
       collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm
