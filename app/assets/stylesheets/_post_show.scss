@@ -1,0 +1,33 @@
+#post_show {
+  a{
+    text-decoration: none;
+  }
+  .before_nice {
+    color: #555555;
+    .i_nice {
+      color: #919191E6;
+    }
+  }
+  .after_nice {
+    color: #555555;
+    // font-weight: bold;
+    .i_nice {
+      color: rgb(0, 190, 48);
+    }
+  }
+  @media (min-width: 0px) {
+    
+  }
+
+  @media (min-width: 767px) {
+    
+  }
+
+  @media (min-width: 992px) {
+    
+  }
+
+  @media (min-width: 1200px) {
+    
+  }
+}
