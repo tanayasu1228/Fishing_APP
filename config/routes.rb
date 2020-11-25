@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resource :entries
     resources :posts do
       resource :nices, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
       collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm
