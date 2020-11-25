@@ -4,18 +4,11 @@
     <div>
       <%= @user.nickname %>
       <%= image_tag "#{@post.fish_image}", class:"card-img-top" %>
-      <% if user_signed_in? %>
-        <% if @post.niced_by?(current_user) %> <!-- ログインしているユーザーがいいねしたかどうかで分岐 -->
-          <%=link_to tournament_post_nices_path(post_id: @post.id), method: :delete, remote: true do %>
-            <p class="after_nice"><i class="far fa-thumbs-up faa-bounce animated i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
-            <% end %>
-        <% else %>
-          <%=link_to tournament_post_nices_path(post_id: @post.id), method: :post, remote: true do %>
-            <p class="before_nice"><i class="far fa-thumbs-up i_nice"></i><span>いいね! </span><%= @post.nices.count %></p>
-          <% end %>
-        <% end %>
-      <% else %>
-      <% end %>
+      <div class="btn-bar">
+        <div class="btn-box">
+          <%= render partial: 'nice_ajax', locals: { post: @post } %>
+        </div>
+      </div>
 
   <div>
     <h4>コメント</h4>
