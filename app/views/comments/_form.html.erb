@@ -1,0 +1,8 @@
+<%= form_with model: [@tournament, post, comment], remote: true do |f| %>
+  <div>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit "コメントをする" %>
+  </div>
+<% end %>

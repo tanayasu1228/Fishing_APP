@@ -48,6 +48,7 @@ class PostsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @comments = @post.comments
     @user = @post.user
     img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
 

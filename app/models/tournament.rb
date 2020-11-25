@@ -19,6 +19,7 @@ class Tournament < ApplicationRecord
   belongs_to :user
   has_many :entries, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def check_confirming
     errors.delete(:confirming)
