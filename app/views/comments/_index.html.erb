@@ -6,7 +6,7 @@
     <p><%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %></p>
     <p>コメント：<%= comment.body %></p>
     <% if comment.user == current_user %>
-      <p><%= link_to "削除", [@tournament, @post, comment], method: :delete, remote: true %></p>
+      <p><%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), method: :delete, remote: true %></p> 
     <% end %>
   <% end %>
 <% end %>
