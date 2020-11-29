@@ -1,8 +1,15 @@
 #tournament_new {
+  .bg_coler {
+    padding: 0 10px;
+    border: solid 2px #dddddd;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    // border-bottom: 2px solid #CCC;
+  }
   // 必須項目
   .label{
     background-color: red;
-    padding: .2em .6em .3em;
+    padding: 1px 5px 1px 5px;
     font-size: 50%;
     font-weight: bold;
     line-height: 1;
@@ -12,7 +19,7 @@
   // 追加項目
   .add_label{
     background-color: rgb(0, 167, 75);
-    padding: .2em .6em .3em;
+    padding: 1px 5px 1px 5px;
     font-size: 50%;
     font-weight: bold;
     line-height: 1;
@@ -24,6 +31,7 @@
     color:rgb(100, 100, 100);
   }
   .thumbnail {
+    box-shadow : 0px 0px 10px 1px #555555 ;
     margin: auto;
 		width: 100%;
 		height: auto;
@@ -35,7 +43,7 @@
     }
     img {
       height: 400px;
-      width: 100%;
+      // width: 100%;
       object-fit: contain;
     }
     #img_prev {

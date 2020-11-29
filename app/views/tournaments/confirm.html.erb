@@ -29,21 +29,32 @@
       <h2><b>【 メイン ルール 】　</b><%= @tournament.main_rule %></h2>
       </div>
       <div class="designation">
-        <h2><b>【 釣り方の指定条件 】　</b><%= @tournament.designation %></h2>
+        <h2><b>【 釣り方の縛り 】　</b><%= @tournament.designation %></h2>
       </div>
       <div class="limit">
-        <% if @tournament.swap_limit == "9999" && @tournament.judging_limit == "9999" %>
-          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果の合計値で勝負します！</h2>
+        <% if @tournament.main_rule = "とにかく数を釣れ" %>
+          <h2><b>【 本数制限 】　</b>全釣果の匹数で勝負します！</h2>
 
-        <% elsif @tournament.swap_limit == "9999" && @tournament.judging_limit < "9999" %>
-          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
+          <h2><b>【 本数制限 】　</b>全釣果から一番長い個体で勝負します！</h2>
 
-        <% elsif @tournament.swap_limit < "9999" && @tournament.judging_limit == "9999" %>
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit.blank? %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹の中から一番長い個体で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit == "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なし！全釣果の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit < "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なし！全釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit == "99999" %>
           <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</h2>
 
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+
         <% else %>
-          <h2><b>【 本数制限 】　</b><%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！
-        <% end  %></h2>
+        <% end  %>
       </div>
       <div class="sub_rule">
         <h2><b>【 サブ ルール 】　</b>

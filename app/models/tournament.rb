@@ -6,8 +6,8 @@ class Tournament < ApplicationRecord
   validates :main_rule, presence: true
   validates :fish_name, presence: true
   validates :keeper_size, presence: true
-  validates :swap_limit, presence: true
-  validates :judging_limit, presence: true
+  # validates :swap_limit, presence: true
+  # validates :judging_limit, presence: true
   validates :measure_rule, presence: true
 
   mount_uploader :image, PictureUploader

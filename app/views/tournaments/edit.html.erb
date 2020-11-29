@@ -36,7 +36,7 @@
       </div>
       <br>
       <div class="form-group">
-        <label>エリアの指定 <span class="label label-danger">必須</span></label>
+        <label>フィールド <span class="label label-danger">必須</span></label>
         <label style="width:50%"><%= f.text_field :fishing_ground, class: "form-control", placeholder: "(例) 琵琶湖　南湖全域", required: true %></label>
         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         <div class="help-block with-errors"></div>
@@ -189,7 +189,7 @@
         </div>
         <br>
         <div class="form-group" >
-          <label>釣り方の指定条件</label>
+          <label>釣り方の縛り</label>
           <label style="width:50%"><%= f.text_field :designation, class: "form-control", placeholder: "(例) ビッグベイト縛り　　(例) エサ釣りのみ　等" %></label>
         </div>
         <br>
