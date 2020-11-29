@@ -5,7 +5,7 @@
     <br>
     <%= form_with model: @tournament, url: confirm_tournaments_path, html: { method: :post }, local: true do |f| %>
       <div class="bg_coler">
-        <label><i class="far fa-image"></i> サムネイル選択</label> 
+        <b><i class="far fa-image"></i> サムネイル選択</b> 
         <p class="explain">※ 選択が無い場合は下のデフォルト画像を表示します</p>
         <div class="form-group  row justify-content-center">
           <br>
@@ -25,7 +25,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <label><i class="far fa-calendar-alt"></i> 開催期間 <span class="label label-danger">必須</span></label>
+          <b><i class="far fa-calendar-alt"></i> 開催期間 <span class="label label-danger">必須</span></b>
         <%# </div> %>
         <div class="form-inline">
           <%# <div class="form-group"> %>
@@ -44,7 +44,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <label><i class="fas fa-map-marker-alt"></i> フィールド <span class="label label-danger">必須</span></label>
+          <b><i class="fas fa-map-marker-alt"></i> フィールド <span class="label label-danger">必須</span></b>
           <div>
             <label style="width:50%"><%= f.text_field :fishing_ground, class: "form-control", placeholder: "(例) 琵琶湖　南湖全域", required: true %></label>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -54,23 +54,23 @@
       </div>
       <br>
       <div class="bg_coler">
-        <label><i class="far fa-address-book"></i> 釣りスタイル <span class="label label-danger">必須</span></label>
+        <b><i class="far fa-address-book"></i> 釣りスタイル <span class="label label-danger">必須</span></b>
         <br>
         <div class="form-group row justify-content-center">
           <div class="col-sm-10 btn-group" data-toggle="buttons">
             <label class="btn btn-outline-secondary active" style="width:20%">
               <%= f.radio_button :fishing_style, "陸っぱり", {required: true} %> 陸っぱり
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-secondary" style="width:18%">
               <%= f.radio_button :fishing_style, "磯釣り", {required: true} %> 磯釣り
             </label>
             <label class="btn btn-outline-secondary" style="width:25%">
-              <%= f.radio_button :fishing_style, "フローター", {required: true} %> フローター
+              <%= f.radio_button :fishing_style, "2馬力以下", {required: true} %> 2馬力以下
             </label>
-            <label class="btn btn-outline-secondary" style="width:25%">
+            <label class="btn btn-outline-secondary" style="width:18%">
               <%= f.radio_button :fishing_style, "ボート", {required: true} %> ボート
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-secondary" style="width:30%">
               <%= f.radio_button :fishing_style, "全アングラー", {required: true} %> 全アングラー</label>
           </div>
         </div>
@@ -78,7 +78,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <label><i class="fas fa-fish fa-flip-horizontal"></i> 対象魚 <span class="label label-danger">必須</span></label>
+          <b><i class="fas fa-fish fa-flip-horizontal"></i> 対象魚 <span class="label label-danger">必須</span></b>
           <p class="explain">※ <font color="red">選択欄に無い</font>場合や<font color="red">複数指定したい</font>場合は 「その他の魚種」 から入力できます</p>
           <ul class="image-list">
             <li>
@@ -205,7 +205,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group" >
-          <label><i class="fas fa-lock"></i> 釣り方の縛り</label>
+          <b><i class="fas fa-lock"></i> 釣り方の縛り</b>
           <div>
             <label style="width:50%"><%= f.text_field :designation, class: "form-control", placeholder: "(例) ビッグベイト縛り" %></label>
             </div>
@@ -213,7 +213,7 @@
       </div>
       <br>
       <div class="bg_coler">
-        <label><i class="fas fa-book-open"></i> メイン ルール <span class="label label-danger">必須</span></label>
+        <b><i class="fas fa-book-open"></i> メイン ルール <span class="label label-danger">必須</span></b>
         <div class="form-group row justify-content-center">
           <br>
           <div class="col-sm-10 btn-group" data-toggle="buttons">
@@ -232,12 +232,12 @@
         <div class="form-group" >
           <div class="limit_select"> 
             <div id="judging_limit">
-              <label>合計値の対象枠 <span class="add_label label-success">追加項目</span></label>
+              <b>合計値の対象枠 <span class="add_label label-success">追加項目</span></b>
               <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control' } %></label>
               <br>
             </div>
             <div id="swap_limit">
-              <label>入れ替え対象枠 <span class="add_label label-success">追加項目</span></label>
+              <b>入れ替え対象枠 <span class="add_label label-success">追加項目</span></b>
               <label style="width:50%"><%= f.select :swap_limit, {"5匹まで": 5, "10匹まで": 10, "15匹まで": 15, "20匹まで": 20, "25匹まで": 25, "30匹まで": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
               <br>
             </div>
@@ -251,7 +251,7 @@
       <br>
       <div class="bg_coler">
         <%# <div class="form-group"> %>
-          <label><i class="fas fa-plus"></i> サブ ルール</label>
+          <b><i class="fas fa-plus"></i> サブ ルール</b>
           <%# <% @sub_list.each do |list| %> %>
             <%# <div class="check-box"> %>
               <%# <label> %>
@@ -270,7 +270,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <label><i class="fas fa-ruler"></i> 計測方法 <span class="label label-danger">必須</span></label>
+          <b><i class="fas fa-ruler"></i> 計測方法 <span class="label label-danger">必須</span></b>
           <div>
             <label style="width:50%"><%= f.select :measure_rule, {"口閉じ尾開き": "口閉じ尾開き", "上顎尾開き": "上顎尾開き", "胴寸（イカ釣りに適用）": "胴寸"}, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
           </div>
@@ -279,7 +279,7 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <label><i class="fab fa-font-awesome-flag"></i> キーパー <span class="label label-danger">必須</span></label>
+          <b><i class="fab fa-font-awesome-flag"></i> キーパー <span class="label label-danger">必須</span></b>
           <div>
             <label style="width:50%"><%= f.select :keeper_size, {"無し": 0, "10cm以上": 10, "15cm以上": 15, "20cm以上": 20, "25cm以上": 25, "30cm以上": 30, "35cm以上": 35, "40cm以上": 40, "45cm以上": 45, "50cm以上": 50, "55cm以上": 55, "60cm以上": 60, "65cm以上": 65, "70cm以上": 70, "75cm以上": 75, "80cm以上": 80, "85cm以上": 85, "90cm以上": 90, "95cm以上": 95, "100cm以上": 100}, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
           </div>
@@ -287,7 +287,7 @@
       </div>
       <br>
       <div class="bg_coler">
-        <label><i class="fas fa-pen"></i> 備考 </label>
+        <b><i class="fas fa-pen"></i> 備考 </b>
         <div class="form-group row justify-content-center">
           <label style="width:80%"><%= f.text_area :comment, class: "form-control", placeholder: "(例)
           ：【ルアー縛り】です。魚と一緒に釣れたルアーも写真に載せて下さい！
