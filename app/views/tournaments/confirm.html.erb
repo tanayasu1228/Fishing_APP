@@ -20,7 +20,13 @@
         <h2><b>【 エリア 】　</b><%= @tournament.fishing_ground %></h2>
       </div>
       <div class="target">
-        <h2><b>【 対象魚 】　</b><%= @tournament.fish_name %></h2>
+        <% if @tournament.fish_name == "" %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>対象魚名が入力されていません</h2>
+
+        <% else %>
+          <h2><b>【 対象魚 】　</b><%= @tournament.fish_name %></h2>
+        <% end %>
+        
       </div>
       <div class="fishing_style">
         <h2><b>【 釣りスタイル 】　</b><%= @tournament.fishing_style %></h2>
@@ -34,6 +40,18 @@
       <div class="limit">
         <% if @tournament.main_rule == "とにかく数を釣れ" %>
           <h2><b>【 本数制限 】　</b>全釣果の釣った数で勝負します！</h2>
+
+        <% elsif @tournament.main_rule == "デカイもん勝ち" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠が未入力です</h2>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠と合計値の対象枠が未入力です</h2>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠が未入力です</h2>
+          
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>合計値の対象枠が未入力です</h2>
 
         <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
           <h2><b>【 本数制限 】　</b>全釣果から一番長い個体で勝負します！</h2>
@@ -107,7 +125,23 @@
       <%= f.hidden_field :image %>
       <%= f.hidden_field :image_cache %>
       <div class="col text-center">
-        <%= f.submit "作成", class: "btn btn-outline-primary btn-lg w-25" %>
+        <% if  @tournament.main_rule == "デカイもん勝ち" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+          
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.fish_name == "" %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+        <% else %>
+          <%= f.submit "作成", class: "btn btn-outline-primary btn-lg w-25" %>
+        <% end %>
       </div>
     <% end %>
   </section>

@@ -51,6 +51,12 @@
 			font-weight: bold;
 		}
 	}
+	.confirm_text .er-coler {
+		text-align: center;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		background-color: rgba(231, 73, 99, 0.6);
+		color: red;
+	}
 	@media (min-width: 0px) {
 		b {
 			font-size: 15px;

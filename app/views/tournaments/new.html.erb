@@ -228,12 +228,12 @@
           <div class="limit_select"> 
             <div id="judging_limit">
               <b><i class="fas fa-sort-amount-up"></i> 合計値の対象枠 <span class="add_label label-success">追加項目</span></b>
-              <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
+              <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control' } %></label>
               <br>
             </div>
             <div id="swap_limit">
               <b><i class="fas fa-sync-alt"></i> 入れ替え対象枠 <span class="add_label label-success">追加項目</span></b>
-              <label style="width:50%"><%= f.select :swap_limit, {"5匹まで": 5, "10匹まで": 10, "15匹まで": 15, "20匹まで": 20, "25匹まで": 25, "30匹まで": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
+              <label style="width:50%"><%= f.select :swap_limit, {"5匹まで": 5, "10匹まで": 10, "15匹まで": 15, "20匹まで": 20, "25匹まで": 25, "30匹まで": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control' } %></label>
               <br>
             </div>
             <div id="limit_content">
