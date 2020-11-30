@@ -31,7 +31,7 @@
     color:rgb(100, 100, 100);
   }
   .thumbnail {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); ;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     margin: auto;
 		width: 100%;
 		height: auto;
@@ -82,9 +82,10 @@
     padding: 0 10px;
   }
   ul.image-list li {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     display: inline-block;
     margin: 9px 5px;
-    border: solid 3px #dddddd;
+    border: solid 2px #dddddd;
     border-radius: 5px;
     .image-box {
       cursor: pointer;
@@ -95,8 +96,9 @@
     position: relative;
     top: 3px;
   }
-  .image-box:hover {
-    opacity: 0.8;
+  li:hover {
+    opacity: 1;
+    background-color: palegreen;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
     transform: translateY(-0.15em);
   }

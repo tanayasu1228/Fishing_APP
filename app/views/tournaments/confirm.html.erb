@@ -32,8 +32,8 @@
         <h2><b>【 釣り方の縛り 】　</b><%= @tournament.designation %></h2>
       </div>
       <div class="limit">
-        <% if @tournament.main_rule = "とにかく数を釣れ" %>
-          <h2><b>【 本数制限 】　</b>全釣果の匹数で勝負します！</h2>
+        <% if @tournament.main_rule == "とにかく数を釣れ" %>
+          <h2><b>【 本数制限 】　</b>全釣果の釣った数で勝負します！</h2>
 
         <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
           <h2><b>【 本数制限 】　</b>全釣果から一番長い個体で勝負します！</h2>
@@ -74,12 +74,12 @@
       <%= f.hidden_field :end_time %>
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
-      <%= f.hidden_field :main_rule %>
-      <%# <%= f.hidden_field :sub_rule %> %>
+      <%# <%= f.hidden_field :main_rule %> %>
+      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
-      <%= f.hidden_field :swap_limit %>
-      <%= f.hidden_field :judging_limit %>
+      <%# <%= f.hidden_field :swap_limit %> %>
+      <%# <%= f.hidden_field :judging_limit %> %>
       <%= f.hidden_field :measure_rule %>
       <%= f.hidden_field :designation %>
       <%= f.hidden_field :comment %>
@@ -96,7 +96,7 @@
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
       <%= f.hidden_field :main_rule %>
-      <%# <%= f.hidden_field :sub_rule %> %>
+      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
       <%= f.hidden_field :swap_limit %>

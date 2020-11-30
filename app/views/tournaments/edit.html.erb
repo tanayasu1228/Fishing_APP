@@ -46,19 +46,19 @@
         <br>
         <div class="form-group row justify-content-center">
           <div class="col-sm-10 btn-group" data-toggle="buttons">
-            <label class="btn btn-outline-secondary active" style="width:20%">
+            <label class="btn btn-outline-primary active" style="width:20%">
               <%= f.radio_button :fishing_style, "陸っぱり", {required: true} %> 陸っぱり
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-primary" style="width:20%">
               <%= f.radio_button :fishing_style, "磯釣り", {required: true} %> 磯釣り
             </label>
-            <label class="btn btn-outline-secondary" style="width:25%">
+            <label class="btn btn-outline-primary" style="width:25%">
               <%= f.radio_button :fishing_style, "2馬力以下", {required: true} %> 2馬力以下
             </label>
-            <label class="btn btn-outline-secondary" style="width:25%">
+            <label class="btn btn-outline-primary" style="width:25%">
               <%= f.radio_button :fishing_style, "ボート", {required: true} %> ボート
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-primary" style="width:20%">
               <%= f.radio_button :fishing_style, "全アングラー", {required: true} %> 全アングラー</label>
           </div>
         </div>
@@ -197,20 +197,20 @@
         <div class="form-group row justify-content-center">
           <br>
           <div class="col-sm-10 btn-group" data-toggle="buttons">
-            <label class="btn btn-outline-secondary active" style="width:20%">
+            <label class="btn btn-outline-primary active" style="width:20%">
               <%= f.radio_button :main_rule, "デカイもん勝ち", {required: true} %> デカイもん勝ち
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-primary" style="width:20%">
               <%= f.radio_button :main_rule, "合計長さで勝負", {required: true} %> 合計長さで勝負
             </label>
-            <label class="btn btn-outline-secondary" style="width:20%">
+            <label class="btn btn-outline-primary" style="width:20%">
               <%= f.radio_button :main_rule, "とにかく数を釣れ", {required: true} %> とにかく数を釣れ
             </label>
           </div>
         </div>
         <br>
         <div class="form-group" >
-          <div class="limit_select"> 
+          <div class="menu_select"> 
             <div id="judging_limit">
               <label>合計値の対象枠 <span class="add_label label-success">追加項目</span></label>
               <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 9999 }, { include_blank: '選択してください'}, { class: 'form-control' } %></label>
@@ -251,7 +251,7 @@
         </div>
         <br>
         <div class="form-group">
-          <label>キーパー <span class="label label-danger">必須</span></label>
+          <label>キーパーサイズ <span class="label label-danger">必須</span></label>
           <label style="width:50%"><%= f.select :keeper_size, {"無し": 0, "10cm以上": 10, "15cm以上": 15, "20cm以上": 20, "25cm以上": 25, "30cm以上": 30, "35cm以上": 35, "40cm以上": 40, "45cm以上": 45, "50cm以上": 50, "55cm以上": 55, "60cm以上": 60, "65cm以上": 65, "70cm以上": 70, "75cm以上": 75, "80cm以上": 80, "85cm以上": 85, "90cm以上": 90, "95cm以上": 95, "100cm以上": 100}, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
         </div>
         <br>

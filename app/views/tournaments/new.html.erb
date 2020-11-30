@@ -21,14 +21,11 @@
           </label>
         </div>
       </div>
-      <%# <div class="border"></div> %>
       <br>
       <div class="bg_coler">
         <div class="form-group">
           <b><i class="far fa-calendar-alt"></i> 開催期間 <span class="label label-danger">必須</span></b>
-        <%# </div> %>
-        <div class="form-inline">
-          <%# <div class="form-group"> %>
+          <div class="form-inline">
             <label>開始：</label>
             <%= f.datetime_field :start_time, class: "form-control", required: true %>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -37,7 +34,6 @@
             <%= f.datetime_field :end_time, class: "form-control", required: true %>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             <div class="help-block with-errors"></div>
-          <%# </div> %>
           </div>
         </div>
       </div>
@@ -228,16 +224,15 @@
             </label>
           </div>
         </div>
-        <%# <br> %>
         <div class="form-group" >
           <div class="limit_select"> 
             <div id="judging_limit">
-              <b>合計値の対象枠 <span class="add_label label-success">追加項目</span></b>
-              <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control' } %></label>
+              <b><i class="fas fa-sort-amount-up"></i> 合計値の対象枠 <span class="add_label label-success">追加項目</span></b>
+              <label style="width:50%"><%= f.select :judging_limit, {"上位3位の合計値": 3, "上位5位の合計値": 5, "上位10位の合計値": 10, "上位15位の合計値": 15, "上位20位の合計値": 20, "上位25位の合計値": 25, "上位30位の合計値": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
               <br>
             </div>
             <div id="swap_limit">
-              <b>入れ替え対象枠 <span class="add_label label-success">追加項目</span></b>
+              <b><i class="fas fa-sync-alt"></i> 入れ替え対象枠 <span class="add_label label-success">追加項目</span></b>
               <label style="width:50%"><%= f.select :swap_limit, {"5匹まで": 5, "10匹まで": 10, "15匹まで": 15, "20匹まで": 20, "25匹まで": 25, "30匹まで": 30, "上限無し": 99999 }, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>
               <br>
             </div>
@@ -250,22 +245,23 @@
       </div>
       <br>
       <div class="bg_coler">
-        <%# <div class="form-group"> %>
+        <div class="form-group">
           <b><i class="fas fa-plus"></i> サブ ルール</b>
+
           <%# <% @sub_list.each do |list| %> %>
-            <%# <div class="check-box"> %>
+            <div class="check-box">
               <%# <label> %>
-                <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, list %>ウェーディング有り</p> %>
+                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "ウェーディング有り" %>ウェーディング有り
               <%# </label> %>
               <%# <label> %>
-                <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "船全般OK" %>船全般OK</p> %>
-              <%# </label> %>
+                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "船全般OK" %>船全般OK
+              </label>
               <%# <label> %>
-                <%# <p><%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "膝までの入水OK" %>膝までの入水OK</p> %>
+                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "膝までの入水OK" %>膝までの入水OK
               <%# </label> %>
-            <%# </div> %>
+            </div>
           <%# <% end %> %>
-        <%# </div> %>
+        </div>
       </div>
       <br>
       <div class="bg_coler">
