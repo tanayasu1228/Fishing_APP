@@ -58,8 +58,15 @@ class TournamentsController < ApplicationController
 
   def destroy
     @tournament = Tournament.find(params[:id])
-    @tournament.delete
-    redirect_to tournaments_path, notice: "削除しました"
+    entries = @tournament.entries.count
+    if entries == 0 
+      @tournament.delete
+      redirect_to tournaments_path, notice: "削除しました"
+    else
+      redirect_to tournaments_path, alert: "エントリー中のユーザーがいるため削除できません。"
+    end
+    
+    
   end
 
     private

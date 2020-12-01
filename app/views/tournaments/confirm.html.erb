@@ -20,7 +20,13 @@
         <h2><b>【 エリア 】　</b><%= @tournament.fishing_ground %></h2>
       </div>
       <div class="target">
-        <h2><b>【 対象魚 】　</b><%= @tournament.fish_name %></h2>
+        <% if @tournament.fish_name == "" %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>対象魚名が入力されていません</h2>
+
+        <% else %>
+          <h2><b>【 対象魚 】　</b><%= @tournament.fish_name %></h2>
+        <% end %>
+        
       </div>
       <div class="fishing_style">
         <h2><b>【 釣りスタイル 】　</b><%= @tournament.fishing_style %></h2>
@@ -29,21 +35,44 @@
       <h2><b>【 メイン ルール 】　</b><%= @tournament.main_rule %></h2>
       </div>
       <div class="designation">
-        <h2><b>【 釣り方の指定条件 】　</b><%= @tournament.designation %></h2>
+        <h2><b>【 釣り方の縛り 】　</b><%= @tournament.designation %></h2>
       </div>
       <div class="limit">
-        <% if @tournament.swap_limit == "9999" && @tournament.judging_limit == "9999" %>
-          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果の合計値で勝負します！</h2>
+        <% if @tournament.main_rule == "とにかく数を釣れ" %>
+          <h2><b>【 本数制限 】　</b>全釣果の釣った数で勝負します！</h2>
 
-        <% elsif @tournament.swap_limit == "9999" && @tournament.judging_limit < "9999" %>
-          <h2><b>【 本数制限 】　</b>入れ替え上限なしで全ての釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+        <% elsif @tournament.main_rule == "デカイもん勝ち" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠が未入力です</h2>
 
-        <% elsif @tournament.swap_limit < "9999" && @tournament.judging_limit == "9999" %>
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠と合計値の対象枠が未入力です</h2>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>入れ替え対象枠が未入力です</h2>
+          
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.judging_limit.blank? %>
+          <h2 class="er-coler"><b> -- ERROR -- 　</b>合計値の対象枠が未入力です</h2>
+
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
+          <h2><b>【 本数制限 】　</b>全釣果から一番長い個体で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit.blank? %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹の中から一番長い個体で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit == "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なし！全釣果の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit < "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限なし！全釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit == "99999" %>
           <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</h2>
 
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
+          <h2><b>【 本数制限 】　</b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</h2>
+
         <% else %>
-          <h2><b>【 本数制限 】　</b><%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！
-        <% end  %></h2>
+        <% end  %>
       </div>
       <div class="sub_rule">
         <h2><b>【 サブ ルール 】　</b>
@@ -63,12 +92,12 @@
       <%= f.hidden_field :end_time %>
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
-      <%= f.hidden_field :main_rule %>
-      <%# <%= f.hidden_field :sub_rule %> %>
+      <%# <%= f.hidden_field :main_rule %> %>
+      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
-      <%= f.hidden_field :swap_limit %>
-      <%= f.hidden_field :judging_limit %>
+      <%# <%= f.hidden_field :swap_limit %> %>
+      <%# <%= f.hidden_field :judging_limit %> %>
       <%= f.hidden_field :measure_rule %>
       <%= f.hidden_field :designation %>
       <%= f.hidden_field :comment %>
@@ -85,7 +114,7 @@
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
       <%= f.hidden_field :main_rule %>
-      <%# <%= f.hidden_field :sub_rule %> %>
+      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
       <%= f.hidden_field :swap_limit %>
@@ -96,7 +125,23 @@
       <%= f.hidden_field :image %>
       <%= f.hidden_field :image_cache %>
       <div class="col text-center">
-        <%= f.submit "作成", class: "btn btn-outline-primary btn-lg w-25" %>
+        <% if  @tournament.main_rule == "デカイもん勝ち" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.swap_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+          
+        <% elsif @tournament.main_rule == "合計長さで勝負" && @tournament.judging_limit.blank? %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+
+        <% elsif @tournament.fish_name == "" %>
+          <%= f.submit "作成できません", class: "btn btn-outline-primary btn-lg w-25", disabled: "ture" %>
+        <% else %>
+          <%= f.submit "作成", class: "btn btn-outline-primary btn-lg w-25" %>
+        <% end %>
       </div>
     <% end %>
   </section>
