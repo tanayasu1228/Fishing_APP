@@ -23,7 +23,8 @@
     <ul class="navbar-nav">
         <li class="nav-item">
           <%= link_to my_show_users_path, class: "myicon" do %>
-            <%= image_tag current_user.image.to_s %> <%= current_user.nickname %>さんのページ
+            <%# <%= image_tag current_user.image.to_s %>
+            <%= image_tag current_user.image.url %><%= current_user.nickname %>さんのページ
           <% end %>
         </li>
 
