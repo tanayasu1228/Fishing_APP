@@ -51,24 +51,54 @@
       <br>
       <div class="bg_coler">
         <b><i class="far fa-address-book"></i> 釣りスタイル <span class="label label-danger">必須</span></b>
-        <br>
-        <div class="form-group row justify-content-center">
-          <div class="col-sm-10 btn-group" data-toggle="buttons">
-            <label class="btn btn-outline-secondary active" style="width:20%">
-              <%= f.radio_button :fishing_style, "陸っぱり", {required: true} %> 陸っぱり
-            </label>
-            <label class="btn btn-outline-secondary" style="width:18%">
-              <%= f.radio_button :fishing_style, "磯釣り", {required: true} %> 磯釣り
-            </label>
-            <label class="btn btn-outline-secondary" style="width:25%">
-              <%= f.radio_button :fishing_style, "2馬力以下", {required: true} %> 2馬力以下
-            </label>
-            <label class="btn btn-outline-secondary" style="width:18%">
-              <%= f.radio_button :fishing_style, "ボート", {required: true} %> ボート
-            </label>
-            <label class="btn btn-outline-secondary" style="width:30%">
-              <%= f.radio_button :fishing_style, "全アングラー", {required: true} %> 全アングラー</label>
-          </div>
+        <div class="form-group">
+          <ul class="image-list">
+            <li>
+              <label>
+                <div class="style-image">
+                  <img class="image" src="<%= asset_path "t1.png" %>">
+                  <%= f.radio_button :fishing_style, "陸っぱり", {class: "radio-box", required: true}%>
+                  <p>陸っぱり</p>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label>
+                <div class="style-image">
+                  <img class="image" src="<%= asset_path "t2.png" %>">
+                  <%= f.radio_button :fishing_style, "磯釣り", {class: "radio-box", required: true}%>
+                  <p>磯釣り</p>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label>
+                <div class="style-image">
+                  <img class="image" src="<%= asset_path "t3.png" %>">
+                  <%= f.radio_button :fishing_style, "2馬力以下", {class: "radio-box", required: true}%>
+                  <p>2馬力以下</p>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label>
+                <div class="style-image">
+                  <img class="image" src="<%= asset_path "t4.png" %>">
+                  <%= f.radio_button :fishing_style, "ボート", {class: "radio-box", required: true}%>
+                  <p>ボート</p>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label>
+                <div class="style-image">
+                  <img class="image" src="<%= asset_path "t5.png" %>">
+                  <%= f.radio_button :fishing_style, "全アングラー", {class: "radio-box", required: true}%>
+                  <p>全アングラー</p>
+                </div>
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
       <br>
