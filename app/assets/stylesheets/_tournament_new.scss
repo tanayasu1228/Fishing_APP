@@ -70,7 +70,22 @@
 	.thumbnail:hover .mask {
 		opacity: 1;	/* マスクを表示する */
 		padding-top: 180px;	/* ホバーで下にずらす */
-	}
+  }
+
+  .search-form {
+    position: relative;
+    .search-text {
+      margin-left: auto;
+      width: 230px;
+      padding-left: 30px;
+    }
+    .search-icon {
+      position: absolute;
+      right: 202px;
+      top: 9px;
+    }
+  }
+
   .tournaments-wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +102,10 @@
     margin: 9px 5px;
     border: solid 2px #dddddd;
     border-radius: 5px;
+    .style-image {
+      cursor: pointer;
+      position: relative;
+    }
     .image-box {
       cursor: pointer;
       position: relative;
@@ -103,12 +122,29 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
     transform: translateY(-0.15em);
   }
+  .style-image img.image {
+    border-radius: 2px 2px 0 0;
+    width: 100%;
+    height: 100%;
+  }
   .image-box img.image {
     border-radius: 2px 2px 0 0;
     width: 100%;
     height: 100%;
   }
   // イメージ内のラジオボタンの設定
+  .style-image .radio-box {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  .style-image .radio-box:checked {
+    opacity: 1;
+  }
+
   .image-box .radio-box {
     position: absolute;
     top: 12px;
@@ -159,6 +195,10 @@
         height: 300px;
       }
     }
+    .style-image {
+      width: 230px;
+      height: 80px;
+    }
     .image-box {
       width: 200px;
       height: 160px;
@@ -181,6 +221,10 @@
       .mask {
         height: 300px;
       }
+    }
+    .style-image {
+      width: 280px;
+      height: 100px;
     }
     .image-box {
       width: 250px;
@@ -206,6 +250,10 @@
         height: 400px;
       }
     }
+    .style-image {
+      width: 160px;
+      height: 60px;
+    }
     .image-box {
       width: 250px;
       height: 200px;
@@ -229,6 +277,10 @@
       .mask {
         height: 400px;
       }
+    }
+    .style-image {
+      width: 190px;
+      height: 70px;
     }
     .image-box {
       width: 250px;

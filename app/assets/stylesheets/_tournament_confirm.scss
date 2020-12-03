@@ -8,30 +8,21 @@
 		position: relative;
 		background: #ffffff;
 		overflow: visible;
-		img {
+		.thumb img {
 			width: 100%;
-			object-fit: contain;
+			object-fit: cover;
 			border-radius: 2px;
-			background-color: rgba(0, 110, 64, 0.8);
+			background-color: #D5EEFF;
 		}
 		.title {
+			text-align: center;
 			position: absolute;
-			top: -6px;
-			left: -6px;
+			top: 20px;
+			width: 100%;
 			font-style: oblique;
 			color: #ffffff;
 			text-shadow:0 0 10px rgba(255, 255, 255, 0.8);
-			background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
-		}
-		.title::before {
-			position: absolute;
-			z-index: 10;
-			top: 100%;
-			left: 0;
-			content: ' ';
-			border: 3px solid transparent;
-			border-top: 3px solid #5E35B1;
-			border-right: 3px solid #5E35B1;
+			// background: linear-gradient(-45deg,transparent,transparent 25%,#9575CD 0%,#9575CD);
 		}
 		.sub_title {
 			width: 100%;
@@ -43,6 +34,174 @@
 			text-shadow:0 0 10px rgba(255, 238, 1, 0.8);
 			top: 85%;
 			transform: translate(0%,-50%);
+		}
+
+		.t1-img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40%;
+			height: 120px;
+			background-image: url("t1.png");
+			background-size: cover;
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-top: solid 6px #5989cf;
+    	box-shadow: 7px 7px 20px rgba(255, 255, 255, 0.5);
+
+		}
+		.t1-img::before{
+			content: ' ';
+			background-color: rgba(0,0,0,.3);
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.t2-img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40%;
+			height: 120px;
+			background-image: url("t2.png");
+			background-size: cover;
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-top: solid 6px #5989cf;
+    	box-shadow: 7px 7px 20px rgba(255, 255, 255, 0.5);
+		}
+		.t2-img::before{
+			content: ' ';
+			background-color: rgba(0,0,0,.3);
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.t3-img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40%;
+			height: 120px;
+			background-image: url("t3.png");
+			background-size: cover;
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-top: solid 6px #5989cf;
+    	box-shadow: 7px 7px 20px rgba(255, 255, 255, 0.5);
+		}
+		.t3-img::before{
+			content: ' ';
+			background-color: rgba(0,0,0,.3);
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.t4-img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40%;
+			height: 120px;
+			background-image: url("t4.png");
+			background-size: cover;
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-top: solid 6px #5989cf;
+    	box-shadow: 7px 7px 20px rgba(255, 255, 255, 0.5);
+		}
+		.t4-img::before{
+			content: ' ';
+			background-color: rgba(0,0,0,.3);
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.t5-img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40%;
+			height: 120px;
+			background-image: url("t5.png");
+			background-size: cover;
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-top: solid 6px #5989cf;
+    	box-shadow: 7px 7px 20px rgba(255, 255, 255, 0.5);
+		}
+		.t5-img::before{
+			content: ' ';
+			background-color: rgba(0,0,0,.3);
+			border-top-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		
+		.t2 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+			width: 300px;
+			height: auto;
+			opacity: 0.9;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		}
+		.t3 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+			width: 300px;
+			height: auto;
+			opacity: 0.9;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		}
+		.t4 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+			width: 300px;
+			height: auto;
+			opacity: 0.9;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		}
+		.t5 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+			width: 300px;
+			height: auto;
+			opacity: 0.9;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 		}
 	}
 	.confirm_text {
@@ -66,8 +225,8 @@
         height: 330px;
       }
       .title {
-        padding: 5px 10px;
-        padding-right: 90px;
+        // padding: 5px 10px;
+        // padding-right: 90px;
         font-size: 25px;
       }
       .sub_title {
@@ -87,9 +246,14 @@
 			b {
 				font-size: 15px;
 			}
-			.comment h4{
-				font-size: 15px;
-				font-weight: bold;
+			.comment {
+				h4{
+					font-size: 15px;
+					font-weight: bold;
+				}
+				h2{
+					margin-left: 15px;
+				}
 			}
 		}
 	}
@@ -102,8 +266,8 @@
         height: 450px;
       }
       .title {
-        padding: 5px 10px;
-        padding-right: 110px;
+        // padding: 5px 10px;
+        // padding-right: 110px;
         font-size: 30px;
       }
       .sub_title {
@@ -123,12 +287,16 @@
 			b {
 				font-size: 15px;
 			}
-			.comment h4{
-				font-size: 15px;
-				font-weight: bold;
-			}
-		} 
-
+			.comment {
+				h4{
+					font-size: 15px;
+					font-weight: bold;
+				}
+				h2{
+					margin-left: 15px;
+				}
+			} 
+		}
 	}
 	@media (min-width: 992px) {
 		b {
@@ -139,8 +307,8 @@
         height: 600px;
       }
       .title {
-        padding: 5px 10px;
-        padding-right: 150px;
+        // padding: 5px 10px;
+        // padding-right: 150px;
         font-size: 40px;
       }
       .sub_title {
@@ -160,9 +328,14 @@
 			b {
 				font-size: 20px;
 			}
-			.comment h4{
-				font-size: 20px;
-				font-weight: bold;
+			.comment {
+				h4{
+					font-size: 20px;
+					font-weight: bold;
+				}
+				h2{
+					margin-left: 20px;
+				}
 			}
 		}
 
@@ -176,8 +349,8 @@
         height: 700px;
       }
       .title {
-        padding: 5px 10px;
-        padding-right: 170px;
+        // padding: 5px 10px;
+        // padding-right: 170px;
         font-size: 50px;
       }
       .sub_title {
@@ -197,9 +370,14 @@
 			b {
 				font-size: 25px;
 			}
-			.comment h4{
-				font-size: 25px;
-				font-weight: bold;
+			.comment {
+				h4{
+					font-size: 25px;
+					font-weight: bold;
+				}
+				h2{
+					margin-left: 20px;
+				}
 			}
 		}
 	}

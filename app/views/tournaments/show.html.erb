@@ -62,9 +62,8 @@
             <h4><i class="fas fa-ruler i_green"></i><%= " 計測方法：#{@tournament.measure_rule}で計測" %></h4>
           </div>
         </div>
-        <h4>備考</h4>
-        <br>
-          <%= @tournament.comment %>
+        <h4><i class="fas fa-pen"></i> 備考</h4>
+          <%= simple_format(@tournament.comment) %>
       </div>
     </div>
     
