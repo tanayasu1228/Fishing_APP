@@ -70,7 +70,22 @@
 	.thumbnail:hover .mask {
 		opacity: 1;	/* マスクを表示する */
 		padding-top: 180px;	/* ホバーで下にずらす */
-	}
+  }
+
+  .search-form {
+    position: relative;
+    .search-text {
+      margin-left: auto;
+      width: 230px;
+      padding-left: 30px;
+    }
+    .search-icon {
+      position: absolute;
+      right: 202px;
+      top: 9px;
+    }
+  }
+
   .tournaments-wrapper{
     display: flex;
     flex-wrap: wrap;
