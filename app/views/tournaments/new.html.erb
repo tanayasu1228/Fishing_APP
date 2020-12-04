@@ -279,26 +279,6 @@
       <br>
       <div class="bg_coler">
         <div class="form-group">
-          <b><i class="fas fa-plus"></i> サブ ルール</b>
-
-          <%# <% @sub_list.each do |list| %> %>
-            <div class="check-box">
-              <%# <label> %>
-                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "ウェーディング有り" %>ウェーディング有り
-              <%# </label> %>
-              <%# <label> %>
-                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "船全般OK" %>船全般OK
-              </label>
-              <%# <label> %>
-                <%= f.check_box :sub_rule, { multiple: true, include_hidden: false }, "膝までの入水OK" %>膝までの入水OK
-              <%# </label> %>
-            </div>
-          <%# <% end %> %>
-        </div>
-      </div>
-      <br>
-      <div class="bg_coler">
-        <div class="form-group">
           <b><i class="fas fa-ruler"></i> 計測方法 <span class="label label-danger">必須</span></b>
           <div>
             <label style="width:50%"><%= f.select :measure_rule, {"口閉じ尾開き": "口閉じ尾開き", "上顎尾開き": "上顎尾開き", "胴寸（イカ釣りに適用）": "胴寸"}, { include_blank: '選択してください'}, { class: 'form-control', required: true } %></label>

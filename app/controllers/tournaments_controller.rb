@@ -1,21 +1,17 @@
 class TournamentsController < ApplicationController
   before_action :tournament_params, only: [:confirm]
 
-  SUB_RULE = ["ウェーディング有り", "膝までの入水OK", "船全般OK"]
-
   def index
     @tournaments = Tournament.all
   end
 
   def new
     @tournament = Tournament.new
-    @sub_list = SUB_RULE
   end
 
   def confirm
     @tournament = Tournament.new(tournament_params)
     return if @tournament.valid?
-    @sub_list = SUB_RULE
   end
 
   def back
@@ -72,6 +68,6 @@ class TournamentsController < ApplicationController
     private
 
   def tournament_params
-    params.require(:tournament).permit(:start_time, :end_time, :fishing_ground, :fishing_style, :main_rule, :fish_name, :keeper_size, :swap_limit, :judging_limit, :measure_rule, :comment, :designation, :image, :image_cache, :sub_rule)
+    params.require(:tournament).permit(:start_time, :end_time, :fishing_ground, :fishing_style, :main_rule, :fish_name, :keeper_size, :swap_limit, :judging_limit, :measure_rule, :comment, :designation, :image, :image_cache)
   end
 end

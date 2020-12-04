@@ -4,7 +4,6 @@
     border: solid 2px #dddddd;
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
-    // border-bottom: 2px solid #CCC;
   }
   // 必須項目
   .label{
@@ -39,16 +38,16 @@
 		position:	relative;
     cursor: pointer;
     #tournament_img {
-      display: none;  /* 本来のファイル選択フォームは非表示に */
+      display: none;
     }
     img {
       // height: 400px;
       // width: 100%;
-      object-fit: contain;
+      // object-fit: contain;
     }
     #img_prev {
-      border: 2px solid #dddddd;  /* 枠線 */
-      display: inline-block;     /* インラインブロック化 */
+      border: 2px solid #dddddd;
+      display: inline-block;
     }
     .caption {
       font-size: 130%;
@@ -57,19 +56,18 @@
     }
     .mask {
       width: 100%;
-      // height: 400px;
       position:	absolute;
       top: 0;
       left:	0;
-      opacity: 0;	/* マスクを表示しない */
+      opacity: 0;
       background-color: rgba(0,0,0,0.4);
       -webkit-transition:	all 0.6s ease;
       transition:	all 0.6s ease;
     }
 	}
 	.thumbnail:hover .mask {
-		opacity: 1;	/* マスクを表示する */
-		padding-top: 180px;	/* ホバーで下にずらす */
+		opacity: 1;
+		padding-top: 180px;
   }
 
   .search-form {

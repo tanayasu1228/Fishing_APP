@@ -2,15 +2,49 @@
 <div class="container">
   <section id="tournament_show">
     <div class="cup-wrapper">
+
+
+    
       <div class="thumbnail">
-        <%= image_tag @tournament.image.url %>
-        <div class="title">
-          <%= "【 #{@tournament.fishing_style} 】" %>
-        </div>
-        <div class="sub_title" >
-          <body><%= "#{@tournament.fishing_ground} CUP" %></body>
-        </div>
+        <div class="thumb"><%= image_tag @tournament.image.url %></div>
+        <% if @tournament.fishing_style == "陸っぱり" %>
+          <div class="t1-img">
+            <div class="title">
+              <%= "【 #{@tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif @tournament.fishing_style == "磯釣り" %>
+          <div class="t2-img">
+            <div class="title">
+              <%= "【 #{@tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif @tournament.fishing_style == "2馬力以下" %>
+          <div class="t3-img">
+            <div class="title">
+              <%= "【 #{@tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif @tournament.fishing_style == "ボート" %>
+          <div class="t4-img">
+            <div class="title">
+              <%= "【 #{@tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif @tournament.fishing_style == "全アングラー" %>
+          <div class="t5-img">
+            <div class="title">
+              <%= "【 #{@tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% else %>
+        <% end  %>
+        <div class="sub_title" ><%= "#{@tournament.fishing_ground} CUP" %></div>
       </div>
+
+
+
+
       <div class="cup-info">
         <div class="author">
           <span>CREATE BY:
