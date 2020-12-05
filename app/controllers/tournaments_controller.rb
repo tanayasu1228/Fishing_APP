@@ -34,7 +34,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     @user = @tournament.user
     @post = Post.new
-    @ranks = @tournament.posts.sort_rank    
+    @ranks = @tournament.posts.sort_rank
   end
 
 
@@ -59,7 +59,7 @@ class TournamentsController < ApplicationController
       @tournament.delete
       redirect_to tournaments_path, notice: "削除しました"
     else
-      redirect_to tournaments_path, alert: "エントリー中のユーザーがいるため削除できません。"
+      redirect_to tournament_path, alert: "エントリー中のユーザーがいるため削除できません。"
     end
     
     
