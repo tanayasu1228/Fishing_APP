@@ -2,22 +2,55 @@
   <label>
     <div class="tournaments-contents">
       <div class="thumbnail">
-        <%= image_tag tournament.image.url %>
-          <p class="title"><%= "【#{tournament.fishing_ground}】" %></p>
-          <p class="sub_title"><%= "#{tournament.fishing_style} 大会" %></p>
+        <div class="thumb"><%= image_tag tournament.image.url %></div>
+        <% if tournament.fishing_style == "陸っぱり" %>
+          <div class="t1-img">
+            <div class="title">
+              <%= "【 #{tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif tournament.fishing_style == "磯釣り" %>
+          <div class="t2-img">
+            <div class="title">
+              <%= "【 #{tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif tournament.fishing_style == "2馬力以下" %>
+          <div class="t3-img">
+            <div class="title">
+              <%= "【 #{tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif tournament.fishing_style == "ボート" %>
+          <div class="t4-img">
+            <div class="title">
+              <%= "【 #{tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% elsif tournament.fishing_style == "全アングラー" %>
+          <div class="t5-img">
+            <div class="title">
+              <%= "【 #{tournament.fishing_style} 】" %>
+            </div>
+          </div>
+        <% else %>
+        <% end  %>
+        <div class="sub_title" ><%= "#{tournament.fishing_ground} CUP" %></div>
       </div>
-      <div class="time">
-        <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間：</h4>
-        <h4>  <%= "#{l tournament.start_time, format: :long} 〜 #{l tournament.end_time, format: :long}" %></h4>
+      <div class="show-text">
+        <div class="time">
+          <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間：</h4>
+          <h4>  <%= "#{l tournament.start_time, format: :long} 〜 #{l tournament.end_time, format: :long}" %></h4>
+        </div>
+        <div class="win_lose">
+        <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= tournament.main_rule %></h4>
+        </div>
+        <div class="target">
+        <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：</h4>
+        <h4> <%= tournament.fish_name %></h4>
+        </div>
+        <h4 class="entries"><%= "#{tournament.entries.count}人参加中" %></h4>
       </div>
-      <div class="win_lose">
-      <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= tournament.main_rule %></h4>
-      </div>
-      <div class="target">
-      <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：</h4>
-      <h4> <%= tournament.fish_name %></h4>
-      </div>
-      <h4 class="entries"><%= "#{tournament.entries.count}人参加中" %></h4>
     </div>
   </label>
 <% end %>

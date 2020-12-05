@@ -2,42 +2,7 @@
   <section id="tournament_confirm">
     <h1>入力項目の確認</h1>
     <b>【 サムネイル 】</b>
-    <div class="thumbnail">
-      <div class="thumb"><%= image_tag @tournament.image.url %></div>
-      <% if @tournament.fishing_style == "陸っぱり" %>
-        <div class="t1-img">
-          <div class="title">
-            <%= "【 #{@tournament.fishing_style} 】" %>
-          </div>
-        </div>
-      <% elsif @tournament.fishing_style == "磯釣り" %>
-        <div class="t2-img">
-          <div class="title">
-            <%= "【 #{@tournament.fishing_style} 】" %>
-          </div>
-        </div>
-      <% elsif @tournament.fishing_style == "2馬力以下" %>
-        <div class="t3-img">
-          <div class="title">
-            <%= "【 #{@tournament.fishing_style} 】" %>
-          </div>
-        </div>
-      <% elsif @tournament.fishing_style == "ボート" %>
-        <div class="t4-img">
-          <div class="title">
-            <%= "【 #{@tournament.fishing_style} 】" %>
-          </div>
-        </div>
-      <% elsif @tournament.fishing_style == "全アングラー" %>
-        <div class="t5-img">
-          <div class="title">
-            <%= "【 #{@tournament.fishing_style} 】" %>
-          </div>
-        </div>
-      <% else %>
-      <% end  %>
-      <div class="sub_title" ><%= "#{@tournament.fishing_ground} CUP" %></div>
-    </div>
+    <%= render 'thumb_disp' %>
     <div class="confirm_text">
       <div class="time">
         <b>【 開催期間 】</b>
@@ -101,10 +66,6 @@
         <% else %>
         <% end  %>
       </div>
-      <div class="sub_rule">
-        <h2><b>【 サブ ルール 】　</b>
-      <%= @tournament.sub_rule %></h2>
-      </div>
       <div class="keeper_size">
         <h2><b>【 キーパーサイズ 】　</b><%= @tournament.keeper_size %>cm</h2>
       </div>
@@ -119,12 +80,8 @@
       <%= f.hidden_field :end_time %>
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
-      <%# <%= f.hidden_field :main_rule %> %>
-      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
-      <%# <%= f.hidden_field :swap_limit %> %>
-      <%# <%= f.hidden_field :judging_limit %> %>
       <%= f.hidden_field :measure_rule %>
       <%= f.hidden_field :designation %>
       <%= f.hidden_field :comment %>
@@ -141,7 +98,6 @@
       <%= f.hidden_field :fishing_ground %>
       <%= f.hidden_field :fishing_style %>
       <%= f.hidden_field :main_rule %>
-      <%= f.hidden_field :sub_rule %>
       <%= f.hidden_field :fish_name %>
       <%= f.hidden_field :keeper_size %>
       <%= f.hidden_field :swap_limit %>
