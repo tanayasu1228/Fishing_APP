@@ -2,15 +2,7 @@
 <div class="container">
   <section id="tournament_show">
     <div class="cup-wrapper">
-      <div class="thumbnail">
-        <%= image_tag @tournament.image.url %>
-        <div class="title">
-          <%= "【 #{@tournament.fishing_style} 】" %>
-        </div>
-        <div class="sub_title" >
-          <body><%= "#{@tournament.fishing_ground} CUP" %></body>
-        </div>
-      </div>
+      <%= render 'thumb_disp' %>
       <div class="cup-info">
         <div class="author">
           <span>CREATE BY:

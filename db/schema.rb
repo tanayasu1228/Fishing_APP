@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_064612) do
+ActiveRecord::Schema.define(version: 2020_12_03_083741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,7 +132,6 @@ ActiveRecord::Schema.define(version: 2020_11_11_064612) do
     t.integer "user_id"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "sub_rule"
     t.string "judging_limit"
     t.string "measure_rule"
     t.string "designation"
