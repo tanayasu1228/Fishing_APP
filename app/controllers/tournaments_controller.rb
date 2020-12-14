@@ -32,7 +32,7 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
-    # @tournament = Tournament.find(38)
+    # @tournament = Tournament.find(39)
     @user = @tournament.user
     @post = Post.new
     # @ranks = @tournament.posts.sort_rank
@@ -42,8 +42,8 @@ class TournamentsController < ApplicationController
     main_rule = @tournament.main_rule
 
     if main_rule == "合計長さで勝負"
-      @ranks = @tournament.posts.sort_rank
-      # swap_checked = @tournament.posts.swap_narrow_down(s_limit)
+      # @ranks = @tournament.posts.sort_rank
+      @ranks = @tournament.posts.sort_rank_sumsize(s_limit, j_limit)
     elsif main_rule == "デカイもん勝ち"
       @ranks = @tournament.posts.sort_rank_maxsize(s_limit)
 

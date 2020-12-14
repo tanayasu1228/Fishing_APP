@@ -48,7 +48,7 @@ class Tournament < ApplicationRecord
 
 
 
-  def swap_narrow_down(s_limit)
+  def self.sort_rank_sumsize(s_limit, j_limit)
     posts = self.includes(:user)
     # ユーザーIDをグループとした投稿時間で並べ替え
     sort_size_users = posts.group("users.id", "users.nickname").maximum(:catch_size)
@@ -68,17 +68,23 @@ class Tournament < ApplicationRecord
       end
       max_size = array1.max
 
-      max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
+      array2 = array1.max(j_limit.to_i)
+      # 合計値を取得
+      sum_size = array2.sum
 
       # 投稿ユーザーimageを取得
       image = posts.where(user_id: user_id).first.user.image.url
 
-      # 総投稿数を取得
-      count = posts.where(user_id: user_id).count(:post_id)
+      max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
 
-      { nickname: nickname, max_size: max_size, sum_size: sum_size, max_size_image: max_size_image, image: image, count: count }
+      # 総投稿数を取得
+      count = posts.where(user_id: user_id).count(:id)
+
+      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
+
     end
-    result
+    sort_sumsize = result.sort_by! { |a| a[:sum_size] }
+    sort_sumsize.reverse!
   end
 
 
@@ -138,9 +144,9 @@ class Tournament < ApplicationRecord
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
 
       # 総投稿数を取得
-      # count = posts.where(user_id: user_id).count(:post_id)
+      count = posts.where(user_id: user_id).count(:post_id)
 
-      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size}
+      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
     end
     sort_maxsize = result.sort_by! { |a| a[:max_size] }
