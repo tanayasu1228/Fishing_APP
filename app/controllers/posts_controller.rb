@@ -79,25 +79,19 @@ class PostsController < ApplicationController
   def ranks
     @tournament = Tournament.find(params[:tournament_id])
 
+    keeper_size = @tournament.keeper_size
     s_limit = @tournament.swap_limit
     j_limit = @tournament.judging_limit
     main_rule = @tournament.main_rule
 
     if main_rule == "合計長さで勝負"
-      @ranks = @tournament.posts.sort_rank
-      # swap_checked = @tournament.posts.swap_narrow_down(s_limit)
+      @ranks = @tournament.posts.sort_rank_sumsize(keeper_size, s_limit, j_limit)
     elsif main_rule == "デカイもん勝ち"
-      @ranks = @tournament.posts.sort_rank_maxsize(s_limit)
-
-      # @maxsize_ranks = @tournament.posts.includes(:user)
-
-      # sort_size_users = @maxsize_ranks.where(user_id: "users.id").group("users.id", "users.nickname").order("posts.created_at ASC").select("*")
-
-      # OK
-      # sort_size_users = @maxsize_ranks.group("users.id").select("users.nickname")
+      @ranks = @tournament.posts.sort_rank_maxsize(keeper_size, s_limit)
+    elsif main_rule == "とにかく数を釣れ"
+      @ranks = @tournament.posts.sort_rank_count(keeper_size)
     else
     end
-    # @ranks = @tournament.posts.sort_rank
   end
 
 

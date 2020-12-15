@@ -90,6 +90,107 @@
         <% end %>
       <% end %>
     </div>
+
+<%# 同率 %>
+    <h1>ランキング</h1>
+    <div class="ranks-wrapper">
+
+    <% lastFavorite = 0 %>
+    <% j = 1 %>
+
+      <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
+        <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
+
+          <% if @tournament.main_rule == "合計長さで勝負" %>
+            <% rank = key[:sum_size] %>
+          <% elsif @tournament.main_rule == "デカイもん勝ち" %>
+            <% rank = key[:max_size] %>
+          <% elsif @tournament.main_rule == "とにかく数を釣れ" %>
+            <% rank = key[:count] %>
+          <% else %>
+          <% end %>
+
+          <% if i == 1 %>
+            <% lastFavorite = rank  %>
+          <% end %>
+
+
+          <% if rank  != lastFavorite %>
+            <% j = i %>
+
+
+            <div class="rank_item">
+              <div class="item_body">
+                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                <div class="media_body">
+                  <div class="rank_name">
+                    <%= "#{j}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                  </div>
+                  <ul class="media_list">
+                    <li>
+                      <i class="fas fa-chart-bar"></i>
+                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <% lastFavorite = rank  %>
+
+
+          <% else %>
+            <% lastFavorite = rank  %>
+            
+            <div class="rank_item">
+              <div class="item_body">
+                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                <div class="media_body">
+                  <div class="rank_name">
+                    <%= "#{j}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                  </div>
+                  <ul class="media_list">
+                    <li>
+                      <i class="fas fa-chart-bar"></i>
+                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   <%= link_to  "もっとみる", ranks_tournament_post_path(tournament_id: @tournament) %>
 
