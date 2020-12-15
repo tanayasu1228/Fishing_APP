@@ -37,15 +37,21 @@ class TournamentsController < ApplicationController
     @post = Post.new
     # @ranks = @tournament.posts.sort_rank
 
+    keeper_size = @tournament.keeper_size
     s_limit = @tournament.swap_limit
     j_limit = @tournament.judging_limit
     main_rule = @tournament.main_rule
+    
 
+    # posts = @tournament.posts.includes(:user)
+    
     if main_rule == "合計長さで勝負"
       # @ranks = @tournament.posts.sort_rank
-      @ranks = @tournament.posts.sort_rank_sumsize(s_limit, j_limit)
+      @ranks = @tournament.posts.sort_rank_sumsize(keeper_size, s_limit, j_limit)
     elsif main_rule == "デカイもん勝ち"
-      @ranks = @tournament.posts.sort_rank_maxsize(s_limit)
+      @ranks = @tournament.posts.sort_rank_maxsize(keeper_size, s_limit)
+    elsif main_rule == "とにかく数を釣れ"
+      @ranks = @tournament.posts.sort_rank_count(keeper_size)
 
       # @maxsize_ranks = @tournament.posts.includes(:user)
 
