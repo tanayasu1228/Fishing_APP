@@ -113,8 +113,9 @@ class Tournament < ApplicationRecord
       # 投稿ユーザーimageを取得
       image = posts.where(user_id: user_id).first.user.image.url
 
-      # 投稿数を取得
-      count = posts.where(user_id: user_id).count(:post_id)
+      # 有効釣果数を取得
+      count = keeper_checked_array.count
+      # count = posts.where(user_id: user_id).count(:post_id)
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
     end
@@ -157,7 +158,6 @@ class Tournament < ApplicationRecord
 
       # 有効釣果数を取得
       count = keeper_checked_array.count
-      # count = posts.where(user_id: user_id).count(:post_id)
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
@@ -200,11 +200,8 @@ class Tournament < ApplicationRecord
 
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
 
-      count = keeper_checked_array.count
-
       # 有効釣果数を取得
       count = keeper_checked_array.count
-      # count = posts.where(user_id: user_id).count(:id)
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
@@ -212,119 +209,5 @@ class Tournament < ApplicationRecord
     sort_count = result.sort_by! { |a| a[:count] }
     sort_count.reverse!
   end
-
-  # def self.sort_rank
-  #   posts = self.includes(:user)
-  #   sort_size_users = posts.group("users.id", "users.nickname").order('sum_catch_size desc').sum(:catch_size)
-
-  #   result = sort_size_users.map do |k, v|
-  #     user_id = k[0]
-  #     nickname = k[1]
-  #     sum_size = v
-  #     max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-  #     # 投稿した最大サイズの値を取得
-  #     sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
-  #     max_size = sort_max_size[user_id]
-      
-  #     # 投稿ユーザーimageを取得
-  #     image = posts.where(user_id: user_id).first.user.image.url
-
-  #     # 投稿数を取得
-  #     count = posts.where(user_id: user_id).count(:post_id)
-
-  #     { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
-  #   end
-  #   result
-  # end
-
-
-
-#   def self.sort_rank_maxsize(s_limit)
-# @maxsize_ranks = @tournament.posts.includes(:user)
-
-#       # OK
-#       sort_size_users = @maxsize_ranks.group("users.id", "users.nickname").maximum(:catch_size)
-
-#       # ?
-#       # sort_size_users = @maxsize_ranks.group("users.id", "posts.created_at").order("posts.created_at ASC").maximum(:catch_size)
-
-#       user_base = sort_size_users.map do |k, v|
-#         user_id = k[0]
-#         # created_at = k[1]
-#         # nickname = k[1]
-#         # catch_size = v
-
-#         # ユーザー別の投稿サイズの値を取得  OK
-#         user_info = @maxsize_ranks.where(user_id: user_id).group("users.id", "users.nickname", "posts.created_at").order("posts.created_at ASC").limit(s_limit).maximum(:catch_size)
-
-#         # ?
-#         # user_info = sort_size_users.where(user_id: user_id).group("users.id").order('maximum_catch_size desc').limit(s_limit).maximum(:catch_size)
-
-#         # user_id = k[0]
-#         # created_at = k[1]
-
-#         # sort_max_size = user_info.where(user_id: user_id).group("users.id").maximum(:catch_size)
-#         #   max_size = sort_max_size[user_id]
-
-
-#         # sort_max_size = user_info.where(user_id: user_id).group("users.id").maximum(:catch_size)
-#         #   max_size = sort_max_size[user_id]
-#         { user_id: user_id }
-
-#         sort_max_size = user_info.map do |k,v|
-#           user_id = k[0]
-#           created_at = k[1]
-#           catch_size = v
-
-#           max_size = @maxsize_ranks.where(user_id: user_id).group("users.id", "users.nickname").order("posts.catch_size DESC").maximum(:catch_size)
-#         end
-#       end
-
-      
-#       sort_max_size = user_base.map do |k,v|
-#         user_id = k[0]
-#         created_at = k[1]
-#         catch_size = v
-
-#         max_size = @maxsize_ranks.where(user_id: user_id).group("users.id", "users.nickname").order("posts.catch_size DESC").maximum(:catch_size)
-#       end
-
-
-
-
-
-    # posts = self.includes(:user)
-
-    # user_posts_info = posts.group("users.id").order('posts.created_at asc')
-
-    # sort_size_users = user_posts_info.group("users.id", "posts.created_at", "users.nickname").maximum(:catch_size)
-
-    # result = sort_size_users.map do |k, v|
-    #   user_id = k[0]
-    #   created_at = k[1]
-    #   nickname = k[2]
-    #   max_size = v
-    #   max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-    #   # 投稿した最大サイズの値を取得
-    #   sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
-    #   max_size = sort_max_size[user_id]
-      
-    #   # 投稿ユーザーimageを取得
-    #   image = posts.where(user_id: user_id).first.user.image.url
-
-    #   # 投稿数を取得
-    #   count = posts.where(user_id: user_id).count(:post_id)
-
-    #   { nickname: nickname, image: image, max_size_image: max_size_image, max_size: max_size, count: count }
-    # end
-    # result
-  # end
-
-
-  
-
-  
 end
 

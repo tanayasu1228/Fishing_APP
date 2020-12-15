@@ -61,7 +61,7 @@ class Post < ApplicationRecord
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
 
       # 有効釣果数を取得
-      count = posts.where(user_id: user_id).count(:id)
+      count = keeper_checked_array.count
 
       post_id = posts.where(user_id: user_id).pluck("posts.id")
 
@@ -136,7 +136,6 @@ class Post < ApplicationRecord
 
       # 有効釣果数を取得
       count = keeper_checked_array.count
-      # count = posts.where(user_id: user_id).count(:id)
 
       post_id = posts.where(user_id: user_id).pluck("posts.id")
 
@@ -183,7 +182,6 @@ class Post < ApplicationRecord
 
       # 有効釣果数を取得
       count = keeper_checked_array.count
-      # count = posts.where(user_id: user_id).count(:id)
 
       post_id = posts.where(user_id: user_id).pluck("posts.id")
 
