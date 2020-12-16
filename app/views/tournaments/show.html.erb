@@ -94,37 +94,29 @@
 <%# 同率 %>
     <h1>ランキング</h1>
     <div class="ranks-wrapper">
-
-    <% lastFavorite = 0 %>
-    <% j = 1 %>
+    <% before_rank = 0 %>
+    <% j = "1" %>
 
       <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
         <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
 
           <% if @tournament.main_rule == "合計長さで勝負" %>
-            <% rank = key[:sum_size] %>
+            <% rank_element = key[:sum_size] %>
           <% elsif @tournament.main_rule == "デカイもん勝ち" %>
-            <% rank = key[:max_size] %>
+            <% rank_element = key[:max_size] %>
           <% elsif @tournament.main_rule == "とにかく数を釣れ" %>
-            <% rank = key[:count] %>
+            <% rank_element = key[:count] %>
           <% else %>
           <% end %>
 
           <% if i == 1 %>
-            <% lastFavorite = rank  %>
-          <% end %>
-
-
-          <% if rank  != lastFavorite %>
-            <% j = i %>
-
-
+            <% j = "1" %>
             <div class="rank_item">
               <div class="item_body">
                 <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
                 <div class="media_body">
                   <div class="rank_name">
-                    <%= "#{j}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
                   </div>
                   <ul class="media_list">
                     <li>
@@ -141,19 +133,48 @@
                 </div>
               </div>
             </div>
+            <%# 現在のランク要素をbefore_rankとする %>
+            <% before_rank = rank_element %>
 
-            <% lastFavorite = rank  %>
+          <%# 前のランク要素の値と違う値の場合の処理 %>
+          <% elsif rank_element  != before_rank %>
+            <% j_sum = 1 + j.to_i %>
+            <% j.replace "#{j_sum.to_i}" %>
+            <%# <% binding.pry%> %>
 
+            <div class="rank_item">
+              <div class="item_body">
+                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                <div class="media_body">
+                  <div class="rank_name">
+                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                  </div>
+                  <ul class="media_list">
+                    <li>
+                      <i class="fas fa-chart-bar"></i>
+                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                    </li>
+                    <li>
+                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <% before_rank = rank_element  %>
 
+          <%# 前のランク要素の値と同じ値の場合の処理 %>
           <% else %>
-            <% lastFavorite = rank  %>
-            
+            <%# <% j = j.to_i %> %>
             <div class="rank_item">
               <div class="item_body">
                 <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
                 <div class="media_body">
                   <div class="rank_name">
-                    <%= "#{j}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
                   </div>
                   <ul class="media_list">
                     <li>
@@ -170,7 +191,9 @@
                 </div>
               </div>
             </div>
+            <% before_rank = rank_element %>
           <% end %>
+
         <% end %>
       <% end %>
     </div>
