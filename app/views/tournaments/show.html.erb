@@ -59,39 +59,6 @@
       </div>
     </div>
     
-
-
-    <h1>ランキング</h1>
-    <div class="ranks-wrapper">
-      <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
-        <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
-            <div class="rank_item">
-              <div class="item_body">
-                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
-                <div class="media_body">
-                  <div class="rank_name">
-                    <%= "#{i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                  </div>
-                  <ul class="media_list">
-                    <li>
-                      <i class="fas fa-chart-bar"></i>
-                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-    </div>
-
-<%# 同率 %>
     <h1>ランキング</h1>
     <div class="ranks-wrapper">
     <% before_rank = 0 %>
@@ -140,7 +107,6 @@
           <% elsif rank_element  != before_rank %>
             <% j_sum = 1 + j.to_i %>
             <% j.replace "#{j_sum.to_i}" %>
-            <%# <% binding.pry%> %>
 
             <div class="rank_item">
               <div class="item_body">
