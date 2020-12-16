@@ -1,6 +1,9 @@
 <h1>投稿一覧</h1>
   <%= @tournament.fishing_ground %>
   <%= link_to  "#{@user.nickname}", user_path(@user.id) %>
+  <%= link_to user_path(@user.id), class:"make_name" do %>
+              <%= image_tag @user.image.to_s %><%= @user.nickname %>
+            <% end %> 
 
   <% @posts.each do |post| %>
     <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>

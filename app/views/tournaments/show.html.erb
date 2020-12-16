@@ -58,11 +58,46 @@
           <%= simple_format(@tournament.comment) %>
       </div>
     </div>
-    
+
     <h1>ランキング</h1>
+    <%= link_to  "ランキング一覧", ranks_tournament_post_path(tournament_id: @tournament) %>
+    
     <div class="ranks-wrapper">
     <% before_rank = 0 %>
     <% j = "1" %>
+
+    <div class="limit">
+      <% if @tournament.main_rule == "とにかく数を釣れ" %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>全釣果の釣った数で勝負します！</b>
+
+      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>全釣果から一番長い個体で勝負します！</b>
+
+      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit.blank? %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>入れ替え上限<%= @tournament.swap_limit %>匹の中から一番長い個体で勝負します！</b>
+
+      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit == "99999" %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>入れ替え上限なし！全釣果の合計値で勝負します！</b>
+
+      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit < "99999" %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>入れ替え上限なし！全釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
+
+      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit == "99999" %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</b>
+
+      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
+        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+        <b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
+
+      <% else %>
+      <% end  %>
+    </div>
 
       <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
         <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
@@ -83,7 +118,17 @@
                 <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
                 <div class="media_body">
                   <div class="rank_name">
-                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% if 1 == j.to_i %>
+                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 2 == j.to_i %>
+                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 == j.to_i %>
+                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 < j.to_i && 11 > j.to_i %>
+                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% else %>
+                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% end %>
                   </div>
                   <ul class="media_list">
                     <li>
@@ -113,7 +158,17 @@
                 <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
                 <div class="media_body">
                   <div class="rank_name">
-                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% if 1 == j.to_i %>
+                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 2 == j.to_i %>
+                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 == j.to_i %>
+                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 < j.to_i && 11 > j.to_i %>
+                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% else %>
+                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% end %>
                   </div>
                   <ul class="media_list">
                     <li>
@@ -134,13 +189,22 @@
 
           <%# 前のランク要素の値と同じ値の場合の処理 %>
           <% else %>
-            <%# <% j = j.to_i %> %>
             <div class="rank_item">
               <div class="item_body">
                 <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
                 <div class="media_body">
                   <div class="rank_name">
-                    <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% if 1 == j.to_i %>
+                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 2 == j.to_i %>
+                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 == j.to_i %>
+                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% elsif 3 < j.to_i && 11 > j.to_i %>
+                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% else %>
+                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                    <% end %>
                   </div>
                   <ul class="media_list">
                     <li>
@@ -163,26 +227,6 @@
         <% end %>
       <% end %>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <%= link_to  "もっとみる", ranks_tournament_post_path(tournament_id: @tournament) %>
-
-  
+    <br>
   </section>
   </div>

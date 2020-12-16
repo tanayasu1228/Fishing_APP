@@ -7,6 +7,13 @@
     height: auto;
     width: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    .limit {
+      color: white;
+      background-color: #5989cf;
+      b {
+        color: yellow;
+      }
+    }
     .rank_item {
       padding: 15px 15px 15px 15px;
     }
@@ -27,6 +34,21 @@
       .rank_name {
         font-weight: bold;
         color: #555555;
+        .i_gold {
+          color: rgba(255, 217, 0, 0.8);
+        }
+        .i_silver {
+          color: rgba(132, 134, 136, 0.8);
+        }
+        .i_copper {
+          color: rgba(212, 99, 34, 0.8);
+        }
+        .i_green {
+          color: rgba(34, 212, 129, 0.8);
+        }
+        .i_none {
+          opacity: 0;
+        }
       }
       ul {
         padding-left: 0px;
