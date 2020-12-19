@@ -42,7 +42,10 @@
             <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間： <%= "#{l @tournament.start_time, format: :long} 〜 #{l @tournament.end_time, format: :long}" %></h4>
           </div>
           <div class = "area">
-            <h4><i class="fas i_red fa-map-marker-alt"></i> 開催期間： <%= "#{@tournament.fishing_ground} / #{@tournament.fishing_style}" %></h4> 
+            <h4><i class="fas i_red fa-map-marker-alt"></i> エリア： <%= @tournament.fishing_ground %></h4> 
+          </div>
+          <div class = "area">
+            <h4><i class="far fa-address-book i_orange"></i> 釣りスタイル： <%= @tournament.fishing_style %></h4> 
           </div>
           <div class="target">
             <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：<%= @tournament.fish_name %></h4>
@@ -51,181 +54,191 @@
             <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= @tournament.main_rule %></h4>
           </div>
           <div class="measure">
-            <h4><i class="fas fa-ruler i_green"></i><%= " 計測方法：#{@tournament.measure_rule}で計測" %></h4>
+            <h4><i class="fas fa-ruler i_green"></i> <%= " 計測方法：#{@tournament.measure_rule}で計測" %></h4>
+          </div>
+          <div class="keeper">
+            <h4><i class="fab fa-font-awesome-flag i_pink"></i> <%= " キーパーサイズ：#{@tournament.keeper_size}cm以上" %></h4>
+          </div>
+          <div class="designation">
+            <h4><i class="fas fa-lock i_dblue"></i> 釣り方の縛り：<%= @tournament.designation %></h4>
           </div>
         </div>
+
         <h4><i class="fas fa-pen"></i> 備考</h4>
           <%= simple_format(@tournament.comment) %>
       </div>
     </div>
 
-    <h1>ランキング</h1>
-    <%= link_to  "ランキング一覧", ranks_tournament_post_path(tournament_id: @tournament) %>
-    
     <div class="ranks-wrapper">
-    <% before_rank = 0 %>
-    <% j = "1" %>
+      <h1>ランキング</h1>
+      <div class="rankindex-btn">
+        <%= link_to  "ランキング一覧", ranks_tournament_post_path(tournament_id: @tournament) %>
+      </div>
+      <div class="rank_info">
+      <% before_rank = 0 %>
+      <% j = "1" %>
 
-    <div class="limit">
-      <% if @tournament.main_rule == "とにかく数を釣れ" %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>全釣果の釣った数で勝負します！</b>
+      <div class="limit">
+        <% if @tournament.main_rule == "とにかく数を釣れ" %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>全釣果の釣った数で勝負します！</b>
 
-      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>全釣果から一番長い個体で勝負します！</b>
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit.blank? %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>全釣果から一番長い個体で勝負します！</b>
 
-      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit.blank? %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>入れ替え上限<%= @tournament.swap_limit %>匹の中から一番長い個体で勝負します！</b>
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit.blank? %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>入れ替え上限<%= @tournament.swap_limit %>匹の中から一番長い個体で勝負します！</b>
 
-      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit == "99999" %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>入れ替え上限なし！全釣果の合計値で勝負します！</b>
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit == "99999" %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>入れ替え上限なし！全釣果の合計値で勝負します！</b>
 
-      <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit < "99999" %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>入れ替え上限なし！全釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
+        <% elsif @tournament.swap_limit == "99999" && @tournament.judging_limit < "99999" %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>入れ替え上限なし！全釣果から上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
 
-      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit == "99999" %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</b>
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit == "99999" %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>入れ替え上限<%= @tournament.swap_limit %>匹までの釣果の合計値で勝負します！</b>
 
-      <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
-        <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
-        <b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
+        <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
+          <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
+          <b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
 
-      <% else %>
-      <% end  %>
-    </div>
+        <% else %>
+        <% end  %>
+      </div>
 
-      <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
-        <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
+        <% @ranks.first(3).each.with_index(1) do |(key,val),i| %>
+          <%= link_to  record_tournament_post_path(tournament_id: @tournament, id: key[:post_id]) do %>
 
-          <% if @tournament.main_rule == "合計長さで勝負" %>
-            <% rank_element = key[:sum_size] %>
-          <% elsif @tournament.main_rule == "デカイもん勝ち" %>
-            <% rank_element = key[:max_size] %>
-          <% elsif @tournament.main_rule == "とにかく数を釣れ" %>
-            <% rank_element = key[:count] %>
-          <% else %>
+            <% if @tournament.main_rule == "合計長さで勝負" %>
+              <% rank_element = key[:sum_size] %>
+            <% elsif @tournament.main_rule == "デカイもん勝ち" %>
+              <% rank_element = key[:max_size] %>
+            <% elsif @tournament.main_rule == "とにかく数を釣れ" %>
+              <% rank_element = key[:count] %>
+            <% else %>
+            <% end %>
+
+            <% if i == 1 %>
+              <% j = "1" %>
+              <div class="rank_item">
+                <div class="item_body">
+                  <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                  <div class="media_body">
+                    <div class="rank_name">
+                      <% if 1 == j.to_i %>
+                        <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 2 == j.to_i %>
+                        <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 == j.to_i %>
+                        <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 < j.to_i && 11 > j.to_i %>
+                        <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% else %>
+                        <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% end %>
+                    </div>
+                    <ul class="media_list">
+                      <li>
+                        <i class="fas fa-chart-bar"></i>
+                        <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <%# 現在のランク要素をbefore_rankとする %>
+              <% before_rank = rank_element %>
+
+            <%# 前のランク要素の値と違う値の場合の処理 %>
+            <% elsif rank_element  != before_rank %>
+              <% j_sum = 1 + j.to_i %>
+              <% j.replace "#{j_sum.to_i}" %>
+
+              <div class="rank_item">
+                <div class="item_body">
+                  <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                  <div class="media_body">
+                    <div class="rank_name">
+                      <% if 1 == j.to_i %>
+                        <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 2 == j.to_i %>
+                        <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 == j.to_i %>
+                        <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 < j.to_i && 11 > j.to_i %>
+                        <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% else %>
+                        <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% end %>
+                    </div>
+                    <ul class="media_list">
+                      <li>
+                        <i class="fas fa-chart-bar"></i>
+                        <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <% before_rank = rank_element  %>
+
+            <%# 前のランク要素の値と同じ値の場合の処理 %>
+            <% else %>
+              <div class="rank_item">
+                <div class="item_body">
+                  <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
+                  <div class="media_body">
+                    <div class="rank_name">
+                      <% if 1 == j.to_i %>
+                        <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 2 == j.to_i %>
+                        <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 == j.to_i %>
+                        <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% elsif 3 < j.to_i && 11 > j.to_i %>
+                        <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% else %>
+                        <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
+                      <% end %>
+                    </div>
+                    <ul class="media_list">
+                      <li>
+                        <i class="fas fa-chart-bar"></i>
+                        <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
+                      </li>
+                      <li>
+                        <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <% before_rank = rank_element %>
+            <% end %>
+
           <% end %>
-
-          <% if i == 1 %>
-            <% j = "1" %>
-            <div class="rank_item">
-              <div class="item_body">
-                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
-                <div class="media_body">
-                  <div class="rank_name">
-                    <% if 1 == j.to_i %>
-                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 2 == j.to_i %>
-                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 == j.to_i %>
-                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 < j.to_i && 11 > j.to_i %>
-                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% else %>
-                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% end %>
-                  </div>
-                  <ul class="media_list">
-                    <li>
-                      <i class="fas fa-chart-bar"></i>
-                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <%# 現在のランク要素をbefore_rankとする %>
-            <% before_rank = rank_element %>
-
-          <%# 前のランク要素の値と違う値の場合の処理 %>
-          <% elsif rank_element  != before_rank %>
-            <% j_sum = 1 + j.to_i %>
-            <% j.replace "#{j_sum.to_i}" %>
-
-            <div class="rank_item">
-              <div class="item_body">
-                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
-                <div class="media_body">
-                  <div class="rank_name">
-                    <% if 1 == j.to_i %>
-                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 2 == j.to_i %>
-                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 == j.to_i %>
-                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 < j.to_i && 11 > j.to_i %>
-                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% else %>
-                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% end %>
-                  </div>
-                  <ul class="media_list">
-                    <li>
-                      <i class="fas fa-chart-bar"></i>
-                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <% before_rank = rank_element  %>
-
-          <%# 前のランク要素の値と同じ値の場合の処理 %>
-          <% else %>
-            <div class="rank_item">
-              <div class="item_body">
-                <%= image_tag "#{key[:max_size_image]}", class: "max_img" %>
-                <div class="media_body">
-                  <div class="rank_name">
-                    <% if 1 == j.to_i %>
-                      <i class="fas fa-crown i_gold"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 2 == j.to_i %>
-                      <i class="fas fa-crown i_silver"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 == j.to_i %>
-                      <i class="fas fa-crown i_copper"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% elsif 3 < j.to_i && 11 > j.to_i %>
-                      <i class="fas fa-medal i_green"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% else %>
-                      <i class="fas fa-crown i_none"></i> <%= "#{j.to_i}位　" %><%= image_tag "#{key[:image]}", class: "user_img" %><%= key[:nickname] %>
-                    <% end %>
-                  </div>
-                  <ul class="media_list">
-                    <li>
-                      <i class="fas fa-chart-bar"></i>
-                      <span>合計サイズ<b class="text_info"><%= "#{key[:sum_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>最大サイズ<b class="text_info"><%= "#{key[:max_size]}cm" %></b></span>
-                    </li>
-                    <li>
-                      <span>有効釣果数<b class="text_info"><%= "#{key[:count]}匹" %></b></span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <% before_rank = rank_element %>
-          <% end %>
-
         <% end %>
-      <% end %>
+      </div>
     </div>
     <br>
   </section>

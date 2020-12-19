@@ -202,6 +202,11 @@
           margin: 0px 10px;
           color: rgb(255, 0, 0);
         }
+        .i_orange {
+          margin-left: 8px;
+          margin-right: 5px;
+          color: rgba(255, 166, 0, 0.8);
+        }
         .i_blue {
           margin-left: 5px;
           color: rgba(0, 157, 255, 0.8);
@@ -211,6 +216,16 @@
         }
         .i_green {
         color: rgba(0, 110, 64, 0.8);
+        }
+        .i_pink {
+          margin-left: 5px;
+          margin-right: 2px;
+          color: rgba(255, 0, 170, 0.8)
+        }
+        .i_dblue {
+          margin-left: 8px;
+          margin-right: 2px;
+          color: rgba(0, 4, 255, 0.8)
         }
       }
       .entry-info {
@@ -290,68 +305,74 @@
     }
   }
   .ranks-wrapper {
-    background-color: white;
-    height: auto;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    .limit {
-      color: white;
-      background-color: #5989cf;
-      b {
-        color: yellow;
-      }
+    .rankindex-btn {
+      display: flex-end;
+      text-align:right;
     }
-    .rank_item {
-      padding: 15px 15px 15px 15px;
-    }
-    .rank_item:hover {
-      background-color: rgba(190, 226, 255, 0.2);
-    }
-    .item_body {
-      display: flex;
-    }
-    .max_img {
-      margin-right: 15px;
-      object-fit: cover;
-      width: 150px;
-      height: 150px;
-      border-radius: 2px;
-    }
-    .media_body {
-      .rank_name {
-        font-weight: bold;
-        color: #555555;
-        .i_gold {
-          color: rgba(255, 217, 0, 0.8);
-        }
-        .i_silver {
-          color: rgba(132, 134, 136, 0.8);
-        }
-        .i_copper {
-          color: rgba(212, 99, 34, 0.8);
-        }
-        .i_green {
-          color: rgba(34, 212, 129, 0.8);
-        }
-        .i_none {
-          opacity: 0;
+    .rank_info {
+      background-color: white;
+      height: auto;
+      width: 100%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      .limit {
+        color: white;
+        background-color: #5989cf;
+        b {
+          color: yellow;
         }
       }
-      ul {
-        padding-left: 0px;
-        list-style: none;
-        li {
-          color: rgba(145, 145, 145, 0.9);
-        }
+      .rank_item {
+        padding: 15px 15px 15px 15px;
       }
-      .fa-chart-bar {
-        margin-right: 5px;
+      .rank_item:hover {
+        background-color: rgba(190, 226, 255, 0.2);
       }
-      span {
+      .item_body {
+        display: flex;
+      }
+      .max_img {
         margin-right: 15px;
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+        border-radius: 2px;
       }
-      .text_info {
-        color: #3498db;
+      .media_body {
+        .rank_name {
+          font-weight: bold;
+          color: #555555;
+          .i_gold {
+            color: rgba(255, 217, 0, 0.8);
+          }
+          .i_silver {
+            color: rgba(132, 134, 136, 0.8);
+          }
+          .i_copper {
+            color: rgba(212, 99, 34, 0.8);
+          }
+          .i_green {
+            color: rgba(34, 212, 129, 0.8);
+          }
+          .i_none {
+            opacity: 0;
+          }
+        }
+        ul {
+          padding-left: 0px;
+          list-style: none;
+          li {
+            color: rgba(145, 145, 145, 0.9);
+          }
+        }
+        .fa-chart-bar {
+          margin-right: 5px;
+        }
+        span {
+          margin-right: 15px;
+        }
+        .text_info {
+          color: #3498db;
+        }
       }
     }
   }

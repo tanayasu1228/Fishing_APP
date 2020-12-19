@@ -1,19 +1,39 @@
-<h1>投稿一覧</h1>
-  <%= @tournament.fishing_ground %>
-  <%= link_to  "#{@user.nickname}", user_path(@user.id) %>
-  <%= link_to user_path(@user.id), class:"make_name" do %>
-              <%= image_tag @user.image.to_s %><%= @user.nickname %>
-            <% end %> 
-
-  <% @posts.each do |post| %>
-    <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
-      <%= image_tag "#{post.fish_image.url}" %>
-    <% end %>
-    <div class="posts-contents">
-      <p>
-        <%= post.fish_name %>
-        <%= post.catch_size %>
-      </p>
+<div class="container">
+  <section id="post_record">
+    <br>
+    <div class="card_header">
+      <%= link_to user_path(@user.id), class:"header_name" do %>
+        <%= image_tag @user.image.to_s %><%= "#{@user.nickname}さんの釣果（#{@posts.count}匹）" %>
+      <% end %>
     </div>
-    <%= link_to  "詳しく見る", tournament_post_path(tournament_id: @tournament, id: post) %>
-  <% end %>
+    <%= @tournament.fishing_ground %><i class="fas fa-chart-bar"></i>
+
+    <div class="card_body">
+      <% @posts.each do |post| %>
+        <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
+          <div class="item_body">
+            <%= image_tag "#{post.fish_image.url}", class: "fish_img" %>
+            <div class="media_body">
+              
+              <ul class="media_list">
+                <li>
+                  <%= post.fish_name %>
+                </li>
+                <li>
+                  <i class="far fa-calendar-alt i_gray"></i> <%= "#{l post.datetime, format: :short}" %>
+                </li>
+                <li>
+                  サイズ <%= "#{post.catch_size}cm" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+
+        <% end %>
+      <% end %>
+    </div>
+
+
+  </section>
+</div>
