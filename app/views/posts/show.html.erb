@@ -26,10 +26,10 @@
           <script type="text/javascript">
             function initMap() {
           // #latitude,longitudeから位置を特定させる
-              var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+              var latlng ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
               var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 12, 
-                  center: test
+                  zoom: 11, 
+                  center: latlng
               });
               var transitLayer = new google.maps.TransitLayer();
               transitLayer.setMap(map);
@@ -41,13 +41,24 @@
 
           //  #Map上の指定した位置にピンを挿して表示させる
               var marker = new google.maps.Marker({
-                  position:test,
+                  position:latlng,
                   map: map,
                   title: contentString
               });
 
               marker.addListener('click', function() {
                 infowindow.open(map, marker);
+              });
+            //  #Map上に円を表示させる
+              new google.maps.Circle({
+                center: latlng,       // 円の中心座標
+                fillColor: '#ff0000',   // 塗りつぶし色
+                fillOpacity: 0.3,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
+                map: map,             // 表示させる地図（google.maps.Map）
+                radius: 7000,          // 半径（ｍ）
+                strokeColor: '#ff0000', // 外周色
+                strokeOpacity: 1,       // 外周透過度（0: 透明 ⇔ 1:不透明）
+                strokeWeight: 3         // 外周太さ（ピクセル）
               });
             }
           </script>
