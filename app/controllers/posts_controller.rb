@@ -62,6 +62,7 @@ class PostsController < ApplicationController
 
     # address = @post.address.split(",")
     # @address = address[1]
+    # binding.pry
 
     dt = img.get_exif_by_entry('DateTimeOriginal')
     @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
