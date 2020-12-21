@@ -7,10 +7,13 @@
       </div>
     <% end %>
     <div class="comment_body">
-      <%= comment.body %>
-      <% if comment.user == current_user %>
-        <p><%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), method: :delete, remote: true %></p> 
-      <% end %>
+      <div><%= comment.body %></div>
+      <div class="algin_items">
+        <div class="comment_created"><%= time_ago_in_words(comment.created_at)+"前" %></div>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), class: "comment_delete", method: :delete, remote: true %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% end %>
