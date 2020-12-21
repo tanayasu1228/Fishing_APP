@@ -1,4 +1,7 @@
 #post_show {
+  .content {
+    display: flex;
+  }
   a{
     text-decoration: none;
   }
@@ -10,11 +13,86 @@
   }
   .after_nice {
     color: #555555;
-    // font-weight: bold;
     .i_nice {
       color: rgb(0, 190, 48);
     }
   }
+  .header_name {
+    color: #555555;
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+  }
+  .post_info {
+    width: 70%;
+    margin: 0 10px;
+    background-color: white;
+    .card-img-top {
+      width: 100%;
+      height: 500px;
+      object-fit: contain;
+    }
+    .btn-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%;
+      padding: 20px 0;
+      border-top: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;
+    }
+    .content_block {
+      padding: 20px 0;
+
+      border-bottom: 1px solid #CCC;
+    }
+  }
+  .user_info {
+    width: 30%;
+    margin: 0 10px;
+    background-color: white;
+    .user_name {
+      color: #555555;
+    }
+    img {
+      font-size: 30px;
+      color: #FFF;
+      margin: 8px 8px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  .comment_user {
+    color: #6c757d ;
+    img {
+      font-size: 30px;
+      color: #FFF;
+      margin: 8px 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;      
+    }
+  }
+  .comment_body {
+    width: 70%;
+    margin: 0 0 20px 50px;
+    padding: 5px;
+    color: #6c757d ;
+    background-color: #f8f9fa;
+    border: solid 1px #dee2e6;
+    border-radius: 10px;
+    }
+  .call_attention {
+    text-align: center;
+    color: white;
+    background-color: rgb(8, 161, 161);
+  }
+  .comment_form {
+    display: flex;
+  }
+  
   @media (min-width: 0px) {
     
   }

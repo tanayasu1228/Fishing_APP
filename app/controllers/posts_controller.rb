@@ -62,6 +62,7 @@ class PostsController < ApplicationController
 
     # address = @post.address.split(",")
     # @address = address[1]
+    # binding.pry
 
     dt = img.get_exif_by_entry('DateTimeOriginal')
     @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
@@ -78,7 +79,20 @@ class PostsController < ApplicationController
 
   def ranks
     @tournament = Tournament.find(params[:tournament_id])
-    @ranks = @tournament.posts.sort_rank
+
+    keeper_size = @tournament.keeper_size
+    s_limit = @tournament.swap_limit
+    j_limit = @tournament.judging_limit
+    main_rule = @tournament.main_rule
+
+    if main_rule == "合計長さで勝負"
+      @ranks = @tournament.posts.sort_rank_sumsize(keeper_size, s_limit, j_limit)
+    elsif main_rule == "デカイもん勝ち"
+      @ranks = @tournament.posts.sort_rank_maxsize(keeper_size, s_limit)
+    elsif main_rule == "とにかく数を釣れ"
+      @ranks = @tournament.posts.sort_rank_count(keeper_size)
+    else
+    end
   end
 
 

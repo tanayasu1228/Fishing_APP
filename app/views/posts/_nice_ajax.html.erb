@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if post.niced_by?(current_user) %> 
     <%=link_to tournament_post_nices_path(@tournament.id, post.id), method: :delete, remote: true do %>
-      <p class="after_nice"><i class="far fa-thumbs-up faa-bounce animated i_nice"></i><span>いいね! </span><%= post.nices.count %></p>
+      <div class="after_nice"><i class="far fa-thumbs-up faa-bounce animated i_nice"></i> <span>いいね! </span><%= "#{post.nices.count}件" %></div>
       <% end %>
   <% else %>
     <%=link_to tournament_post_nices_path(@tournament.id, post.id), method: :post, remote: true do %>
-      <p class="before_nice"><i class="far fa-thumbs-up i_nice"></i><span>いいね! </span><%= post.nices.count %></p>
+      <div class="before_nice"><i class="far fa-thumbs-up i_nice"></i> <span>いいね! </span><%= "#{post.nices.count}件" %></div>
     <% end %>
   <% end %>
 <% else %>

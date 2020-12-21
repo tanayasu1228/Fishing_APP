@@ -1,12 +1,16 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <div class="comment-user-image">
-      <%= image_tag comment.user.image.url %>
-    </div>
-    <p><%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %></p>
-    <p>コメント：<%= comment.body %></p>
-    <% if comment.user == current_user %>
-      <p><%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), method: :delete, remote: true %></p> 
+    <%= link_to user_path(comment.user.id) do %>
+      <div class="comment_user">
+        <%= image_tag comment.user.image.url %>
+        <%= comment.user.nickname %>
+      </div>
     <% end %>
+    <div class="comment_body">
+      <%= comment.body %>
+      <% if comment.user == current_user %>
+        <p><%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), method: :delete, remote: true %></p> 
+      <% end %>
+    </div>
   <% end %>
 <% end %>
