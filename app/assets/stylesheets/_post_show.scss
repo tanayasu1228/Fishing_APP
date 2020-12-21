@@ -87,8 +87,16 @@
     color: #6c757d ;
     background-color: #f8f9fa;
     border: solid 1px #dee2e6;
-    border-radius: 2px;
+    border-radius: 10px;
     }
+  .call_attention {
+    text-align: center;
+    color: white;
+    background-color: rgb(8, 161, 161);
+  }
+  .comment_form {
+    display: flex;
+  }
   
   @media (min-width: 0px) {
     

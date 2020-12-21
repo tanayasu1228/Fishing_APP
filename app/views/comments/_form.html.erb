@@ -1,8 +1,8 @@
 <%= form_with model: [@tournament, post, comment], remote: true do |f| %>
-  <div>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit "コメントをする" %>
+  <div class="comment_form">
+    <%= f.text_area :body, class: "form-control", placeholder: "ナイスフィシュ！などをコメントしてみよう" %>
+    <div class="col">
+      <%= f.submit "送信", class: "btn btn-outline-primary" %>
+    </div>
   </div>
 <% end %>
