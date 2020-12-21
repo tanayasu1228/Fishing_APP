@@ -43,9 +43,6 @@
       padding: 20px 0;
       border-top: 1px solid #CCC;
       border-bottom: 1px solid #CCC;
-      .impre {
-        
-      }
     }
     .content_block {
       // margin-top: 20px;
@@ -71,6 +68,27 @@
       border-radius: 50%;
     }
   }
+
+  .comment_user {
+    color: #6c757d ;
+    img {
+      font-size: 30px;
+      color: #FFF;
+      margin: 8px 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;      
+    }
+  }
+  .comment_body {
+    width: 70%;
+    margin: 0 0 20px 50px;
+    padding: 5px;
+    color: #6c757d ;
+    background-color: #f8f9fa;
+    border: solid 1px #dee2e6;
+    border-radius: 2px;
+    }
   
   @media (min-width: 0px) {
     

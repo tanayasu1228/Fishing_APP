@@ -38,7 +38,7 @@
               var infowindow = new google.maps.InfoWindow({
                 content: contentString
               });
-              
+
             //  #Map上に円を表示させる
               new google.maps.Circle({
                 center: latlng,       // 円の中心座標
@@ -65,6 +65,7 @@
 
           <%# #mapの表示 %>
           <div id="map"></div>
+          <small class="text-muted f-12">マップの中心は釣果のポイントを示すものではありません。</small>
         </div>
 
         <div class="content_block">
@@ -87,9 +88,10 @@
         <div class="content_block">
           <h4>みんなのコメント</h4>
           <div id="comments_area">
+            <div class="comment_items">
             <!-- 投稿されたコメントをブログの詳細ページに表示するためのrender -->
-            <%= render partial: 'comments/index', locals: { comments: @comments, tournament: @tournament } %>
-            <%# <%= render partial: 'comments/index', locals: { comments: @comments } %> %>
+              <%= render partial: 'comments/index', locals: { comments: @comments, tournament: @tournament } %>
+            </div>
           </div>  
           <% if user_signed_in? %>
             <!-- コメント入力フォームを表示するためのrender -->
