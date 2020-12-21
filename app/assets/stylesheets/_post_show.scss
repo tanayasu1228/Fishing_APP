@@ -13,7 +13,6 @@
   }
   .after_nice {
     color: #555555;
-    // font-weight: bold;
     .i_nice {
       color: rgb(0, 190, 48);
     }
@@ -26,7 +25,6 @@
   }
   .post_info {
     width: 70%;
-    // padding: 0 10px;
     margin: 0 10px;
     background-color: white;
     .card-img-top {
@@ -39,13 +37,11 @@
       flex-wrap: wrap;
       justify-content: space-around;
       width: 100%;
-      // margin: 30px 0;
       padding: 20px 0;
       border-top: 1px solid #CCC;
       border-bottom: 1px solid #CCC;
     }
     .content_block {
-      // margin-top: 20px;
       padding: 20px 0;
 
       border-bottom: 1px solid #CCC;
@@ -53,7 +49,6 @@
   }
   .user_info {
     width: 30%;
-    // padding: 0 10px;
     margin: 0 10px;
     background-color: white;
     .user_name {
