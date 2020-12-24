@@ -87,15 +87,18 @@
 
         <div class="content_block">
           <h4>みんなのコメント</h4>
+
+
+
+
+
           <div id="comments_area">
             <div class="comment_items">
-            <!-- 投稿されたコメントをブログの詳細ページに表示するためのrender -->
               <%= render partial: 'comments/index', locals: { comments: @comments, tournament: @tournament } %>
             </div>
           </div>
           <div class="call_attention">丁寧な言葉を心がけましょう。</div>
           <% if user_signed_in? %>
-            <!-- コメント入力フォームを表示するためのrender -->
             <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
           <% end %>
         </div>
