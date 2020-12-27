@@ -21,7 +21,7 @@
     </div>
 
     <div id="reply_area">
-      <% comment.replies.order(:created_at).each do |reply| %>
+      <% comment.replies.each do |reply| %>
         <%= link_to user_path(reply.user.id) do %>
           <div class="reply_user">
             <%= image_tag reply.user.image.url %>
@@ -39,6 +39,5 @@
           <%= render partial: 'comments/reply_form', locals: { comment: comment, post: @post } %>
         </div>
       <% end %>
-
     </div>
 <% end %>

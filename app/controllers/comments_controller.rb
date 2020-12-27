@@ -3,12 +3,19 @@ class CommentsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
+    @comment_reply = @post.comments.build
     @comment.save!
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    
+    Comment.find(params[:id]).destroy
+    
+    # @comment = Comment.find(params[:id])
+    # @comment.destroy
+
+    # @comment_reply = Comment.find(params[:id])
+    # @comment_reply.destroy
   end
 
   private
