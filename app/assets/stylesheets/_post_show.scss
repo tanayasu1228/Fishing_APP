@@ -77,13 +77,61 @@
   }
   .comment_body {
     width: 70%;
-    margin: 0 0 20px 50px;
+    // margin: 0 0 20px 50px;
+    margin-bottom: 20px;
+    margin-left: 7%;
     padding: 5px;
     color: #6c757d ;
     background-color: #f8f9fa;
     border: solid 1px #dee2e6;
     border-radius: 10px;
     }
+    .algin_items {
+      display: flex;
+      .comment_created {
+        margin-right: 20px;
+      }
+    }
+
+
+  .reply_user {
+    // margin-left: 170px;
+    margin-left: 21%;
+    color: #6c757d ;
+    img {
+      font-size: 30px;
+      color: #FFF;
+      margin: 8px 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;      
+    }
+  }
+  .reply_body {
+    width: 70%;
+    // margin: 0 0 20px 220px;
+    margin-bottom: 20px;
+    margin-left: 28%;
+    padding: 5px;
+    color: #6c757d ;
+    background-color: #c4ffe8;
+    border: solid 1px #dee2e6;
+    border-radius: 10px;
+    }
+    .algin_items {
+      display: flex;
+      .reply_created {
+        margin-right: 20px;
+      }
+    }
+
+
+
+
+
+
+
+
   .call_attention {
     text-align: center;
     color: white;

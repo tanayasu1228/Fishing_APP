@@ -1,5 +1,8 @@
 <% comments.each do |comment| %>
-  <% unless comment.id.nil? %>
+  <% if comment.parent_id.present? || comment.id.blank? %>
+    <% next %>
+  <% end %>
+
     <%= link_to user_path(comment.user.id) do %>
       <div class="comment_user">
         <%= image_tag comment.user.image.url %>
@@ -7,10 +10,34 @@
       </div>
     <% end %>
     <div class="comment_body">
-      <%= comment.body %>
-      <% if comment.user == current_user %>
-        <p><%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), method: :delete, remote: true %></p> 
+      <div><%= comment.body %></div>
+      <div class="algin_items">
+        <div class="comment_created"><%= time_ago_in_words(comment.created_at)+"前" %></div>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, comment.id), class: "comment_delete", method: :delete, remote: true %>
+        <% end %>
+      </div>
+      <%= render partial: 'comments/reply_form', locals: { comment: comment, post: @post } %>
+    </div>
+
+    <div id="reply_area">
+      <% comment.replies.each do |reply| %>
+        <%= link_to user_path(reply.user.id) do %>
+          <div class="reply_user">
+            <%= image_tag reply.user.image.url %>
+            <%= reply.user.nickname %>
+          </div>
+        <% end %>
+        <div class="reply_body">
+          <div><%= reply.body %></div>
+          <div class="algin_items">
+            <div class="reply_created"><%= time_ago_in_words(reply.created_at)+"前" %></div>
+            <% if reply.user == current_user %>
+              <%= link_to "削除", tournament_post_comment_path(comment.tournament_id, comment.post_id, reply.id), class: "reply_delete", method: :delete, remote: true %>
+            <% end %>
+          </div>
+          <%= render partial: 'comments/reply_form', locals: { comment: comment, post: @post } %>
+        </div>
       <% end %>
     </div>
-  <% end %>
 <% end %>

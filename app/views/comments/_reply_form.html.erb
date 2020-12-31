@@ -1,0 +1,10 @@
+<%= form_with model: [@tournament, post, @comment_reply], remote: true do |f| %>
+  <div class="comment_form">
+    <%= f.text_area :body, class: "form-control", placeholder: "返信内容" %>
+    <div class="col">
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.hidden_field :parent_id, value: comment.id %>
+      <%= f.submit "送信", class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+<% end %>
