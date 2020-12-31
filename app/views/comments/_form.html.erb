@@ -1,7 +1,6 @@
 <%= form_with model: [@tournament, post, comment], remote: true do |f| %>
   <div class="comment_form">
     <%= f.text_area :body, class: "form-control", placeholder: "ナイスフィシュ！などをコメントしてみよう" %>
-    <%= f.hidden_field :post_id, value: post.id %>
     <div class="col">
       <%= f.submit "送信", class: "btn btn-outline-primary" %>
     </div>
