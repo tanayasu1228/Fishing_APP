@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   belongs_to :tournament, optional: true
   has_many :nices
   has_many :comments, dependent: :destroy
-  # belongs_to :entry
 
   # geocoder.rbにて緯度、経度のカラムに対して自動的に値を入れる為に必要
   # geocoded_by :address
