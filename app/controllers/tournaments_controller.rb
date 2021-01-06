@@ -45,7 +45,6 @@ class TournamentsController < ApplicationController
       @ranks = @tournament.posts.sort_rank_count(keeper_size)
     else
     end
-    # binding.pry
   end
 
 

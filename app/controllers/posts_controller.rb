@@ -88,11 +88,9 @@ class PostsController < ApplicationController
     end
   end
 
-
   private
 
   def post_params
-    # params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime).merge(tournament_id: params[:tournament_id], entry_id:params[:entry_id])
     params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime).merge(tournament_id: params[:tournament_id])
   end
 end
