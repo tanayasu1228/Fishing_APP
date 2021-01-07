@@ -9,7 +9,6 @@ class Tournament < ApplicationRecord
   validates :measure_rule, presence: true
 
   mount_uploader :image, PictureUploader
-  # mount_uploader :image, ImageUploader
 
   validates_acceptance_of :confirming
   after_validation :check_confirming
@@ -24,29 +23,9 @@ class Tournament < ApplicationRecord
     self.confirming = errors.empty? ? '1' : ''
   end
 
-  # トーナメントにエントリーしているか判断するメソッド
   def entry_completed_by?(user)
     entries.where(user_id: user.id).exists?
   end
-
-  # メインルールに対して入れ替え枠の有無を判断するメソッド
-  def swap_limit_ture?(user)
-    entries.where(user_id: user.id).exists?
-  end
-
-  # メインルールに対して合計値枠の有無を判断するメソッド
-  def judging_limit_ture?(user)
-    entries.where(user_id: user.id).exists?
-  end
-
-  # メインルールに対して入れ替え枠の有無を判断するメソッド
-  # def swap_limit(user)
-  #   entries.where(user_id: user.id).exists?
-  # end
-
-
-
-
 
   def self.sort_rank_sumsize(keeper_size, s_limit, j_limit)
     posts = self.includes(:user)
@@ -92,8 +71,6 @@ class Tournament < ApplicationRecord
     sort_sumsize = result.sort_by! { |a| a[:sum_size] }
     sort_sumsize.reverse!
   end
-
-
 
   # ランキング機能のデータを取得
   def self.sort_rank

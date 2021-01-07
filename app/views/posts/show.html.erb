@@ -25,7 +25,7 @@
 
           <script type="text/javascript">
             function initMap() {
-          // #latitude,longitudeから位置を特定させる
+              // latitude,longitudeから位置を特定させる
               var latlng ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
               var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 11, 
@@ -39,55 +39,44 @@
                 content: contentString
               });
 
-            //  #Map上に円を表示させる
               new google.maps.Circle({
-                center: latlng,       // 円の中心座標
-                fillColor: '#ff0000',   // 塗りつぶし色
-                fillOpacity: 0.3,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
-                map: map,             // 表示させる地図（google.maps.Map）
-                radius: 7000,          // 半径（ｍ）
-                strokeColor: '#ff0000', // 外周色
-                strokeOpacity: 1,       // 外周透過度（0: 透明 ⇔ 1:不透明）
-                strokeWeight: 3         // 外周太さ（ピクセル）
+                center: latlng,
+                fillColor: '#ff0000',
+                fillOpacity: 0.3,
+                map: map,
+                radius: 7000,
+                strokeColor: '#ff0000',
+                strokeOpacity: 1,
+                strokeWeight: 3
               });
             }
           </script>
-
           <script async defer
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
           </script>
-
-          <%# #mapのcss %>
           <style type="text/css">
             #map { height: 400px;
                    width: 100%;}
           </style>
-
-          <%# #mapの表示 %>
           <div id="map"></div>
           <small class="text-muted f-12">マップの中心は釣果のポイントを示すものではありません。</small>
         </div>
-
         <div class="content_block">
           <h3>釣れたルアー(仕掛け)</h3>
           <%= @post.lure %>
         </div>
-        
         <div class="content_block">
           <h3>釣れたレンジ</h3>
           <%= @post.range %>
         </div>
-
         <div class="content_block">
           <h3>タックル</h3>
           <p><%= "釣れたロッド：#{@post.rod}" %></p>
           <p><%= "釣れたリール：#{@post.reel}" %></p>
           <p><%= "釣れたライン：#{@post.line}" %></p>
         </div>
-
         <div class="content_block">
           <h4>みんなのコメント</h4>
-
           <div id="comments_area">
             <div class="comment_items">
               <%= render partial: 'comments/index', locals: { comments: @comments, tournament: @tournament } %>
@@ -98,9 +87,7 @@
             <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
           <% end %>
         </div>
-      
       </div>
-
       <div class="user_info">
         <%= link_to user_path(@user.id), class:"user_name" do %>
           <%= image_tag @user.image.to_s %><%= @user.nickname %>
@@ -109,7 +96,6 @@
           <%= simple_format(@user.comment) %>
         </div>
       </div>
-
     </div>
   </section>
 </div>

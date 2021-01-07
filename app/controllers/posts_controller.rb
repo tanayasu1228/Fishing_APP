@@ -25,7 +25,6 @@ class PostsController < ApplicationController
 
     dt = img.get_exif_by_entry('DateTimeOriginal')
     @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
-    # binding.pry
     return if @post.valid?
   end
 
@@ -38,8 +37,6 @@ class PostsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
-    # img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
-    # @post.datetime = img.get_exif_by_entry('DateTimeOriginal')[0][1]
     @post.save!
     redirect_to tournament_path(@tournament)
   end
@@ -61,13 +58,8 @@ class PostsController < ApplicationController
     exif_lng = img.get_exif_by_entry('GPSLongitude')[0][1].split(',').map(&:strip)
     @longitude = (Rational(exif_lng[0]) + Rational(exif_lng[1])/60 + Rational(exif_lng[2])/3600).to_f
 
-    # address = @post.address.split(",")
-    # @address = address[1]
-    # binding.pry
-
     dt = img.get_exif_by_entry('DateTimeOriginal')
     @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
-# binding.pry
     impressionist(@post, nil, unique: [:session_hash])
   end
 
@@ -95,7 +87,6 @@ class PostsController < ApplicationController
     else
     end
   end
-
 
   private
 
