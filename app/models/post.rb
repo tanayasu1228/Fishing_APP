@@ -5,20 +5,12 @@ class Post < ApplicationRecord
   belongs_to :tournament, optional: true
   has_many :nices
   has_many :comments, dependent: :destroy
-  # belongs_to :entry
 
-  # geocoder.rbにて緯度、経度のカラムに対して自動的に値を入れる為に必要
-  # geocoded_by :address
-  # after_validation :geocode, if: :address_changed?
-
-# 逆ジオコーディング 緯度、経度から住所を取得
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
   
-  # PV数の計測
   is_impressionable
 
-  # いいねしたか判定
   def niced_by?(user)
     nices.where(user_id: user.id).exists?
   end
