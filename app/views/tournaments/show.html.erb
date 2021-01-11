@@ -35,8 +35,6 @@
           <% else %>
           <% end %>
         </div>
-
-
         <div class="rule_info">
           <div class="time">
             <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間： <%= "#{l @tournament.start_time, format: :long} 〜 #{l @tournament.end_time, format: :long}" %></h4>
@@ -235,7 +233,6 @@
               </div>
               <% before_rank = rank_element %>
             <% end %>
-
           <% end %>
         <% end %>
       </div>

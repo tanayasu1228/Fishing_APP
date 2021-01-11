@@ -49,20 +49,11 @@ class Tournament < ApplicationRecord
       array1.each do |n|
         keeper_checked_array << n if keeper_size.to_i <= n
       end
-      # 投稿した最大サイズの値を取得
       max_size = keeper_checked_array.max
-
       array2 = keeper_checked_array.max(j_limit.to_i)
-
-      # 合計値を取得
       sum_size = array2.sum
-
-      # 投稿ユーザーimageを取得
       image = posts.where(user_id: user_id).first.user.image.url
-
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-      # 有効釣果数を取得
       count = posts.where(user_id: user_id).count(:id)
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
@@ -70,33 +61,6 @@ class Tournament < ApplicationRecord
     end
     sort_sumsize = result.sort_by! { |a| a[:sum_size] }
     sort_sumsize.reverse!
-  end
-
-  # ランキング機能のデータを取得
-  def self.sort_rank
-    posts = self.includes(:user)
-    sort_size_users = posts.group("users.id", "users.nickname").order('sum_catch_size desc').sum(:catch_size)
-
-    result = sort_size_users.map do |k, v|
-      user_id = k[0]
-      nickname = k[1]
-      sum_size = v
-      max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-      # 投稿した最大サイズの値を取得
-      sort_max_size = posts.where(user_id: user_id).group("users.id").maximum(:catch_size)
-      max_size = sort_max_size[user_id]
-      
-      # 投稿ユーザーimageを取得
-      image = posts.where(user_id: user_id).first.user.image.url
-
-      # 有効釣果数を取得
-      count = keeper_checked_array.count
-      # count = posts.where(user_id: user_id).count(:post_id)
-
-      { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
-    end
-    result
   end
 
   def self.sort_rank_maxsize(keeper_size, s_limit)
@@ -124,16 +88,9 @@ class Tournament < ApplicationRecord
       end
 
       max_size = keeper_checked_array.max
-
-      # 合計値を取得
       sum_size = keeper_checked_array.sum
-
-      # 投稿ユーザーimageを取得
       image = posts.where(user_id: user_id).first.user.image.url
-
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-      # 有効釣果数を取得
       count = keeper_checked_array.count
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
@@ -168,16 +125,9 @@ class Tournament < ApplicationRecord
       end
 
       max_size = keeper_checked_array.max
-
-      # 合計値を取得
       sum_size = keeper_checked_array.sum
-
-      # 投稿ユーザーimageを取得
       image = posts.where(user_id: user_id).first.user.image.url
-
       max_size_image = posts.where(user_id: user_id).order(catch_size: "DESC").first.fish_image.url
-
-      # 有効釣果数を取得
       count = keeper_checked_array.count
 
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
