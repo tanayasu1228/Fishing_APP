@@ -77,7 +77,6 @@
   }
   .comment_body {
     width: 70%;
-    // margin: 0 0 20px 50px;
     margin-bottom: 20px;
     margin-left: 7%;
     padding: 5px;
@@ -95,7 +94,6 @@
 
 
   .reply_user {
-    // margin-left: 170px;
     margin-left: 21%;
     color: #6c757d ;
     img {
@@ -109,7 +107,6 @@
   }
   .reply_body {
     width: 70%;
-    // margin: 0 0 20px 220px;
     margin-bottom: 20px;
     margin-left: 28%;
     padding: 5px;
@@ -125,13 +122,6 @@
       }
     }
 
-
-
-
-
-
-
-
   .call_attention {
     text-align: center;
     color: white;
@@ -139,21 +129,5 @@
   }
   .comment_form {
     display: flex;
-  }
-  
-  @media (min-width: 0px) {
-    
-  }
-
-  @media (min-width: 767px) {
-    
-  }
-
-  @media (min-width: 992px) {
-    
-  }
-
-  @media (min-width: 1200px) {
-    
   }
 }

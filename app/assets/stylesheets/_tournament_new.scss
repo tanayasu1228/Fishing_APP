@@ -5,7 +5,6 @@
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
   }
-  // 必須項目
   .label{
     background-color: red;
     padding: 1px 5px 1px 5px;
@@ -15,7 +14,6 @@
     color: #fff;
     border-radius: 8px;
   }
-  // 追加項目
   .add_label{
     background-color: rgb(0, 167, 75);
     padding: 1px 5px 1px 5px;
@@ -39,11 +37,6 @@
     cursor: pointer;
     #tournament_img {
       display: none;
-    }
-    img {
-      // height: 400px;
-      // width: 100%;
-      // object-fit: contain;
     }
     #img_prev {
       border: 2px solid #dddddd;
@@ -89,7 +82,6 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  // リストの表示
   ul.image-list {
     text-align: center;
     padding: 0 10px;
@@ -130,7 +122,6 @@
     width: 100%;
     height: 100%;
   }
-  // イメージ内のラジオボタンの設定
   .style-image .radio-box {
     position: absolute;
     top: 12px;

@@ -4,7 +4,6 @@
   }
   .card_header {
     background-color: white;
-    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .header_name {
       color: #555555;
     }
@@ -20,7 +19,6 @@
   .card_body {
     padding: 15px 15px;
     background-color: white;
-    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     .fish_img {
       margin-right: 15px;
       object-fit: cover;
@@ -37,96 +35,10 @@
     }
     .media_body {
       color: #555555;
-      // padding: 15px 15px 15px 15px;
-      // display: flex;
       ul {
         padding-left: 10px;
         list-style: none;
-        // li {
-        //   color: rgba(145, 145, 145, 0.9);
-        // }
       }
     }
   }
-
-
-
-
-
-  // @media (min-width: 0px) {  
-  //   .media_body {
-  //     .rank_name {
-  //       font-size: 20px;
-  //       .user_img {
-  //         margin: 4px;
-  //         width: 40px;
-  //         height: 40px;
-  //         border-radius: 50%;
-  //       }
-  //     }
-  //     ul li {
-  //       font-size: 18px;
-  //       .fa-chart-bar {
-  //         display: none;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // @media (min-width: 767px) {
-  //   .media_body {
-  //     .rank_name {
-  //       font-size: 20px;
-  //       .user_img {
-  //         margin: 4px;
-  //         width: 40px;
-  //         height: 40px;
-  //         border-radius: 50%;
-  //       }
-  //     }
-  //     ul {
-  //       display: flex;
-  //       li {
-  //         font-size: 18px;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // @media (min-width: 992px) {
-  //   .media_body {
-  //     .rank_name {
-  //       font-size: 30px;
-  //       .user_img {
-  //         margin: 8px 8px;
-  //         width: 50px;
-  //         height: 50px;
-  //         border-radius: 50%;
-  //       }
-  //     }
-  //     ul {
-  //       display: flex;
-  //       li {
-  //         font-size: 25px;
-  //       }
-  //     }
-  //   }  
-  // }
-
-  // @media (min-width: 1200px) { 
-  //   .media_body {
-  //     .rank_name {
-  //       font-size: 35px;
-  //       .user_img {
-  //         margin: 8px 8px;
-  //         width: 50px;
-  //         height: 50px;
-  //         border-radius: 50%;
-  //       }
-  //     }
-  //     ul li {
-  //       font-size: 30px;
-  //     }
-  //   }
-  // }   
 }
