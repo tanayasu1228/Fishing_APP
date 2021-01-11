@@ -21,11 +21,9 @@
           <h3><%= "魚種：#{@post.fish_name}" %></h3>
           <h3><%= "サイズ：#{@post.catch_size}" %></h3> 
           <h3><%= "重量：#{@post.weight}" %></h3>
-          <p><%= "住所：#{@post.address}" %></p>
 
           <script type="text/javascript">
             function initMap() {
-              // latitude,longitudeから位置を特定させる
               var latlng ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
               var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 11, 
@@ -33,11 +31,6 @@
               });
               var transitLayer = new google.maps.TransitLayer();
               transitLayer.setMap(map);
-
-              var contentString = '住所：<%= @post.address %>';
-              var infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
 
               new google.maps.Circle({
                 center: latlng,

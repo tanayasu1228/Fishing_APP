@@ -10,7 +10,7 @@
 		position:	relative;
     cursor: pointer;
     #user_img {
-      display: none;  /* 本来のファイル選択フォームは非表示に */
+      display: none;
     }
     img {
       width: 400px;
@@ -18,9 +18,9 @@
       border-radius: 50%;
     }
     #img_prev {
-      border: 2px solid #dddddd;  /* 枠線 */
-      border-radius: 50%;       /* 角丸 */
-      display: inline-block;     /* インラインブロック化 */
+      border: 2px solid #dddddd;
+      border-radius: 50%;
+      display: inline-block;
     }
     .caption {
       font-size: 130%;
@@ -33,7 +33,7 @@
       position:	absolute;
       top: 0;
       left:	0;
-      opacity: 0;	/* マスクを表示しない */
+      opacity: 0;
       background-color: rgba(0,0,0,0.4);
       -webkit-transition:	all 0.6s ease;
       transition:	all 0.6s ease;
@@ -41,8 +41,8 @@
 	}
 	.thumbnail:hover .mask {
     border-radius: 50%;
-		opacity: 1;	/* マスクを表示する */
-		padding-top: 170px;	/* ホバーで下にずらす */
+		opacity: 1;
+		padding-top: 170px;
 	}
   
   h2 {

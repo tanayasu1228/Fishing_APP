@@ -11,6 +11,7 @@
 @import "post_show";
 @import "post_ranks";
 @import "post_record";
+@import "post_confirm";
 
 body{
   background-color: #f5faff;
@@ -37,7 +38,6 @@ body{
 
 .myicon {
   margin: 0 0 0 auto;
-  // text-align:right;
   color: white;
   position:relative;
   display:inline-block;
