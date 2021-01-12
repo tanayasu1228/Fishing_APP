@@ -56,8 +56,7 @@ class TournamentsController < ApplicationController
     if @tournament.update(tournament_params)
       redirect_to tournament_path, notice: "更新しました"
     else
-      flash.now[:alert] = "入力に不備があります。"
-      render :edit
+      render :edit, alert: "入力に不備があります。"
     end
   end
 

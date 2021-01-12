@@ -24,8 +24,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path(current_user), notice: "更新しました。"
     else
-      flash.now[:alert] = "入力に不備があります。"
-      render :edit
+      render :edit, alert: "入力に不備があります。"
     end
   end
 
