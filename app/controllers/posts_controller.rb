@@ -14,18 +14,22 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @user = @post.user
     img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
+    get_exif = img.get_exif_by_entry('GPSLatitude')
+    if get_exif[0][1].nil?
+      redirect_to new_tournament_post_path(@tournament), alert: "写真にGPSデータが無いため、投稿出来ませんでした。"
+    else
+      # 緯度：10進数に変換
+      exif_lat = img.get_exif_by_entry('GPSLatitude')[0][1].split(',').map(&:strip)
+      @post.latitude = (Rational(exif_lat[0]) + Rational(exif_lat[1])/60 + Rational(exif_lat[2])/3600).to_f
 
-    # 緯度：10進数に変換
-    exif_lat = img.get_exif_by_entry('GPSLatitude')[0][1].split(',').map(&:strip)
-    @post.latitude = (Rational(exif_lat[0]) + Rational(exif_lat[1])/60 + Rational(exif_lat[2])/3600).to_f
+      # 経度：10進数に変換
+      exif_lng = img.get_exif_by_entry('GPSLongitude')[0][1].split(',').map(&:strip)
+      @post.longitude = (Rational(exif_lng[0]) + Rational(exif_lng[1])/60 + Rational(exif_lng[2])/3600).to_f
 
-    # 経度：10進数に変換
-    exif_lng = img.get_exif_by_entry('GPSLongitude')[0][1].split(',').map(&:strip)
-    @post.longitude = (Rational(exif_lng[0]) + Rational(exif_lng[1])/60 + Rational(exif_lng[2])/3600).to_f
-
-    dt = img.get_exif_by_entry('DateTimeOriginal')
-    @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
-    return if @post.valid?
+      dt = img.get_exif_by_entry('DateTimeOriginal')
+      @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
+      return if @post.valid?
+    end
   end
 
   def back
