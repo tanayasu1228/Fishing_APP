@@ -12,10 +12,11 @@
   </head>
 
   <body>
-  <header>
-    <%= render partial: "layouts/navbar" %>
-  </header>
-    <%= render partial: "layouts/flash" %>
-    <%= yield %>
+    <div id="main_wrapper">
+      <header><%= render partial: "layouts/navbar" %></header>
+      <%= render partial: "layouts/flash" %>
+      <%= yield %>
+      <footer><%= render 'layouts/footer' %></footer>
+    </div>
   </body>
 </html>
