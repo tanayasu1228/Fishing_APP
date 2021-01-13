@@ -5,7 +5,8 @@
   <div class="container">
     <div class="profile">
       <%= image_tag @user.image.url %>
-        <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"edit_btn"  %>
+        <%= link_to 'プロフィール編集', edit_user_path(current_user), class: "btn btn-outline-primary btn-lg w-25" %>
+        <%= link_to 'アカウント編集', edit_user_registration_path, class: "btn btn-outline-warning btn-lg w-25" %>
       <div class="nickname">
         <%= @user.nickname %>
       </div>

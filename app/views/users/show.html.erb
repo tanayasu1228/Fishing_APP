@@ -6,7 +6,7 @@
     <div class="profile">
       <%= image_tag @user.image.url %>
         <% if user_signed_in? && current_user.id == @user[:id] %>
-          <%= link_to 'プロフィール編集', edit_user_path(current_user), class:"edit_btn"  %>
+          <%= link_to 'プロフィール編集', edit_user_path(current_user), class: "btn btn-outline-primary btn-lg w-25"  %>
         <% end %>
       <div class="nickname">
         <%= @user.nickname %>
