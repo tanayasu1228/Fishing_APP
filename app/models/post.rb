@@ -58,8 +58,7 @@ class Post < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count, post_id: post_id }
 
     end
-    sort_sumsize = result.sort_by! { |a| a[:sum_size] }
-    sort_sumsize.reverse!
+    sort_sumsize = result.sort_by! { |a| -a[:sum_size] }
   end
 
   # 最大サイズでのランキングデータを取得
@@ -96,8 +95,7 @@ class Post < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count, post_id: post_id }
 
     end
-    sort_maxsize = result.sort_by! { |a| a[:max_size] }
-    sort_maxsize.reverse!
+    sort_maxsize = result.sort_by! { |a| -a[:max_size] }
   end
 
   # 釣果数でのランキングデータを取得
@@ -134,7 +132,6 @@ class Post < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count, post_id: post_id }
 
     end
-    sort_count = result.sort_by! { |a| a[:count] }
-    sort_count.reverse!
+    sort_count = result.sort_by! { |a| -a[:count] }
   end
 end

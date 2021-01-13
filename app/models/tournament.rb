@@ -59,8 +59,7 @@ class Tournament < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
     end
-    sort_sumsize = result.sort_by! { |a| a[:sum_size] }
-    sort_sumsize.reverse!
+    sort_sumsize = result.sort_by! { |a| -a[:sum_size] }
   end
 
   def self.sort_rank_maxsize(keeper_size, s_limit)
@@ -96,8 +95,7 @@ class Tournament < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
     end
-    sort_maxsize = result.sort_by! { |a| a[:max_size] }
-    sort_maxsize.reverse!
+    sort_maxsize = result.sort_by! { |a| -a[:max_size] }
   end
 
   def self.sort_rank_count(keeper_size)
@@ -133,8 +131,7 @@ class Tournament < ApplicationRecord
       { nickname: nickname, image: image, sum_size: sum_size, max_size_image: max_size_image, max_size: max_size, count: count }
 
     end
-    sort_count = result.sort_by! { |a| a[:count] }
-    sort_count.reverse!
+    sort_count = result.sort_by! { |a| -a[:count] }
   end
 end
 
