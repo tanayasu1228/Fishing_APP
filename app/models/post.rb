@@ -15,6 +15,16 @@ class Post < ApplicationRecord
     nices.where(user_id: user.id).exists?
   end
 
+  # 緯度の取得
+  scope :get_exif_latitude, -> (img){ img.get_exif_by_entry('GPSLatitude')[0][1].split(',').map(&:strip) }
+
+  # 経度の取得
+  scope :get_exif_longitude, -> (img){ img.get_exif_by_entry('GPSLongitude')[0][1].split(',').map(&:strip) }
+
+  # 10進数に変換
+  scope :get_exif_gps, -> (exif){ (Rational(exif[0]) + Rational(exif[1])/60 + Rational(exif[2])/3600).to_f }
+    
+  # 合計サイズのランキングデータを取得
   def self.sort_rank_sumsize(keeper_size, s_limit, j_limit)
     posts = self.includes(:user)
     # ユーザーIDをグループとした投稿時間で並べ替え
@@ -52,6 +62,7 @@ class Post < ApplicationRecord
     sort_sumsize.reverse!
   end
 
+  # 最大サイズでのランキングデータを取得
   def self.sort_rank_maxsize(keeper_size, s_limit)
     posts = self.includes(:user)
     # ユーザーIDをグループとした投稿時間で並べ替え
@@ -89,6 +100,7 @@ class Post < ApplicationRecord
     sort_maxsize.reverse!
   end
 
+  # 釣果数でのランキングデータを取得
   def self.sort_rank_count(keeper_size)
     posts = self.includes(:user)
     # ユーザーIDをグループとした投稿時間で並べ替え

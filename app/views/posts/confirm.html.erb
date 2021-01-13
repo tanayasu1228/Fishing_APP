@@ -9,11 +9,10 @@
         <h3><%= "魚種：#{@post.fish_name}" %></h3>
         <h3><%= "サイズ：#{@post.catch_size}" %></h3> 
         <h3><%= "重量：#{@post.weight}" %></h3>
-        <p><%= "住所：#{@post.address}" %></p>
 
         <script type="text/javascript">
           function initMap() {
-            var latlng ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+            var latlng ={lat: <%= @latitude %>, lng: <%= @longitude %>};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 11, 
                 center: latlng
