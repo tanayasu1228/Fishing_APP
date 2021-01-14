@@ -27,16 +27,43 @@ class Tournament < ApplicationRecord
     entries.where(user_id: user.id).exists?
   end
 
-  def self.held_date_check
+  # 開催前のトーナメントデータ
+  def self.before_held_date_check
+    tournaments = self.all
+
+    before_held_tournaments = []
+    tournaments.each do |tournament|
+      if tournament.start_time >= DateTime.now
+        before_held_tournaments << tournament
+      end
+    end
+    before_held_tournaments
+  end
+
+  # 開催中のトーナメントデータ
+  def self.in_held_date_check
     tournaments = self.all
 
     in_held_tournaments = []
     tournaments.each do |tournament|
-      if tournament.end_time >= DateTime.now
+      if tournament.start_time <= DateTime.now && tournament.end_time >= DateTime.now
         in_held_tournaments << tournament
       end
     end
     in_held_tournaments
+  end
+
+  # 開催後のトーナメントデータ
+  def self.after_held_date_check
+    tournaments = self.all
+
+    after_held_tournaments = []
+    tournaments.each do |tournament|
+      if tournament.end_time <= DateTime.now
+        after_held_tournaments << tournament
+      end
+    end
+    after_held_tournaments
   end
 
 
