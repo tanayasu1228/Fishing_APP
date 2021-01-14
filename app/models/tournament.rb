@@ -27,6 +27,19 @@ class Tournament < ApplicationRecord
     entries.where(user_id: user.id).exists?
   end
 
+  def self.held_date_check
+    tournaments = self.all
+
+    in_held_tournaments = []
+    tournaments.each do |tournament|
+      if tournament.end_time >= DateTime.now
+        in_held_tournaments << tournament
+      end
+    end
+    in_held_tournaments
+  end
+
+
   def self.sort_rank_sumsize(keeper_size, s_limit, j_limit)
     posts = self.includes(:user)
     # ユーザーIDをグループとした投稿時間で並べ替え

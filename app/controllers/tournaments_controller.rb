@@ -2,7 +2,7 @@ class TournamentsController < ApplicationController
   before_action :tournament_params, only: [:confirm]
 
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.held_date_check
   end
 
   def new
