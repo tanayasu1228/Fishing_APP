@@ -15,6 +15,13 @@
 
           <a href="#comments_area"><i class="far fa-comment-dots"></i> コメントする</a>
         </div>
+
+        <div class="share-buttons">
+          <%= link_to image_tag("twitter.png", class: "icon_style"), "https://twitter.com/share?url=#{request.url}&text=#{@user.nickname}さんの#{l @post.datetime, format: :short}の釣果です", title: "Twitter", target: "_blank" %>
+          <%= link_to image_tag("facebook.png", class: "icon_style"), "https://www.facebook.com/sharer" %>
+          <%= link_to image_tag("line.png", class: "icon_style"), "https://line.me/R/msg/text/?#{request.url}" %>
+        </div>
+        
         <div class="content_block">
           <h3>釣果データ</h3>
           <p><%= "撮影日：#{l @post.datetime, format: :short}" %></p>
