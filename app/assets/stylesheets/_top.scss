@@ -15,4 +15,23 @@
     height: 100%;
     object-fit: cover;
   }
+  .top_content_info {
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+
+    .content_title {
+      font-weight: bold;
+      background-color: #CCC;
+      margin-bottom: 20px;
+    }
+  }
+  // .top_tournament_info {
+  //   background-color: white;
+  //   border-top: 1px solid #CCC;
+  //   border-bottom: 1px solid #CCC;
+  //   padding: 10px 0;
+  // }
 }
