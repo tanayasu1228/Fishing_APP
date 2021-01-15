@@ -91,7 +91,19 @@
         margin-right: 20px;
       }
     }
-
+    .share-buttons {
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 10px 50px;
+      border-bottom: 1px solid #CCC;
+      .icon_style{
+        height: 50px;
+        width: 50px;
+      }
+    }
+    
 
   .reply_user {
     margin-left: 21%;
