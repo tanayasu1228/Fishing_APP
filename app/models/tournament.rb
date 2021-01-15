@@ -33,7 +33,7 @@ class Tournament < ApplicationRecord
 
     before_held_tournaments = []
     tournaments.each do |tournament|
-      if tournament.start_time >= DateTime.now
+      if tournament.start_time > DateTime.now
         before_held_tournaments << tournament
       end
     end
@@ -46,7 +46,7 @@ class Tournament < ApplicationRecord
 
     in_held_tournaments = []
     tournaments.each do |tournament|
-      if tournament.start_time <= DateTime.now && tournament.end_time >= DateTime.now
+      if tournament.start_time < DateTime.now && tournament.end_time > DateTime.now
         in_held_tournaments << tournament
       end
     end
@@ -59,7 +59,7 @@ class Tournament < ApplicationRecord
 
     after_held_tournaments = []
     tournaments.each do |tournament|
-      if tournament.end_time <= DateTime.now
+      if tournament.end_time < DateTime.now
         after_held_tournaments << tournament
       end
     end

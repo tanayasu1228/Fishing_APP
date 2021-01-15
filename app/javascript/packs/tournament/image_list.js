@@ -109,7 +109,7 @@ $(document).on("turbolinks:load", function () {
 
 $(function () {
   // テキストボックスでキーアップされた時に実行
-  $('.search-text).keyup(function () {
+  $('.search-text').keyup(function () {
     // テキストボックスの内容を取得し変数に入れる
     search_text = $('.search-text').val().toLowerCase();
     // texts-content 内の h3をすべて取得する
