@@ -1,8 +1,35 @@
-<h1>WEBトーナメント情報一覧</h1>
+<%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %>
+<h1>大会情報</h1>
 <section id="tournament_index">
   <div class="container">
     <div class="tournaments-wrapper">
-      <%= render @tournaments %>
+      <div class="held_tabs">
+        <div class="tab-buttons">
+          <span class="in_held_tab">開催中</span>
+          <span class="before_held">開催予定</span>
+          <span class="after_held">過去の大会</span>
+          <div id="lamp" class="in_held_tab"></div>
+        </div>
+        <div class="tab-content mt-1">
+          <div class="in_held_tab">
+            <% if @tournaments.length == 0 %>
+              Coming Soon
+            <% else %>
+              <%= render partial: "tournament", collection: @tournaments %>
+            <% end %>
+          </div>
+          <div class="before_held">
+          <% if @before_tournaments.length == 0 %>
+              Coming Soon
+          <% else %>
+            <%= render partial: "tournament", collection: @before_tournaments %>
+          <% end %>
+          </div>
+          <div class="after_held">
+            <%= render partial: "tournament", collection: @after_tournaments %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

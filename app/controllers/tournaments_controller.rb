@@ -3,6 +3,8 @@ class TournamentsController < ApplicationController
 
   def index
     @tournaments = Tournament.in_held_date_check
+    @before_tournaments = Tournament.before_held_date_check
+    @after_tournaments = Tournament.after_held_date_check
   end
 
   def new
