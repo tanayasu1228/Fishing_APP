@@ -11,22 +11,28 @@
       <h2>釣果を競い合おう・共有しよう</h2>
       <p>釣りに関する情報共有を目的に、フィールド別での今日の最大魚を競い合うWEBトーナメントサービスです</p>
     </div>
-    <h2 class="text-center">イベント情報</h2>
-    <div class="text-center">
-      <%= link_to "もっとみる", events_path %>
-    </div>
-    <h2 class="text-center">WEBトーナメント情報</h2>
-    <section id="tournament_index">
-      <div class="tournaments-wrapper">
-        <%= render @tournaments %>
+    <div class="top_content_info">
+      <div class="content_title">イベント情報</div>
+      <div class="text-center">
+        <%= link_to "もっとみる", events_path, class: "btn btn-outline-info btn-lg w-25" %>
       </div>
-    </section>
-    <div class="text-center">
-      <%= link_to  "もっとみる", tournaments_path %>
     </div>
-    <h2 class="text-center">釣果情報</h2>
-    <div class="text-center">
-      <%= link_to  "もっとみる", '#' %>
+    <div class="top_content_info">
+      <div class="content_title">エントリー募集中の大会</div>
+      <section id="tournament_index">
+        <div class="tournaments-wrapper">
+          <%= render @tournaments %>
+        </div>
+      </section>
+      <div class="text-center">
+        <%= link_to  "大会情報一覧", tournaments_path, class: "btn btn-outline-info btn-lg w-25" %>
+      </div>
+    </div>
+    <div class="top_content_info">
+      <div class="content_title">釣果情報</div>
+      <div class="text-center">
+        <%= link_to  "もっとみる", '#', class: "btn btn-outline-info btn-lg w-25" %>
+      </div>
     </div>
   </div>
 </section>
