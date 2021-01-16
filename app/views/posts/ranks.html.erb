@@ -33,7 +33,6 @@
         <% elsif @tournament.swap_limit < "99999" && @tournament.judging_limit < "99999" %>
           <h2><%= "【 #{@tournament.main_rule} 】" %></h2>
           <b>入れ替え上限<%= @tournament.swap_limit %>匹の中で、上位<%= @tournament.judging_limit %>位の合計値で勝負します！</b>
-
         <% else %>
         <% end  %>
       </div>
