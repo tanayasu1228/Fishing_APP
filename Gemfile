@@ -24,13 +24,12 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'pry-rails'
-
 gem 'geocoder'
-
 gem "dotenv-rails"
 #PV数の計測
 gem 'impressionist'
 
+gem 'kaminari'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
