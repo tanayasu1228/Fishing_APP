@@ -93,9 +93,8 @@ $(document).on("turbolinks:load", function () {
 });
 
 $(function () {
-  // テキストボックスでキーアップされた時に実行
   $('.search-text').keyup(function () {
-    // テキストボックスの内容を取得し変数に入れる
+    // テキストボックスの内容を取得＆変数に入れる
     search_text = $('.search-text').val().toLowerCase();
     // texts-content 内の h3をすべて取得する
     $('ul.image-list .image-box p').each(function () {
@@ -108,20 +107,5 @@ $(function () {
         $(this).parents('.image-list li').hide();
       }
     });
-  });
-});
-
-$('.tab-content>div').hide();
-$('.tab-content>div').first().slideDown();
-$('.tab-buttons span').click(function () {
-  var thisclass = $(this).attr('class');
-  $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
-  $('.tab-content>div').each(function () {
-    if ($(this).hasClass(thisclass)) {
-      $(this).fadeIn(800);
-    }
-    else {
-      $(this).hide();
-    }
   });
 });
