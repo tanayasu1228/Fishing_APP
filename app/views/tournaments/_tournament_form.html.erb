@@ -6,7 +6,7 @@
     <br>
     <label>
       <div class="thumbnail">
-        <%= f.file_field :image, id: "tournament_img" %>
+        <%= f.file_field :image, id: "pick_img" %>
         <%= f.hidden_field :image_cache %>
         <%= image_tag asset_path("#{@tournament.image}"), id: "img_prev" %>
         <div class="mask">

@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function () {
+document.addEventListener("turbolinks:load", function () {
   $(function () {
     function readURL(input) {
       if (input.files && input.files[0]) {
@@ -9,7 +9,7 @@ $(document).on("turbolinks:load", function () {
         reader.readAsDataURL(input.files[0]);
       }
     }
-    $("#post_img").change(function () {
+    $("#pick_img").change(function () {
       readURL(this);
     });
   });
