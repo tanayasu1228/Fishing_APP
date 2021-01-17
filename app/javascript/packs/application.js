@@ -13,7 +13,7 @@ require("bootstrap/dist/js/bootstrap")
 
 require("./top/slide")
 require("./tournament/image_list")
-require("./tournament/limit_select")
+require("./preview/image_preview")
 
 
 // require("./tournament/disabled_select")

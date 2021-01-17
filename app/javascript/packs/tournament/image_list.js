@@ -1,19 +1,4 @@
 $(document).on("turbolinks:load", function () {
-  $(function () {
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#tournament_img").change(function () {
-      readURL(this);
-    });
-  });
-
   
   // 魚種選択でtext_areaの切り替え
   document.getElementById("tournament_fish_name_other").onclick = function () {
@@ -114,13 +99,12 @@ $(function () {
     search_text = $('.search-text').val().toLowerCase();
     // texts-content 内の h3をすべて取得する
     $('ul.image-list .image-box p').each(function () {
-      // 大文字小文字を区別させず取得して変数に入れる
       val = $(this).text().toLowerCase();
       if (val.match(search_text)) {
-        // (this)の先祖要素になるtexts-contentクラスを表示にする
+        // (this)の元要素になるtexts-contentクラスを表示にする
         $(this).parents('.image-list li').show();
       } else {
-        // (this)の先祖要素になるtexts-contentクラスを非表示にする
+        // (this)の元要素になるtexts-contentクラスを非表示にする
         $(this).parents('.image-list li').hide();
       }
     });

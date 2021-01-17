@@ -1,4 +1,4 @@
-<%= javascript_pack_tag 'post/image_prev', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'preview/image_preview', 'data-turbolinks-track': 'reload' %>
 <div class="container">
   <section id="post_new">
     <h1>WEBトーナメント投稿画面</h1>
@@ -10,7 +10,7 @@
             <br>
             <label>
               <div class="thumbnail">
-                <%= f.file_field :fish_image, id: "post_img" %>
+                <%= f.file_field :fish_image, id: "pick_img" %>
                 <%= f.hidden_field :fish_image_cache %>
                 <% if @post.fish_image.present? %>
                   <%= image_tag asset_path("#{@post.fish_image}"), id: "img_prev" %>
