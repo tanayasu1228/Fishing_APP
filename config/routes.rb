@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   resources :homes
   resources :events
-  resources :gps_checks, only: [:new, :create
+  resources :gps_checks, only: [:new, :create]
   resources :tournaments do
     collection do
       post :new, path: :new, as: :new, action: :back
