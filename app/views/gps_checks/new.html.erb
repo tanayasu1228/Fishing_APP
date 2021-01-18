@@ -1,0 +1,27 @@
+<%= javascript_pack_tag 'preview/image_preview', 'data-turbolinks-track': 'reload' %>
+<div class="container">
+写真を選択して画像GPSチェックを実行してください
+  <section id="tournament_new">
+    <%= form_with model: @gps_check, url: gps_checks_path, html: { method: :post }, local: true do |f| %> 
+      <div class="bg_coler">
+        <b><i class="far fa-image"></i> 画像GPSチェック</b> 
+        <div class="form-group  row justify-content-center">
+          <br>
+          <label>
+            <div class="thumbnail">
+              <%= f.file_field :image, id: "pick_img" %>
+              <%= image_tag "no_image.png", id: "img_prev" %>
+              <div class="mask">
+                <div class="caption">写真選択はここをクリック</div>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+      
+      <div class="col text-center">
+        <%= f.submit "GPSチェック実行", class: "btn btn-outline-primary btn-lg w-25" %>
+      </div>
+    <% end %>
+  </section>
+</div>
