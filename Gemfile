@@ -20,6 +20,7 @@ gem 'devise'
 gem 'rails-i18n'
 
 # 画像アップロード
+gem 'fog-aws'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'

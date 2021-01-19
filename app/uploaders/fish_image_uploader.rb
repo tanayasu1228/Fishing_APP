@@ -1,7 +1,11 @@
 class FishImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  storage :file
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # 画像の上限を700pxにする
   process :resize_to_limit => [700, 700]
