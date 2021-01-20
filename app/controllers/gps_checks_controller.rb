@@ -6,7 +6,7 @@ class GpsChecksController < ApplicationController
 
   def create
     @gps_check = GpsCheck.new(gps_check_params)
-    img = Magick::ImageList.new(Rails.root.to_s + "/public#{@gps_check.image.url}")
+    img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image}")
     get_exif = img.get_exif_by_entry('GPSLatitude')
     if get_exif[0][1].nil?
       redirect_to new_gps_check_path, alert: "チェック結果： GPSデータがありません。カメラの位置情報設定を変更してください"
