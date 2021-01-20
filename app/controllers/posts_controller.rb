@@ -13,7 +13,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = @post.user
-    img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
+    binding.pry
+    img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image}")
+
+    # img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image_cache}")
+
     get_exif = img.get_exif_by_entry('GPSLatitude')
     if get_exif[0][1].nil?
       redirect_to new_tournament_post_path(@tournament), alert: "写真にGPSデータが無いため、投稿出来ませんでした。"

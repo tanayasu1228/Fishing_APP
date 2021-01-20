@@ -29,13 +29,8 @@ class FishImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/post/fish_image"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-
-  # コンバートできるように拡張子をJPGに統一させる
-  # def filename
-  #   Time.now.strftime('%Y%m%d%H%M%S') + original_filename + '.jpg' if original_filename.present?
-  # end
 
   # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
   def filename
