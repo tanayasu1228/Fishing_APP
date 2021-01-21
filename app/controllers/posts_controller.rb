@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  attr_accessor :latitude, :longitude, :datetime
   impressionist :actions=> [:show]
   def index
     @posts = Post.all
@@ -13,25 +14,51 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = @post.user
-    binding.pry
-    img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image}")
+    # if !@post.fish_image.present?
+    #   @post.fish_image.retrieve_from_cache! @post.fish_image_cache
+    # end
+    # @post.fish_image_cache = @post.fish_image_will_change!
 
-    # img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image_cache}")
 
-    get_exif = img.get_exif_by_entry('GPSLatitude')
-    if get_exif[0][1].nil?
-      redirect_to new_tournament_post_path(@tournament), alert: "写真にGPSデータが無いため、投稿出来ませんでした。"
-    else
-      exif_lat = Post.get_exif_latitude(img)
-      @latitude = Post.get_exif_gps(exif_lat)
+    # require 'exifr/jpeg'
+    # img = Magick::ImageList.new("#{@post.fish_image}")
+    # obj = FishImageUploader.new
+    # binding.pry
+    # @latitude = EXIFR::JPEG::new("s3://fishingapp-angler-s3-bucket/#{@post.fish_image.path}").gps.latitude
 
-      exif_lng = Post.get_exif_longitude(img)
-      @longitude =  Post.get_exif_gps(exif_lng)
+    # @latitude = @post.fish_image.latitude
+     @post.latitude = @post.fish_image.latitude
+     @post.longitude = @post.fish_image.longitude
+     @post.datetime = @post.fish_image.datetime
 
-      dt = img.get_exif_by_entry('DateTimeOriginal')
-      @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
+    #  @post.save!
+    #  @post.datetime = Time.strptime(@post.fish_image.datetime, '%Y:%m:%d %H:%M:%S')
+
+    # img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image}")
+    # img = Magick::Image.read("#{@post.fish_image}")
+    # img = Magick::Image.read("#{@post.fish_image}")
+    # image = img.to_s
+    # img = image.split("=>")
+    # image = img[0]
+    # img = image.split("[")
+    # image = img[1]
+
+# binding.pry
+#     get_exif = img.get_exif_by_entry('GPSLatitude')
+#     if get_exif[0][1].nil?
+#       redirect_to new_tournament_post_path(@tournament), alert: "写真にGPSデータが無いため、投稿出来ませんでした。"
+#     else
+#       exif_lat = Post.get_exif_latitude(img)
+#       @latitude = Post.get_exif_gps(exif_lat)
+
+#       exif_lng = Post.get_exif_longitude(img)
+#       @longitude =  Post.get_exif_gps(exif_lng)
+
+#       dt = img.get_exif_by_entry('DateTimeOriginal')
+#       @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
+
       return if @post.valid?
-    end
+    # end
   end
 
   def back
@@ -43,7 +70,13 @@ class PostsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
+    # binding.pry
+    # @post.latitude = @latitude
+    # @post.longitude = @post.fish_image.longitude
+    # @post.datetime = @post.fish_image.datetime
+    # binding.pry
     @post.save!
+    # binding.pry
     redirect_to tournament_path(@tournament)
   end
 
@@ -54,16 +87,24 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
     @comment_reply = @post.comments.build
     @user = @post.user
-    img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
 
-    exif_lat = Post.get_exif_latitude(img)
-    @latitude = Post.get_exif_gps(exif_lat)
+    @latitude = @post.fish_image.latitude
+    @longitude = @post.fish_image.longitude
+    @post.datetime = @post.fish_image.datetime
+    # @post.datetime = Time.strptime(@post.fish_image.datetime, '%Y:%m:%d %H:%M:%S')
 
-    exif_lng = Post.get_exif_longitude(img)
-    @longitude =  Post.get_exif_gps(exif_lng)
 
-    dt = img.get_exif_by_entry('DateTimeOriginal')
-    @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
+    # img = Magick::ImageList.new("#{@post.fish_image}")
+    # # img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
+
+    # exif_lat = Post.get_exif_latitude(img)
+    # @latitude = Post.get_exif_gps(exif_lat)
+
+    # exif_lng = Post.get_exif_longitude(img)
+    # @longitude =  Post.get_exif_gps(exif_lng)
+
+    # dt = img.get_exif_by_entry('DateTimeOriginal')
+    # @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
 
     impressionist(@post, nil, unique: [:session_hash])
   end
@@ -96,6 +137,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime).merge(tournament_id: params[:tournament_id])
+    params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime, :comment).merge(tournament_id: params[:tournament_id])
   end
 end

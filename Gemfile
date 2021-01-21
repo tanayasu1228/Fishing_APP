@@ -21,12 +21,14 @@ gem 'rails-i18n'
 
 # 画像アップロード
 gem 'fog-aws'
-gem 'carrierwave'
+gem 'carrierwave',github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem 'exifr'
 gem 'mini_magick'
 gem 'pry-rails'
+gem 'pry-byebug'
 gem 'geocoder'
-gem "dotenv-rails"
+gem 'dotenv-rails'
 #PV数の計測
 gem 'impressionist'
 

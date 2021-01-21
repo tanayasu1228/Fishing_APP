@@ -12,7 +12,7 @@
 
         <script type="text/javascript">
           function initMap() {
-            var latlng ={lat: <%= @latitude %>, lng: <%= @longitude %>};
+            var latlng ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 11, 
                 center: latlng

@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  attr_accessor :image_cache
   mount_uploader :fish_image, FishImageUploader
 
   belongs_to :user

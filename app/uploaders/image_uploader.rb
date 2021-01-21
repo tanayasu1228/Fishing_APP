@@ -1,5 +1,4 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
 
   if Rails.env.production?
@@ -12,7 +11,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
-  # 画像の上限を100x100にする
   process resize_to_fit: [400, 400]
 
   # 保存形式をJPGにする
