@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  attr_accessor :latitude, :longitude, :datetime
   impressionist :actions=> [:show]
   def index
     @posts = Post.all
@@ -13,25 +14,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = @post.user
-    binding.pry
-    img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image}")
-
-    # img = Magick::ImageList.new(Rails.root.to_s + "/public/uploads/tmp/#{@post.fish_image_cache}")
-
-    get_exif = img.get_exif_by_entry('GPSLatitude')
-    if get_exif[0][1].nil?
-      redirect_to new_tournament_post_path(@tournament), alert: "写真にGPSデータが無いため、投稿出来ませんでした。"
-    else
-      exif_lat = Post.get_exif_latitude(img)
-      @latitude = Post.get_exif_gps(exif_lat)
-
-      exif_lng = Post.get_exif_longitude(img)
-      @longitude =  Post.get_exif_gps(exif_lng)
-
-      dt = img.get_exif_by_entry('DateTimeOriginal')
-      @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
-      return if @post.valid?
-    end
+    @post.latitude = @post.fish_image.latitude
+    @post.longitude = @post.fish_image.longitude
+    @post.datetime = @post.fish_image.datetime
+    return if @post.valid?
   end
 
   def back
@@ -54,17 +40,6 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
     @comment_reply = @post.comments.build
     @user = @post.user
-    img = Magick::ImageList.new(Rails.root.to_s + "/public#{@post.fish_image.url}")
-
-    exif_lat = Post.get_exif_latitude(img)
-    @latitude = Post.get_exif_gps(exif_lat)
-
-    exif_lng = Post.get_exif_longitude(img)
-    @longitude =  Post.get_exif_gps(exif_lng)
-
-    dt = img.get_exif_by_entry('DateTimeOriginal')
-    @post.datetime = Time.strptime(dt[0][1], '%Y:%m:%d %H:%M:%S')
-
     impressionist(@post, nil, unique: [:session_hash])
   end
 
@@ -96,6 +71,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime).merge(tournament_id: params[:tournament_id])
+    params.require(:post).permit(:fish_image, :fish_image_cache, :address, :latitude, :longitude, :fish_name, :catch_size, :weight, :lure, :rod, :reel,:line, :range, :datetime, :comment).merge(tournament_id: params[:tournament_id])
   end
 end
