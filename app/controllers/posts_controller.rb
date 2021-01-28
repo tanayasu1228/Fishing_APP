@@ -14,10 +14,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = @post.user
-    @post.latitude = @post.fish_image.latitude
-    @post.longitude = @post.fish_image.longitude
-    @post.datetime = @post.fish_image.datetime
-    return if @post.valid?
+    if @post.fish_image.latitude.nil? || @post.fish_image.longitude.nil?
+      redirect_to new_tournament_post_path, alert: "GPSデータがありません。カメラの位置情報設定を変更してください"
+    else
+      @post.latitude = @post.fish_image.latitude
+      @post.longitude = @post.fish_image.longitude
+      @post.datetime = @post.fish_image.datetime
+      return if @post.valid?
+    end
   end
 
   def back

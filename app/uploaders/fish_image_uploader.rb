@@ -9,11 +9,14 @@ class FishImageUploader < CarrierWave::Uploader::Base
 
   process :get_exif_info
   def get_exif_info
+    begin
     require 'exifr/jpeg'
-    exif = EXIFR::JPEG::new(self.file.file)
-    @latitude = exif.gps.latitude
-    @longitude = exif.gps.longitude
-    @datetime = exif.date_time 
+      exif = EXIFR::JPEG::new(self.file.file)
+      @latitude = exif.gps.latitude
+      @longitude = exif.gps.longitude
+      @datetime = exif.date_time
+    rescue
+    end
   end
 
   def store_dir
