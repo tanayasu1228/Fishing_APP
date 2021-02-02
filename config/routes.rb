@@ -36,4 +36,6 @@ Rails.application.routes.draw do
       end
     end
   end
+  get '*path', to: 'application#render_404'
+
 end
