@@ -1,6 +1,4 @@
 class TournamentsController < ApplicationController
-  before_action :tournament_params, only: [:confirm]
-
   def index
     @tournaments = Tournament.in_held_date_check
     @before_tournaments = Tournament.before_held_date_check
@@ -25,7 +23,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
     if @tournament.save!
-      redirect_to tournaments_path notice: "トーナメントが作成されました" 
+      redirect_to tournament_path(id: @tournament.id), notice: "トーナメントが作成されました" 
     else
       render action: 'new' 
     end

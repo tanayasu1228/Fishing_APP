@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
     @post.save!
-    redirect_to tournament_path(@tournament)
+    redirect_to tournament_path(@tournament), notice: "投稿が完了しました" 
   end
 
   def show
