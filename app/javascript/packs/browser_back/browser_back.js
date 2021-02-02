@@ -1,3 +1,4 @@
+// 投稿後にブラウザバックするとトップページへリダイレクトさせる
 $(function () {
   // 元のURLを取得＆"/"で分解
   var referrer = document.referrer.split('/');
@@ -8,13 +9,8 @@ $(function () {
   if (inValue >= 0) {
     history.pushState(null, null, null);
     window.addEventListener("popstate", function () {
-      var result = window.confirm('確認画面には戻れません。トップページにリダイレクトしますか？');
-      if (result) {
-        location.href = "http://localhost:3000/";
-      }
-      else {
-        history.pushState(null, null, null);
-      }
+      this.window.alert("投稿後に確認画面へは戻れません。トップページへリダイレクトします")
+      location.href = "https://angler-app.herokuapp.com/";
     })
   }
 });

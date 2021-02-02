@@ -1,7 +1,4 @@
 class TournamentsController < ApplicationController
-  # include TournamentsHelper
-  before_action :tournament_params, only: [:confirm]
-
   def index
     @tournaments = Tournament.in_held_date_check
     @before_tournaments = Tournament.before_held_date_check
