@@ -23,88 +23,58 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-
-
-
-
-
-
-
-  
   .held_tabs{
-  width:80%;
-  margin:10px auto;
-  position:relative;
-}
-.tab-buttons span{
-  font:400 14px 'open sans',sans-serif;
-  color:#333;
-  background:#eee;
-  cursor:pointer;
-  border-bottom:2px solid #ddd;
-  display:block;
-  width:33.3%;
-  float:left;
-  text-align:center;
-  height:40px;
-  line-height:40px;
-}
-.tab-content{
-  text-align: center;
-  width:100%;
-  border-bottom:3px solid #ddd;
-  padding:15px;
-  background:#eee;
-  display:inline-block;
-  font:400 13px 'open sans',sans-serif;
-  color:#333;
-}
-#lamp{
-  width:33.3%;
-  height:2px;
-  background:#333;
-  display:block;
-  position:absolute;
-  top:40px;
-  transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-}
-#lamp.in_held_tab{
-  left:0;
-  transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-}
-#lamp.before_held{
-  left:33.3%;
-  transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-}
-#lamp.after_held{
-  left:66.6%;
-  transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+    width:80%;
+    margin:10px auto;
+    position:relative;
+  }
+  .tab-area{
+    display: flex;
+    justify-content: space-around;
+    font:400 14px 'open sans',sans-serif;
+    color:#333;
+    background:#eee;
+    cursor:pointer;
+    border-bottom:2px solid #dddddd;
+    width:100%;
+    float:left;
+    text-align:center;
+    line-height:40px;
+    .tab {
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #555555;
+    }
+    .tab.active {
+      font-weight: bold;
+      width: 100%;
+      background-color: rgba(23, 163, 184, 0.8);
+      color: #ffffff;
+    }
+    .tab:hover {
+      color: #ffffff;
+      background-color: #17A2B8;
+    }
+  }
+  .content-area{
+    text-align: center;
+    width:100%;
+    border-bottom:3px solid #dddddd;
+    padding:15px;
+    background:#eee;
+    display:inline-block;
+    font:400 13px 'open sans',sans-serif;
+    color:#333;
+    margin-top: 10px;
+    .content {
+      display: none;
+    }
+    .content.show {
+      display: block;
+    }
+  }
   .tournaments-contents {
     cursor: pointer;
     position: relative;

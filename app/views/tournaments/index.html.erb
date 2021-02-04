@@ -9,28 +9,27 @@
     </div>
     <div class="tournaments-wrapper">
       <div class="held_tabs">
-        <div class="tab-buttons">
-          <span class="in_held_tab">開催中</span>
-          <span class="before_held">開催予定</span>
-          <span class="after_held">過去の大会</span>
-          <div id="lamp" class="in_held_tab"></div>
+        <div class="tab-area">
+          <div class="tab active">開催中</div>
+          <div class="tab">開催予定</div>
+          <div class="tab">過去の大会</div>
         </div>
-        <div class="tab-content mt-1">
-          <div class="in_held_tab">
+        <div class="content-area">
+          <div class="content show">
             <% if @tournaments.length == 0 %>
               Coming Soon
             <% else %>
               <%= render partial: "tournament", collection: @tournaments %>
             <% end %>
           </div>
-          <div class="before_held">
-          <% if @before_tournaments.length == 0 %>
-              Coming Soon
-          <% else %>
-            <%= render partial: "tournament", collection: @before_tournaments %>
-          <% end %>
+          <div class="content">
+            <% if @before_tournaments.length == 0 %>
+                Coming Soon
+            <% else %>
+              <%= render partial: "tournament", collection: @before_tournaments %>
+            <% end %>
           </div>
-          <div class="after_held">
+          <div class="content">
             <%= render partial: "tournament", collection: @after_tournaments %>
           </div>
         </div>
