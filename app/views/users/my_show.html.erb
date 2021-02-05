@@ -38,7 +38,10 @@
     </div>
 
     <% @tournaments.each do |tournament| %>
-      <p><span>投稿内容: </span><%= tournament.fishing_ground %></p>
+      <p>投稿内容:</p>
+      <%= link_to tournament_path(tournament.id) do %>
+        <%= "#{tournament.fishing_ground}CUP" %>
+      <% end %>
     <% end %>
 
     <% if @entries.empty? %>
@@ -47,7 +50,7 @@
       <p>エントリー中の大会</p>
       <% @entries.each do |entry| %>
         <%= link_to tournament_path(entry.tournament.id) do %>
-          <%= entry.tournament.fishing_ground %>
+          <%= "#{entry.tournament.fishing_ground}CUP" %>
         <% end %>
       <% end %>
     <% end %>

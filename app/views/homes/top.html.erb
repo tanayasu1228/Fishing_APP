@@ -1,16 +1,18 @@
 <%= javascript_pack_tag 'top/slide', 'data-turbolinks-track': 'reload' %>
 <section id="top">
-  <div class="slide">
-    <img src="<%= asset_path "top/top_img.png" %>" />
-    <img src="<%= asset_path "top/top2_img.jpg" %>" />
-    <img src="<%= asset_path "top/top3_img.png" %>" />
-    <img src="<%= asset_path "top/top4_img.jpg" %>" />
+  <div class="top-wrapper mb-4">
+    <div class="slide">
+      <img src="<%= asset_path "top/top_img.png" %>">
+      <img src="<%= asset_path "top/top2_img.jpg" %>">
+      <img src="<%= asset_path "top/top3_img.png" %>">
+      <img src="<%= asset_path "top/top4_img.jpg" %>">
+    </div>
+    <div class="top_message">
+      <h2>自由に大会を開催しよう・参加しよう</h2>
+      <p>釣り大会に出て競い合ってみたいけど時間や場所が合わない...<br>そんな経験から生まれたサービスです</p>
+    </div>
   </div>
   <div class="container">
-    <div class="top_message">
-      <h2>釣果を競い合おう・共有しよう</h2>
-      <p>釣りに関する情報共有を目的に、フィールド別での今日の最大魚を競い合うWEBトーナメントサービスです</p>
-    </div>
     <div class="top_content_info">
       <div class="content_title">イベント情報</div>
       <div class="text-center">
