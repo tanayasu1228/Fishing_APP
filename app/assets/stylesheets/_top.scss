@@ -1,37 +1,49 @@
 #top {
-  .slide {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
+  .top-wrapper{
+      position: relative;
+      height: 500px;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+
+    .slide img {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: all 1s ease-in-out;
+      height: 100%;
+      object-fit: cover;
+    }
+    .top_message{
+      top: 33%;
+      width: 100%;
+      position: absolute;
+      margin: 0 auto;
+      background-color:rgba(255, 255, 255, 0.6);
+      padding: 10px 30px;
+      text-align: center;
+      color: #232323;
+      h2{
+        font-weight: bold;
+        font-size: 30px;
+        border-bottom: solid 3px black;
+      }
+      p{
+        font-size: 20px;
+      }
+    }
   }
-  .slide img {
-    position: absolute;
-    height: 500px;
-    width: 100%;
-    opacity: 0;
-    transition: all 1s ease-in-out;
-    height: 100%;
-    object-fit: cover;
-  }
+  
   .top_content_info {
     text-align: center;
     background-color: white;
     border-bottom: 1px solid #CCC;
     padding-bottom: 20px;
     margin-bottom: 30px;
-
     .content_title {
       font-weight: bold;
       background-color: #CCC;
       margin-bottom: 20px;
     }
   }
-  // .top_tournament_info {
-  //   background-color: white;
-  //   border-top: 1px solid #CCC;
-  //   border-bottom: 1px solid #CCC;
-  //   padding: 10px 0;
-  // }
 }
