@@ -1,24 +1,34 @@
-# README
+## URL
+https://angler-app.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* テストの際は、ゲストユーザーとしてログインできます。
+* 本ポートフォリオは、スマートフォンからもご覧いただけます。
 
-Things you may want to cover:
+## 制作した背景
 
-* Ruby version
+友人との会話の中で「釣り大会に出たいけど"敷居が高そう" "タイミングが合わない"」と話していたことから
+自分発信で自由な釣り大会が簡単に開催できたら面白そう！と考え作ったのがこのサービスです。
+”時間と場所に縛られない自由な大会”がコンセプトです。
 
-* System dependencies
 
-* Configuration
+## 使用技術
+* Ruby 2.6.6, Rails 6.0.3.2
+* PostgreSQL 13.0
+* AWS S3
+* HTML, Sass, javascript, jQuery
 
-* Database creation
 
-* Database initialization
+## 機能一覧
+* ユーザー登録・ログイン機能・ゲストログイン機能
+* 投稿機能（画像のアップロードにCarrierWaveを使用）
+* 画像のGPSのメタデータを取得（EXIFRを使用）
+* 投稿一覧・投稿詳細表示機能
+* ランキング機能（大会ルールによって変化・同率順位で処理）
+* ページネーション機能（Kaminari）
+* いいね機能（Ajax）
+* コメント機能（Ajax）
+* 釣れた場所をgooglemapに表示（ピンポイントを知られないように円を使った表示）
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 課題、今後実装したい機能
+* 追加機能の実装
