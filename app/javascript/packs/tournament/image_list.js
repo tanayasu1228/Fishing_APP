@@ -1,71 +1,18 @@
 $(document).on("turbolinks:load", function () {
-  
+
   // 魚種選択でtext_areaの切り替え
   document.getElementById("tournament_fish_name_other").onclick = function () {
     if (this.checked) {
       document.getElementById("othertext").style.display = "block";
     }
   }
-  document.getElementById("tournament_fish_name_ラージマウスバス").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_スモールマウスバス").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_ナマズ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_ライギョ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_鯉").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_フナ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_シーバス").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_シイラ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_青物").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_鯛").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_ロックフィシュ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
-  }
-  document.getElementById("tournament_fish_name_イカ").onclick = function () {
-    if (this.checked) {
-      document.getElementById("othertext").style.display = "none";
-    }
 
+  // targetクラスの選択時にテキストエリアを非表示
+  let targets = document.getElementsByClassName('target');
+  for (let i = 0; i < targets.length; i++){
+    targets[i].addEventListener("click", () => {
+      document.getElementById("othertext").style.display = "none";
+    }, false);
   }
 
 // メインルールの内容で釣果上限説明表示の切り替え
