@@ -44,16 +44,23 @@ body{
     color: white;
     text-decoration: none;
   }
+}.dropdown-menu {
+  background-color: #f5faff;
+}
+.dropdown-item {
+  color: #555555;
+}
+.dropdown-item:hover{
+  background-color: #CCCCCC;
 }
 
 .myicon {
   margin: 0 0 0 auto;
-  color: white;
   position:relative;
   display:inline-block;
   cursor:pointer;
   img{
-    margin: 8px 8px 8px 8px;
+    margin-right: 8px;
     position: relative;
     z-index: 9999;
     width: 40px;
