@@ -1,4 +1,5 @@
 ## ANGLER
+【トップ画面の全体画像】
 ![angler-app herokuapp com_ (1)](https://user-images.githubusercontent.com/61640081/107223916-1cefa380-6a5a-11eb-9777-1ebd5a7ba2c9.png)
 
 ## URL
@@ -8,10 +9,8 @@ https://angler-app.herokuapp.com/
 * テストの場合はゲストユーザーとしてログインできます。
 * スマートフォンからもご覧いただけます。
 
-## 制作した背景
-友人との会話の中で「釣り大会に出たいけど"敷居が高そう" "タイミングが合わない"」と話していたことから
-自分発信で自由な釣り大会が簡単に開催できたら面白そう！と考え作ったのがこのサービスです。
-”時間と場所に縛られない自由な大会”がコンセプトです。
+制作した背景や詳細な情報は下記をご覧ください
+[Qiita:ポートフォリオの解説](https://qiita.com/tanayasu1228/items/845492517576ad628f5e)
 
 
 ## 使用技術
@@ -42,6 +41,7 @@ https://angler-app.herokuapp.com/
 * コメント投稿・削除（Ajax）
 * 釣れた場所の地図表示機能（google map API・geocoderを使用）
 追加内容：（使ってもらった友人の意見から「ピンポイントは知られたくない」意見があったため円を使って広範囲表示に切り替えました）
+* PV回数の表示(impressionistを使用)
 
 ## ER図
 <img width="635" alt="スクリーンショット 2021-02-09 23 02 41" src="https://user-images.githubusercontent.com/61640081/107374479-fa798b00-6b2a-11eb-9470-95be44da34f3.png">
