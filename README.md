@@ -2,6 +2,12 @@
 【トップ画面の全体画像】
 ![angler-app herokuapp com_ (1)](https://user-images.githubusercontent.com/61640081/107223916-1cefa380-6a5a-11eb-9777-1ebd5a7ba2c9.png)
 
+## アプリの概要
+オリジナルの大会を簡単に開催して、釣りする時間帯に制限のある方も気軽に参加できる釣りアプリです。
+
+詳細な情報は下記をご覧ください
+[Qiita:ポートフォリオの解説](https://qiita.com/tanayasu1228/items/845492517576ad628f5e)
+
 ## URL
 下記のページで公開しています
 https://angler-app.herokuapp.com/
@@ -9,8 +15,7 @@ https://angler-app.herokuapp.com/
 * テストの場合はゲストユーザーとしてログインできます。
 * スマートフォンからもご覧いただけます。
 
-制作した背景や詳細な情報は下記をご覧ください
-[Qiita:ポートフォリオの解説](https://qiita.com/tanayasu1228/items/845492517576ad628f5e)
+
 
 
 ## 使用技術
@@ -47,9 +52,10 @@ https://angler-app.herokuapp.com/
 <img width="635" alt="スクリーンショット 2021-02-09 23 02 41" src="https://user-images.githubusercontent.com/61640081/107374479-fa798b00-6b2a-11eb-9470-95be44da34f3.png">
 
 ## 課題、今後実装したい機能
-* 追加機能の実装
+* 個人釣果データを集計＆分析できるようにグラフ化
+* 釣果投稿にAPIを使用して天候を付け加える
+* ルール違反発見時の報告機能と対策機能
 * AWSへデプロイ
-* 個人釣果データを集計＆分析できるようにグラフ化する（年間での釣れた日時・天候など）
 
 ## 作者
 [：Twitter](https://twitter.com/tanahashi_yasu)
