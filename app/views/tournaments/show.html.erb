@@ -1,6 +1,8 @@
-<h1>詳細画面</h1>
-<div class="container">
-  <section id="tournament_show">
+<section id="tournament_show">
+  <section id="page_title">
+    <h1><%= "#{@tournament.fishing_ground}CUP" %></h1>
+  </section>
+  <div class="container">
     <div class="cup-wrapper">
       <%= render 'thumb_disp' %>
       <div class="cup-info">
@@ -264,5 +266,6 @@
       </div>
     </div>
     <br>
-  </section>
   </div>
+</section>
+  

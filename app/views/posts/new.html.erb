@@ -1,8 +1,9 @@
 <%= javascript_pack_tag 'preview/image_preview', 'data-turbolinks-track': 'reload' %>
-<div class="container">
-  <section id="post_new">
-    <h1>WEBトーナメント投稿画面</h1>
-
+<section id="post_new">
+  <section id="page_title">
+    <h1><%= "#{@tournament.fishing_ground}CUPへ投稿" %></h1>
+  </section>
+  <div class="container">
     <%= form_with model: @post, url: confirm_tournament_posts_path, html: { method: :post }, local: true do |f| %>
     <div class="must_text">
       <h3><i class="far fa-image"></i> 釣果写真 <span class="label label-danger">必須</span></h3> 
@@ -96,5 +97,5 @@
       </div>
 
     <% end %>
-  </section>
-</div>
+  </div>
+</section>

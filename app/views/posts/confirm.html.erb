@@ -1,6 +1,8 @@
-<h1>投稿確認画面</h1>
-<div class="container">
-  <section id="post_confirm">
+<section id="post_confirm">
+  <section id="page_title">
+    <h1>投稿内容をご確認ください</h1>
+  </section>
+  <div class="container">
     <div class="post_info">
       <%= image_tag "#{@post.fish_image}", class:"card-img-top" %>
       <div class="content_block">
@@ -71,7 +73,7 @@
       <%= f.hidden_field :range %>
       <%= f.hidden_field :datetime %>
       <div class="col text-center">
-        <%= f.submit "入力画面へ戻る", class: "btn btn-outline-success btn-lg w-25" %>
+        <%= f.submit "戻る", class: "btn btn-outline-success btn-lg w-25" %>
       </div>
     <% end %>
 
@@ -91,8 +93,8 @@
       <%= f.hidden_field :range %>
       <%= f.hidden_field :datetime %>
       <div class="col text-center">
-        <%= f.submit "トーナメントに投稿", class: "btn btn-outline-primary btn-lg w-25" %>
+        <%= f.submit "投稿", class: "btn btn-outline-primary btn-lg w-25" %>
       </div>
     <% end %>
-  </section>
-</div>
+  </div>
+</section>

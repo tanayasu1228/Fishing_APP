@@ -1,6 +1,8 @@
-<h1>ランキング一覧</h1>
-<div class="container">
-  <section id="post_ranks">
+<section id="post_ranks">
+  <section id="page_title">
+    <h1><%= "#{@tournament.fishing_ground}CUP　ランキング一覧" %></h1>
+  </section>
+  <div class="container">
     <div class="ranks-wrapper">
       <% before_rank = 0 %>
       <% j = "1" %>
@@ -157,5 +159,5 @@
         <% end %>
       <% end %>
     </div>
-  </section>
-</div>
+  </div>
+</section>

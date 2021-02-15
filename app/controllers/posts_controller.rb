@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @tournament = Tournament.find(params[:tournament_id])
     @post = Post.new
   end
 
