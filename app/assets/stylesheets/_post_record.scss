@@ -1,5 +1,5 @@
 #post_record {
-  a{
+  a {
     text-decoration: none;
   }
   .card_header {
@@ -16,6 +16,27 @@
       border-radius: 50%;
     }  
   }
+
+  .rule_info {
+    margin-bottom:50px;
+    padding: 0 3px;
+    border: solid 1px #CCC;
+  }
+  table {
+    font-size: 15px;
+    border-collapse: separate;
+    border-spacing: 0px 4px;
+  }
+  table th{
+    padding: 10px 10px 10px 20px;
+    color: white;
+    background: #5989CF;
+  }
+  table td{
+    background: #EEEEEE;
+    padding: 10px 10px 10px 20px;
+  }
+
   .card_body {
     padding: 15px 15px;
     background-color: white;
