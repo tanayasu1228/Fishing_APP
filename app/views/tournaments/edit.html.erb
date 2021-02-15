@@ -1,6 +1,8 @@
 <%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %>
 <section id="tournament_new">
-  <h1 class="page_title"><%= "#{@tournament.fishing_ground}CUPの編集" %></h1>
+  <section id="page_title">
+    <h1><%= "#{@tournament.fishing_ground}CUPの編集" %></h1>
+  </section>
   <div class="container">
     <%= form_with model: @tournament, local: true do |f| %> 
       <%= render :partial => 'tournament_form', :locals => {:f => f, :edit_flag => true} %>

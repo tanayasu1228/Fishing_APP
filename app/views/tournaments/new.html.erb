@@ -1,7 +1,9 @@
 <%= javascript_pack_tag 'preview/image_preview', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'tournament/image_list', 'data-turbolinks-track': 'reload' %>
 <section id="tournament_new">
-  <h1 class="page_title">WEB大会新規作成</h1>
+  <section id="page_title">
+    <h1 class="page_title">WEB大会新規作成</h1>
+  </section>
   <div class="container">
     <%= form_with model: @tournament, url: confirm_tournaments_path, html: { method: :post }, local: true do |f| %>
       <%= render partial: 'tournament_form', locals: {f: f} %>

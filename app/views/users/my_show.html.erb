@@ -1,5 +1,7 @@
 <section id="myshow">
-  <h1 class="page_title"><%= "#{@user.nickname}さんのページ" %></h1>
+  <section id="page_title">
+    <h1><%= "#{@user.nickname}さんのページ" %></h1>
+  </section>
   <div class="container">
     <div class="profile">
       <%= image_tag @user.image.url %>
