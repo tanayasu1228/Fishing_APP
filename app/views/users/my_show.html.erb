@@ -1,7 +1,5 @@
 <section id="myshow">
-  <div class="title">
-    <h3>マイページ</h3>
-  </div>
+  <h1 class="page_title"><%= "#{@user.nickname}さんのページ" %></h1>
   <div class="container">
     <div class="profile">
       <%= image_tag @user.image.url %>
@@ -26,7 +24,7 @@
       <div class="main_target">
         <h2><i class="fas fa-fish i_blue fa-flip-horizontal"></i> メインの魚種</h2> 
         <p><%= @user.main_target %></p>
-      <div>
+      </div>
       <hr>
 
       <div class="max_size">
@@ -34,7 +32,6 @@
         <p><%= @user.max_size %></p>
       </div>
       <hr>
-      
     </div>
 
     <% @tournaments.each do |tournament| %>

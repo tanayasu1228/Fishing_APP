@@ -1,42 +1,50 @@
-.profile {
-  width: 100%;
-  margin: 0 0 0 auto;
-  color: rgb(2, 2, 2);
-  position:relative;
-  display:inline-block;
-  color: #555555;
-  img{
-    margin: 8px 8px 8px 8px;
-    position: relative;
-    z-index: 9999;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+#myshow {
+  .page_title {
+    margin: 20px 0;
+    padding: 10px 10px;
+    background:#EEEEEE;
+    text-align: center;
   }
-  .nickname {
-    margin-top: 10px;
-  }
-  h2 {
-    font-weight: bold;
+  .profile {
+    width: 100%;
+    margin: 0 0 0 auto;
+    color: rgb(2, 2, 2);
+    position:relative;
+    display:inline-block;
+    color: #555555;
+    img{
+      margin: 8px 8px 8px 8px;
+      position: relative;
+      z-index: 9999;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
     }
-  .comment{
-    .i_pink {
-    color: rgba(255, 0, 170, 0.8);
+    .nickname {
+      margin-top: 10px;
     }
-  }
-  .main_field{
-    .i_red {
-    color: rgb(255, 0, 0);
+    h2 {
+      font-weight: bold;
+      }
+    .comment{
+      .i_pink {
+      color: rgba(255, 0, 170, 0.8);
+      }
     }
-  }
-  .main_target{
-    .i_blue {
-    color: rgba(0, 157, 255, 0.8);
+    .main_field{
+      .i_red {
+      color: rgb(255, 0, 0);
+      }
     }
-  }
-  .max_size{
-    .i_yellow {
-    color: rgba(255, 217, 0, 0.8);
-  }
+    .main_target{
+      .i_blue {
+      color: rgba(0, 157, 255, 0.8);
+      }
+    }
+    .max_size{
+      .i_yellow {
+      color: rgba(255, 217, 0, 0.8);
+    }
+    }
   }
 }
