@@ -8,35 +8,39 @@
     </div>
     <br>
     <div class="rule_info">
-      <h4>大会情報</h4>
-      <div class="time">
-        <h4><i class="far fa-calendar-alt i_gray"></i> 開催期間： <%= "#{l @tournament.start_time, format: :long} 〜 #{l @tournament.end_time, format: :long}" %></h4>
-      </div>
-      <div class = "area">
-        <h4><i class="fas i_red fa-map-marker-alt"></i> エリア： <%= @tournament.fishing_ground %></h4> 
-      </div>
-      <div class = "style">
-        <h4><i class="far fa-address-book i_orange"></i> 釣りスタイル： <%= @tournament.fishing_style %></h4> 
-      </div>
-      <div class="target">
-        <h4><i class="fas fa-fish i_blue fa-flip-horizontal"></i> ターゲット：<%= @tournament.fish_name %></h4>
-      </div>
-      <div class="win_lose">
-        <h4><i class="fas fa-crown i_yellow"></i> 勝敗： <%= @tournament.main_rule %></h4>
-      </div>
-      <div class="measure">
-        <h4><i class="fas fa-ruler i_green"></i> 計測方法：<%= "#{@tournament.measure_rule}で計測" %></h4>
-      </div>
-      <div class="keeper">
-        <h4><i class="fab fa-font-awesome-flag i_pink"></i> キーパーサイズ：<%= "#{@tournament.keeper_size}cm以上" %></h4>
-      </div>
-      <div class="designation">
-        <h4><i class="fas fa-lock i_dblue"></i> 釣り方の縛り：<%= @tournament.designation %></h4>
-      </div>
-      <h4><i class="fas fa-pen"></i> 備考</h4>
-      <%= simple_format(@tournament.comment) %>
+      <table width="100%">
+        <tr>
+          <th>開催期間</th>
+          <td><%= "#{l @tournament.start_time, format: :long} 〜 #{l @tournament.end_time, format: :long}" %></td>
+          <th>エリア</th>
+          <td><%= @tournament.fishing_ground %></td>
+        </tr>
+        <tr>
+          <th>釣りスタイル</th>
+          <td><%= @tournament.fishing_style %></td>
+          <th>ターゲット</th>
+          <td><%= @tournament.fish_name %></td>
+        </tr>
+        <tr>
+          <th>勝敗</th>
+          <td><%= @tournament.main_rule %></td>
+          <th>計測方法</th>
+          <td><%= "#{@tournament.measure_rule}で計測" %></td>
+        </tr>
+        <tr>
+          <th>キーパーサイズ</th>
+          <td><%= "#{@tournament.keeper_size}cm以上" %></td>
+          <th>釣り方の縛り</th>
+          <td><%= @tournament.designation %></td>
+        </tr>
+      </table>
+      <table width="100%">
+        <tr>
+          <th>備考</th>
+          <td><%= simple_format(@tournament.comment) %></td>
+        </tr>
+      </table>
     </div>
-
     <div class="card_body">
       <% @posts.each do |post| %>
         <%= link_to  tournament_post_path(tournament_id: @tournament, id: post) do %>
@@ -62,7 +66,5 @@
         <% end %>
       <% end %>
     </div>
-
-
   </section>
 </div>
