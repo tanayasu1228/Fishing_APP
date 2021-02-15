@@ -1,8 +1,8 @@
 <%= javascript_pack_tag 'tournament/held_list', 'data-turbolinks-track': 'reload' %>
-<h1>大会情報</h1>
 <section id="tournament_index">
+  <h1 class="page_title">大会情報</h1>
   <div class="container">
-  <small class="text-muted f-12">大会投稿写真にはGPSデータが必要です。「画像GPSチェック」で確認することをお勧めします。</small>
+    <small class="text-muted f-12">大会投稿写真にはGPSデータが必要です。「画像GPSチェック」で確認することをお勧めします。</small>
     <div style="text-align:center;">
       <%= link_to "画像GPSチェック", new_gps_check_path, class: "btn btn-outline-warning btn-lg w-40"%>
       <%= link_to "大会の新規作成", new_tournament_path, class: "btn btn-outline-info btn-lg w-40"%>
