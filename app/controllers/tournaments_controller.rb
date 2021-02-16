@@ -1,4 +1,5 @@
 class TournamentsController < ApplicationController
+  before_action :authenticate_user!, except:[:index, :show]
   def index
     @tournaments = Tournament.in_held_date_check
     @before_tournaments = Tournament.before_held_date_check
