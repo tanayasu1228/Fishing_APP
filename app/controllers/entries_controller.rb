@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @entry = current_user.entries.build(tournament_id: params[:tournament_id])
     @entry.save
