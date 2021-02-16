@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   rescue_from Exception, with: :render_500
 
   def store_location
-    if (request.fullpath != "/users/sign_in" && \
-        request.fullpath != "/users/sign_up" && \
-        request.fullpath != "/users/password" && \
+    if (request.fullpath != new_user_registration_path &&
+        request.fullpath != new_user_session_path &&
+        request.fullpath != user_password_path &&
         !request.xhr?)
       session[:previous_url] = request.fullpath 
     end
